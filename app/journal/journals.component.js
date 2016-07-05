@@ -10,21 +10,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var member_service_1 = require('./services/member/member.service');
-var http_1 = require('@angular/http');
-var AppComponent = (function () {
-    function AppComponent() {
+var JournalsComponent = (function () {
+    function JournalsComponent(_router) {
+        this._router = _router;
     }
-    AppComponent = __decorate([
+    JournalsComponent.prototype.ngOnInit = function () {
+    };
+    JournalsComponent = __decorate([
         core_1.Component({
-            selector: "goalfish",
-            templateUrl: "app/app.component.html",
-            directives: [router_1.ROUTER_DIRECTIVES],
-            providers: [http_1.HTTP_PROVIDERS, member_service_1.MemberService]
+            selector: "journals",
+            templateUrl: "app/journal/journals.component.html",
+            styleUrls: ["app/journal/journals.component.css"]
         }), 
-        __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+        __metadata('design:paramtypes', [router_1.Router])
+    ], JournalsComponent);
+    return JournalsComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.JournalsComponent = JournalsComponent;
+//# sourceMappingURL=journals.component.js.map

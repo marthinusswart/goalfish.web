@@ -10,21 +10,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var member_service_1 = require('./services/member/member.service');
-var http_1 = require('@angular/http');
-var AppComponent = (function () {
-    function AppComponent() {
+var InitiativesComponent = (function () {
+    function InitiativesComponent(_router) {
+        this._router = _router;
     }
-    AppComponent = __decorate([
+    InitiativesComponent.prototype.ngOnInit = function () {
+    };
+    InitiativesComponent = __decorate([
         core_1.Component({
-            selector: "goalfish",
-            templateUrl: "app/app.component.html",
-            directives: [router_1.ROUTER_DIRECTIVES],
-            providers: [http_1.HTTP_PROVIDERS, member_service_1.MemberService]
+            selector: "initiatives",
+            templateUrl: "app/initiative/initiatives.component.html",
+            styleUrls: ["app/initiative/initiatives.component.css"]
         }), 
-        __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+        __metadata('design:paramtypes', [router_1.Router])
+    ], InitiativesComponent);
+    return InitiativesComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.InitiativesComponent = InitiativesComponent;
+//# sourceMappingURL=initiatives.component.js.map

@@ -10,21 +10,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var member_service_1 = require('./services/member/member.service');
-var http_1 = require('@angular/http');
-var AppComponent = (function () {
-    function AppComponent() {
+var BudgetsComponent = (function () {
+    function BudgetsComponent(_router) {
+        this._router = _router;
     }
-    AppComponent = __decorate([
+    BudgetsComponent.prototype.ngOnInit = function () {
+    };
+    BudgetsComponent = __decorate([
         core_1.Component({
-            selector: "goalfish",
-            templateUrl: "app/app.component.html",
-            directives: [router_1.ROUTER_DIRECTIVES],
-            providers: [http_1.HTTP_PROVIDERS, member_service_1.MemberService]
+            selector: "budgets",
+            templateUrl: "app/budget/budgets.component.html",
+            styleUrls: ["app/budget/budgets.component.css"]
         }), 
-        __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+        __metadata('design:paramtypes', [router_1.Router])
+    ], BudgetsComponent);
+    return BudgetsComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.BudgetsComponent = BudgetsComponent;
+//# sourceMappingURL=budgets.component.js.map

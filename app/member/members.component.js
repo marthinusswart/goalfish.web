@@ -10,26 +10,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-//import { Hero } from './hero';
-//import { HeroDetailComponent } from './hero-detail.component';
-//import { HeroService } from './hero.service';
+var member_service_1 = require('../services/member/member.service');
 var MembersComponent = (function () {
-    //heroes: Hero[];
-    //selectedHero: Hero;
-    function MembersComponent(_router) {
+    function MembersComponent(_router, _memberService) {
         this._router = _router;
+        this._memberService = _memberService;
+        this.members = [];
     }
-    /*
-      getHeroes() {
-        this._heroService.getHeroes().then(heroes => this.heroes = heroes);
-      }
-    */
     MembersComponent.prototype.ngOnInit = function () {
-        //this.getHeroes();
-    };
-    //onSelect(hero: Hero) { this.selectedHero = hero; }
-    MembersComponent.prototype.gotoDetail = function () {
-        //this._router.navigate(['HeroDetail', { id: this.selectedHero.id }]);
+        this._memberService.getMembers().then(function (members) { return console.log("Loaded members"); });
     };
     MembersComponent = __decorate([
         core_1.Component({
@@ -37,7 +26,7 @@ var MembersComponent = (function () {
             templateUrl: "app/member/members.component.html",
             styleUrls: ["app/member/members.component.css"]
         }), 
-        __metadata('design:paramtypes', [router_1.Router])
+        __metadata('design:paramtypes', [router_1.Router, member_service_1.MemberService])
     ], MembersComponent);
     return MembersComponent;
 }());

@@ -10,21 +10,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var member_service_1 = require('./services/member/member.service');
-var http_1 = require('@angular/http');
-var AppComponent = (function () {
-    function AppComponent() {
+var UnderlyingAccountsComponent = (function () {
+    function UnderlyingAccountsComponent(_router) {
+        this._router = _router;
     }
-    AppComponent = __decorate([
+    UnderlyingAccountsComponent.prototype.ngOnInit = function () {
+    };
+    UnderlyingAccountsComponent = __decorate([
         core_1.Component({
-            selector: "goalfish",
-            templateUrl: "app/app.component.html",
-            directives: [router_1.ROUTER_DIRECTIVES],
-            providers: [http_1.HTTP_PROVIDERS, member_service_1.MemberService]
+            selector: "underlyingaccounts",
+            templateUrl: "app/underlyingaccount/underlyingaccounts.component.html",
+            styleUrls: ["app/underlyingaccount/underlyingaccounts.component.css"]
         }), 
-        __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+        __metadata('design:paramtypes', [router_1.Router])
+    ], UnderlyingAccountsComponent);
+    return UnderlyingAccountsComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.UnderlyingAccountsComponent = UnderlyingAccountsComponent;
+//# sourceMappingURL=underlyingaccounts.component.js.map
