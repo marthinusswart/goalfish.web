@@ -27,6 +27,16 @@ var BudgetService = (function () {
             .map(function (budgets) { return _this.toBudgetArray(budgets); })
             .toPromise();
     };
+    BudgetService.prototype.addBudget = function (budget) {
+        var _this = this;
+        var headers = new http_1.Headers({
+            'Content-Type': 'application/json'
+        });
+        return this._http.post(this.url + this.api, JSON.stringify(budget), { headers: headers })
+            .map(function (resp) { return resp.json(); })
+            .map(function (budget) { return _this.toBudget(budget); })
+            .toPromise();
+    };
     BudgetService.prototype.getHero = function (id) {
         /*return Promise.resolve(HEROES).then(
           heroes => heroes.filter(hero => hero.id === id)[0]
@@ -36,6 +46,11 @@ var BudgetService = (function () {
         var budgetsArray = [];
         budgetsArray = budgets.map(function (budget) { return new budget_1.Budget().fromJsonBudget(budget); });
         return budgetsArray;
+    };
+    BudgetService.prototype.toBudget = function (budgetJson) {
+        var budget = new budget_1.Budget();
+        budget = budget.fromJsonBudget(budgetJson);
+        return budget;
     };
     BudgetService = __decorate([
         core_1.Injectable(), 

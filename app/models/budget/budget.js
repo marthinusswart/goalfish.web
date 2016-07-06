@@ -1,6 +1,15 @@
 "use strict";
 var Budget = (function () {
     function Budget() {
+        this.externalRef = "";
+        this.id = "";
+        this.name = "";
+        this.description = "";
+        this.balance = 0;
+        this.underlyingAccount = "";
+        this.instalmentAmount = 0;
+        this.frequency = "";
+        this.memberId = "";
     }
     Budget.prototype.fromJsonBudget = function (budget) {
         this.externalRef = budget.externalRef;

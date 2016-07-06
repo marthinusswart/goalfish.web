@@ -20,6 +20,8 @@ export class NewBudgetComponent implements OnInit {
     
   }
 
-
+  save(){
+    this._budgetService.addBudget(this.budget).then(budget => alert("Budget _id is: " + budget.externalRef));
+  }
 
 }

@@ -22,6 +22,17 @@ export class BudgetService {
       .toPromise();
   }
 
+  addBudget(budget: Budget) {
+    let headers = new Headers({
+      'Content-Type': 'application/json'
+    });
+
+    return this._http.post(this.url + this.api, JSON.stringify(budget), { headers: headers })
+      .map((resp: Response) => resp.json())
+      .map(budget => { return this.toBudget(budget); })
+      .toPromise();
+  }
+
   getHero(id: string) {
     /*return Promise.resolve(HEROES).then(
       heroes => heroes.filter(hero => hero.id === id)[0]
@@ -32,6 +43,12 @@ export class BudgetService {
     let budgetsArray: Budget[] = [];
     budgetsArray = budgets.map(budget => new Budget().fromJsonBudget(budget));
     return budgetsArray;
+  }
+
+  toBudget(budgetJson: any) {
+    let budget: Budget = new Budget();
+    budget = budget.fromJsonBudget(budgetJson);
+    return budget;
   }
 
 }

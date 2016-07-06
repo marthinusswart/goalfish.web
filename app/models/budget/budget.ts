@@ -11,7 +11,15 @@ export class Budget {
     memberId: string;
 
     constructor() {
-
+        this.externalRef = "";
+        this.id = "";
+        this.name = "";
+        this.description = "";
+        this.balance = 0;
+        this.underlyingAccount = "";
+        this.instalmentAmount = 0;
+        this.frequency = "";
+        this.memberId = "";
     }
 
     fromJsonBudget(budget: any) : Budget {

@@ -20,6 +20,9 @@ var NewBudgetComponent = (function () {
     }
     NewBudgetComponent.prototype.ngOnInit = function () {
     };
+    NewBudgetComponent.prototype.save = function () {
+        this._budgetService.addBudget(this.budget).then(function (budget) { return alert("Budget _id is: " + budget.externalRef); });
+    };
     NewBudgetComponent = __decorate([
         core_1.Component({
             selector: "newBudget",

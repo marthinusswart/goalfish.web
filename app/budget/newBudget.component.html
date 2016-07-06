@@ -1,11 +1,13 @@
+<h1>Add new Budget</h1>
 <div>
-    <div>ID<input type="Text" value="id"></div>
-    <div>Member ID<input type="Text" value="memberId"></div>
-    <div>Name<input type="Text" value="name"></div>
-    <div>Description<input type="Text" value="description"></div>
-    <div>Balance<input type="Text" value="balance"></div>
-    <div>Instalment Amount<input type="Text" value="instalmentAmount"></div>
-    <div>Frequency<input type="Text" value="frequency"></div>
-    <div>Underlying Account<input type="Text" value="underlyingAccount"></div>
-    <div>External Reference<input type="Text" value="externalRef"></div>
+    <div><button type="button" class="btn btn-primary" (click)="save()">Save</button></div>
+    <div>ID<input type="Text" [(ngModel)]="budget.id"></div>
+    <div>Member ID<input type="Text" [(ngModel)]="budget.memberId"></div>
+    <div>Name<input type="Text" [(ngModel)]="budget.name"></div>
+    <div>Description<input type="Text" [(ngModel)]="budget.description"></div>
+    <div>Balance<input type="Text" [(ngModel)]="budget.balance"></div>
+    <div>Instalment Amount<input type="Text" [(ngModel)]="budget.instalmentAmount"></div>
+    <div>Frequency<input type="Text" [(ngModel)]="budget.frequency"></div>
+    <div>Underlying Account<input type="Text" [(ngModel)]="budget.underlyingAccount"></div>
+    <div>External Reference<input type="Text" [(ngModel)]="budget.externalRef"></div>    
 </div>
