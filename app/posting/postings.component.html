@@ -1,1 +1,16 @@
 <h1>Postings in the system</h1>
+
+<div>
+    <div>
+        <button type="button" class="btn btn-primary" (click)="gotoNewPosting()">New Posting</button>
+    </div>
+
+    <div *ngFor="let posting of allPostings" (click)="gotoDetail(hero)">
+        <div>
+            <p>{{posting.description}} 
+                <br/>{{posting.type}}
+                <br/>{{posting.amount}}
+            </p>
+        </div>
+    </div>    
+</div>

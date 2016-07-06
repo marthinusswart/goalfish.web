@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { PostingService } from '../services/posting/posting.service';
+import { Posting } from '../models/posting/posting'
 
 @Component({
   selector: "postings",
@@ -8,10 +10,15 @@ import { Router } from '@angular/router';
 })
 export class PostingsComponent implements OnInit {
 
-  constructor(private _router: Router) { }
+  allPostings: Posting[] = [];
+
+  constructor(private _router: Router, private _postingService: PostingService) { }
 
   ngOnInit() {
-
+    this._postingService.getPostings().then(postings => this.allPostings = postings);
   }
-
+  gotoNewPosting() {
+    let link = ['newposting'];
+    this._router.navigate(link);
+  }
 }

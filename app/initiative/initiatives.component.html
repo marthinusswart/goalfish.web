@@ -4,7 +4,7 @@
         <button type="button" class="btn btn-primary" (click)="gotoNewInitiative()">New Initiative</button>
     </div>
 
-    <div *ngFor="#initiative of allInitiatives" (click)="gotoDetail(hero)">
+    <div *ngFor="let initiative of allInitiatives" (click)="gotoDetail(hero)">
         <div>
             <p>{{initiative.name}} {{initiative.description}}
                 <br/>{{initiative.balance}} {{initiative.instalmentAmount}}

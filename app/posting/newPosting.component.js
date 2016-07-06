@@ -11,29 +11,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var posting_service_1 = require('../services/posting/posting.service');
-var PostingsComponent = (function () {
-    function PostingsComponent(_router, _postingService) {
+var posting_1 = require('../models/posting/posting');
+var NewPostingComponent = (function () {
+    function NewPostingComponent(_router, _postingService) {
         this._router = _router;
         this._postingService = _postingService;
-        this.allPostings = [];
+        this.posting = new posting_1.Posting();
     }
-    PostingsComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this._postingService.getPostings().then(function (postings) { return _this.allPostings = postings; });
+    NewPostingComponent.prototype.ngOnInit = function () {
     };
-    PostingsComponent.prototype.gotoNewPosting = function () {
-        var link = ['newposting'];
-        this._router.navigate(link);
+    NewPostingComponent.prototype.save = function () {
+        this._postingService.addPosting(this.posting).then(function (posting) { return alert("Posting _id is: " + posting.externalRef); });
     };
-    PostingsComponent = __decorate([
+    NewPostingComponent = __decorate([
         core_1.Component({
-            selector: "postings",
-            templateUrl: "app/posting/postings.component.html",
-            styleUrls: ["app/posting/postings.component.css"]
+            selector: "newPosting",
+            templateUrl: "app/posting/newPosting.component.html",
+            styleUrls: ["app/posting/newPosting.component.css"]
         }), 
         __metadata('design:paramtypes', [router_1.Router, posting_service_1.PostingService])
-    ], PostingsComponent);
-    return PostingsComponent;
+    ], NewPostingComponent);
+    return NewPostingComponent;
 }());
-exports.PostingsComponent = PostingsComponent;
-//# sourceMappingURL=postings.component.js.map
+exports.NewPostingComponent = NewPostingComponent;
+//# sourceMappingURL=newPosting.component.js.map

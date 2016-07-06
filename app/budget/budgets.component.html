@@ -4,7 +4,7 @@
         <button type="button" class="btn btn-primary" (click)="gotoNewBudget()">New Budget</button>
     </div>
 
-    <div *ngFor="#budget of allBudgets" (click)="gotoDetail(hero)">
+    <div *ngFor="let budget of allBudgets" (click)="gotoDetail(hero)">
         <div>
             <p>{{budget.name}} {{budget.description}}
                 <br/>{{budget.balance}} {{budget.instalmentAmount}}
