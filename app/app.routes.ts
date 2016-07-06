@@ -6,6 +6,7 @@ import { InitiativesComponent } from './initiative/initiatives.component';
 import { JournalsComponent } from './journal/journals.component';
 import { PostingsComponent } from './posting/postings.component';
 import { UnderlyingAccountsComponent } from './underlyingaccount/underlyingaccounts.component';
+import { NewBudgetComponent } from './budget/newBudget.component';
 
 const routes: RouterConfig = [
     {
@@ -35,6 +36,10 @@ const routes: RouterConfig = [
     {
         path: "underlyingaccounts",
         component: UnderlyingAccountsComponent
+    },
+    {
+        path: "newbudget",
+        component: NewBudgetComponent
     }
 ];
 

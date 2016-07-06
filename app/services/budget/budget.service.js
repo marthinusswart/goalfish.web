@@ -13,37 +13,35 @@ var http_1 = require('@angular/http');
 require('rxjs/add/operator/toPromise');
 require('rxjs/add/operator/map');
 require('rxjs/add/operator/catch');
-var member_1 = require('../../models/member/member');
-//import { Hero } from './hero';
-//import { HEROES } from './mock-heroes';
-var MemberService = (function () {
-    function MemberService(_http) {
+var budget_1 = require('../../models/budget/budget');
+var BudgetService = (function () {
+    function BudgetService(_http) {
         this._http = _http;
         this.url = "http://localhost:3010";
-        this.api = "/api/v1/member";
+        this.api = "/api/v1/budget";
     }
-    MemberService.prototype.getMembers = function () {
+    BudgetService.prototype.getBudgets = function () {
         var _this = this;
         return this._http.get(this.url + this.api)
             .map(function (resp) { return resp.json(); })
-            .map(function (members) { return _this.toMemberArray(members); })
+            .map(function (budgets) { return _this.toBudgetArray(budgets); })
             .toPromise();
     };
-    MemberService.prototype.getHero = function (id) {
+    BudgetService.prototype.getHero = function (id) {
         /*return Promise.resolve(HEROES).then(
           heroes => heroes.filter(hero => hero.id === id)[0]
         );*/
     };
-    MemberService.prototype.toMemberArray = function (members) {
-        var membersArray = [];
-        membersArray = members.map(function (member) { return new member_1.Member(member); });
-        return membersArray;
+    BudgetService.prototype.toBudgetArray = function (budgets) {
+        var budgetsArray = [];
+        budgetsArray = budgets.map(function (budget) { return new budget_1.Budget().fromJsonBudget(budget); });
+        return budgetsArray;
     };
-    MemberService = __decorate([
+    BudgetService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [http_1.Http])
-    ], MemberService);
-    return MemberService;
+    ], BudgetService);
+    return BudgetService;
 }());
-exports.MemberService = MemberService;
-//# sourceMappingURL=member.service.js.map
+exports.BudgetService = BudgetService;
+//# sourceMappingURL=budget.service.js.map

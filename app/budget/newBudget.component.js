@@ -10,26 +10,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var member_service_1 = require('../services/member/member.service');
-var MembersComponent = (function () {
-    function MembersComponent(_router, _memberService) {
+var budget_service_1 = require('../services/budget/budget.service');
+var budget_1 = require('../models/budget/budget');
+var NewBudgetComponent = (function () {
+    function NewBudgetComponent(_router, _budgetService) {
         this._router = _router;
-        this._memberService = _memberService;
-        this.allMembers = [];
+        this._budgetService = _budgetService;
+        this.budget = new budget_1.Budget();
     }
-    MembersComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this._memberService.getMembers().then(function (members) { return _this.allMembers = members; });
+    NewBudgetComponent.prototype.ngOnInit = function () {
     };
-    MembersComponent = __decorate([
+    NewBudgetComponent = __decorate([
         core_1.Component({
-            selector: "members",
-            templateUrl: "app/member/members.component.html",
-            styleUrls: ["app/member/members.component.css"]
+            selector: "newBudget",
+            templateUrl: "app/budget/newBudget.component.html",
+            styleUrls: ["app/budget/newBudget.component.css"]
         }), 
-        __metadata('design:paramtypes', [router_1.Router, member_service_1.MemberService])
-    ], MembersComponent);
-    return MembersComponent;
+        __metadata('design:paramtypes', [router_1.Router, budget_service_1.BudgetService])
+    ], NewBudgetComponent);
+    return NewBudgetComponent;
 }());
-exports.MembersComponent = MembersComponent;
-//# sourceMappingURL=members.component.js.map
+exports.NewBudgetComponent = NewBudgetComponent;
+//# sourceMappingURL=newBudget.component.js.map

@@ -10,12 +10,12 @@ import { Member } from '../models/member/member'
 })
 export class MembersComponent implements OnInit {
 
-  members: Member[] = [];
+  allMembers: Member[] = [];
 
   constructor(private _router: Router, private _memberService: MemberService) { }
 
   ngOnInit() {
-    this._memberService.getMembers().then(members => console.log("Loaded members"));
+    this._memberService.getMembers().then(members => this.allMembers = members);
   }
 
 }

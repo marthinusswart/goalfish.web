@@ -4,24 +4,21 @@ import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Rx';
-import { Member } from '../../models/member/member'
-
-//import { Hero } from './hero';
-//import { HEROES } from './mock-heroes';
+import { Budget } from '../../models/budget/budget'
 
 @Injectable()
-export class MemberService {
+export class BudgetService {
   url = "http://localhost:3010";
-  api = "/api/v1/member"
+  api = "/api/v1/budget"
 
   constructor(private _http: Http) {
 
   }
 
-  getMembers() {
+  getBudgets() {
     return this._http.get(this.url + this.api)
       .map((resp: Response) => resp.json())
-      .map(members => { return this.toMemberArray(members); })
+      .map(budgets => { return this.toBudgetArray(budgets); })
       .toPromise();
   }
 
@@ -31,10 +28,10 @@ export class MemberService {
     );*/
   }
 
-  toMemberArray(members: any[]) {
-    let membersArray: Member[] = [];
-    membersArray = members.map(member => new Member(member));
-    return membersArray;
+  toBudgetArray(budgets: any[]) {
+    let budgetsArray: Budget[] = [];
+    budgetsArray = budgets.map(budget => new Budget().fromJsonBudget(budget));
+    return budgetsArray;
   }
 
 }

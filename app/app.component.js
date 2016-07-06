@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var member_service_1 = require('./services/member/member.service');
+var budget_service_1 = require('./services/budget/budget.service');
 var http_1 = require('@angular/http');
 var AppComponent = (function () {
     function AppComponent() {
@@ -20,7 +21,7 @@ var AppComponent = (function () {
             selector: "goalfish",
             templateUrl: "app/app.component.html",
             directives: [router_1.ROUTER_DIRECTIVES],
-            providers: [http_1.HTTP_PROVIDERS, member_service_1.MemberService]
+            providers: [http_1.HTTP_PROVIDERS, member_service_1.MemberService, budget_service_1.BudgetService]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

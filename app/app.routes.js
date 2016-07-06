@@ -7,6 +7,7 @@ var initiatives_component_1 = require('./initiative/initiatives.component');
 var journals_component_1 = require('./journal/journals.component');
 var postings_component_1 = require('./posting/postings.component');
 var underlyingaccounts_component_1 = require('./underlyingaccount/underlyingaccounts.component');
+var newBudget_component_1 = require('./budget/newBudget.component');
 var routes = [
     {
         path: "members",
@@ -35,6 +36,10 @@ var routes = [
     {
         path: "underlyingaccounts",
         component: underlyingaccounts_component_1.UnderlyingAccountsComponent
+    },
+    {
+        path: "newbudget",
+        component: newBudget_component_1.NewBudgetComponent
     }
 ];
 exports.APP_ROUTER_PROVIDERS = [

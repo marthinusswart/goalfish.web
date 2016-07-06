@@ -1,1 +1,10 @@
 <h1>Members in the system</h1>
+<div>
+    <div *ngFor="#member of allMembers" (click)="gotoDetail(hero)">
+        <div>
+            <p>{{member.name}} {{member.surname}}
+                <br/>{{member.email}}
+            </p>
+        </div>
+    </div>
+</div>
