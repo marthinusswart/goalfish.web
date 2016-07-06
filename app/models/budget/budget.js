@@ -11,7 +11,7 @@ var Budget = (function () {
         this.frequency = "";
         this.memberId = "";
     }
-    Budget.prototype.fromJsonBudget = function (budget) {
+    Budget.prototype.fromJson = function (budget) {
         this.externalRef = budget.externalRef;
         this.id = budget.id;
         this.name = budget.name;

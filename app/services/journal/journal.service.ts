@@ -4,32 +4,32 @@ import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Rx';
-import { Budget } from '../../models/budget/budget'
+import { Journal } from '../../models/journal/journal'
 
 @Injectable()
-export class BudgetService {
+export class JournalService {
   url = "http://localhost:3010";
-  api = "/api/v1/budget"
+  api = "/api/v1/journal"
 
   constructor(private _http: Http) {
 
   }
 
-  getBudgets() {
+  getJournals() {
     return this._http.get(this.url + this.api)
       .map((resp: Response) => resp.json())
-      .map(budgets => { return this.toBudgetArray(budgets); })
+      .map(journals => { return this.toJournalArray(journals); })
       .toPromise();
   }
 
-  addBudget(budget: Budget) {
+  addJournal(journal: Journal) {
     let headers = new Headers({
       'Content-Type': 'application/json'
     });
 
-    return this._http.post(this.url + this.api, JSON.stringify(budget), { headers: headers })
+    return this._http.post(this.url + this.api, JSON.stringify(journal), { headers: headers })
       .map((resp: Response) => resp.json())
-      .map(budget => { return this.toBudget(budget); })
+      .map(journal => { return this.toJournal(journal); })
       .toPromise();
   }
 
@@ -39,16 +39,16 @@ export class BudgetService {
     );*/
   }
 
-  toBudgetArray(budgets: any[]) {
-    let budgetsArray: Budget[] = [];
-    budgetsArray = budgets.map(budget => new Budget().fromJson(budget));
-    return budgetsArray;
+  toJournalArray(journals: any[]) {
+    let journalsArray: Journal[] = [];
+    journalsArray = journals.map(journal => new Journal().fromJson(journal));
+    return journalsArray;
   }
 
-  toBudget(budgetJson: any) {
-    let budget: Budget = new Budget();
-    budget = budget.fromJson(budgetJson);
-    return budget;
+  toJournal(journalJson: any) {
+    let journal: Journal = new Journal();
+    journal = journal.fromJson(journalJson);
+    return journal;
   }
 
 }

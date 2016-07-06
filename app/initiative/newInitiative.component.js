@@ -11,29 +11,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var initiative_service_1 = require('../services/initiative/initiative.service');
-var InitiativesComponent = (function () {
-    function InitiativesComponent(_router, _initiativeService) {
+var initiative_1 = require('../models/initiative/initiative');
+var NewInitiativeComponent = (function () {
+    function NewInitiativeComponent(_router, _initiativeService) {
         this._router = _router;
         this._initiativeService = _initiativeService;
-        this.allInitiatives = [];
+        this.initiative = new initiative_1.Initiative();
     }
-    InitiativesComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this._initiativeService.getInitiatives().then(function (initiatives) { return _this.allInitiatives = initiatives; });
+    NewInitiativeComponent.prototype.ngOnInit = function () {
     };
-    InitiativesComponent.prototype.gotoNewInitiative = function () {
-        var link = ['newinitiative'];
-        this._router.navigate(link);
+    NewInitiativeComponent.prototype.save = function () {
+        this._initiativeService.addInitiative(this.initiative).then(function (initiative) { return alert("Initiative _id is: " + initiative.externalRef); });
     };
-    InitiativesComponent = __decorate([
+    NewInitiativeComponent = __decorate([
         core_1.Component({
-            selector: "initiatives",
-            templateUrl: "app/initiative/initiatives.component.html",
-            styleUrls: ["app/initiative/initiatives.component.css"]
+            selector: "newInitiative",
+            templateUrl: "app/initiative/newInitiative.component.html",
+            styleUrls: ["app/initiative/newInitiative.component.css"]
         }), 
         __metadata('design:paramtypes', [router_1.Router, initiative_service_1.InitiativeService])
-    ], InitiativesComponent);
-    return InitiativesComponent;
+    ], NewInitiativeComponent);
+    return NewInitiativeComponent;
 }());
-exports.InitiativesComponent = InitiativesComponent;
-//# sourceMappingURL=initiatives.component.js.map
+exports.NewInitiativeComponent = NewInitiativeComponent;
+//# sourceMappingURL=newInitiative.component.js.map

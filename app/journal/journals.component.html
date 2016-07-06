@@ -1,1 +1,14 @@
 <h1>Journals in the system</h1>
+<div>
+    <div>
+        <button type="button" class="btn btn-primary" (click)="gotoNewJournal()">New Journal</button>
+    </div>
+
+    <div *ngFor="#journal of allJournals" (click)="gotoDetail(hero)">
+        <div>
+            <p>{{journal.name}} {{journal.description}}
+                <br/>{{journal.amount}}
+            </p>
+        </div>
+    </div>    
+</div>

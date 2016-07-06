@@ -22,7 +22,7 @@ export class Budget {
         this.memberId = "";
     }
 
-    fromJsonBudget(budget: any) : Budget {
+    fromJson(budget: any) : Budget {
         this.externalRef = budget.externalRef;
         this.id = budget.id;
         this.name = budget.name;

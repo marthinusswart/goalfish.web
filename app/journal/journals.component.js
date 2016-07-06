@@ -10,11 +10,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
+var journal_service_1 = require('../services/journal/journal.service');
 var JournalsComponent = (function () {
-    function JournalsComponent(_router) {
+    function JournalsComponent(_router, _journalService) {
         this._router = _router;
+        this._journalService = _journalService;
+        this.allJournals = [];
     }
     JournalsComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this._journalService.getJournals().then(function (journals) { return _this.allJournals = journals; });
+    };
+    JournalsComponent.prototype.gotoNewJournal = function () {
+        var link = ['newjournal'];
+        this._router.navigate(link);
     };
     JournalsComponent = __decorate([
         core_1.Component({
@@ -22,7 +31,7 @@ var JournalsComponent = (function () {
             templateUrl: "app/journal/journals.component.html",
             styleUrls: ["app/journal/journals.component.css"]
         }), 
-        __metadata('design:paramtypes', [router_1.Router])
+        __metadata('design:paramtypes', [router_1.Router, journal_service_1.JournalService])
     ], JournalsComponent);
     return JournalsComponent;
 }());

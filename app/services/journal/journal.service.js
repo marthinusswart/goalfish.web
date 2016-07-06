@@ -13,50 +13,50 @@ var http_1 = require('@angular/http');
 require('rxjs/add/operator/toPromise');
 require('rxjs/add/operator/map');
 require('rxjs/add/operator/catch');
-var budget_1 = require('../../models/budget/budget');
-var BudgetService = (function () {
-    function BudgetService(_http) {
+var journal_1 = require('../../models/journal/journal');
+var JournalService = (function () {
+    function JournalService(_http) {
         this._http = _http;
         this.url = "http://localhost:3010";
-        this.api = "/api/v1/budget";
+        this.api = "/api/v1/journal";
     }
-    BudgetService.prototype.getBudgets = function () {
+    JournalService.prototype.getJournals = function () {
         var _this = this;
         return this._http.get(this.url + this.api)
             .map(function (resp) { return resp.json(); })
-            .map(function (budgets) { return _this.toBudgetArray(budgets); })
+            .map(function (journals) { return _this.toJournalArray(journals); })
             .toPromise();
     };
-    BudgetService.prototype.addBudget = function (budget) {
+    JournalService.prototype.addJournal = function (journal) {
         var _this = this;
         var headers = new http_1.Headers({
             'Content-Type': 'application/json'
         });
-        return this._http.post(this.url + this.api, JSON.stringify(budget), { headers: headers })
+        return this._http.post(this.url + this.api, JSON.stringify(journal), { headers: headers })
             .map(function (resp) { return resp.json(); })
-            .map(function (budget) { return _this.toBudget(budget); })
+            .map(function (journal) { return _this.toJournal(journal); })
             .toPromise();
     };
-    BudgetService.prototype.getHero = function (id) {
+    JournalService.prototype.getHero = function (id) {
         /*return Promise.resolve(HEROES).then(
           heroes => heroes.filter(hero => hero.id === id)[0]
         );*/
     };
-    BudgetService.prototype.toBudgetArray = function (budgets) {
-        var budgetsArray = [];
-        budgetsArray = budgets.map(function (budget) { return new budget_1.Budget().fromJson(budget); });
-        return budgetsArray;
+    JournalService.prototype.toJournalArray = function (journals) {
+        var journalsArray = [];
+        journalsArray = journals.map(function (journal) { return new journal_1.Journal().fromJson(journal); });
+        return journalsArray;
     };
-    BudgetService.prototype.toBudget = function (budgetJson) {
-        var budget = new budget_1.Budget();
-        budget = budget.fromJson(budgetJson);
-        return budget;
+    JournalService.prototype.toJournal = function (journalJson) {
+        var journal = new journal_1.Journal();
+        journal = journal.fromJson(journalJson);
+        return journal;
     };
-    BudgetService = __decorate([
+    JournalService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [http_1.Http])
-    ], BudgetService);
-    return BudgetService;
+    ], JournalService);
+    return JournalService;
 }());
-exports.BudgetService = BudgetService;
-//# sourceMappingURL=budget.service.js.map
+exports.JournalService = JournalService;
+//# sourceMappingURL=journal.service.js.map

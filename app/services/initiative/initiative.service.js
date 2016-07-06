@@ -13,50 +13,50 @@ var http_1 = require('@angular/http');
 require('rxjs/add/operator/toPromise');
 require('rxjs/add/operator/map');
 require('rxjs/add/operator/catch');
-var budget_1 = require('../../models/budget/budget');
-var BudgetService = (function () {
-    function BudgetService(_http) {
+var initiative_1 = require('../../models/initiative/initiative');
+var InitiativeService = (function () {
+    function InitiativeService(_http) {
         this._http = _http;
         this.url = "http://localhost:3010";
-        this.api = "/api/v1/budget";
+        this.api = "/api/v1/initiative";
     }
-    BudgetService.prototype.getBudgets = function () {
+    InitiativeService.prototype.getInitiatives = function () {
         var _this = this;
         return this._http.get(this.url + this.api)
             .map(function (resp) { return resp.json(); })
-            .map(function (budgets) { return _this.toBudgetArray(budgets); })
+            .map(function (initiatives) { return _this.toInitiativeArray(initiatives); })
             .toPromise();
     };
-    BudgetService.prototype.addBudget = function (budget) {
+    InitiativeService.prototype.addInitiative = function (initiative) {
         var _this = this;
         var headers = new http_1.Headers({
             'Content-Type': 'application/json'
         });
-        return this._http.post(this.url + this.api, JSON.stringify(budget), { headers: headers })
+        return this._http.post(this.url + this.api, JSON.stringify(initiative), { headers: headers })
             .map(function (resp) { return resp.json(); })
-            .map(function (budget) { return _this.toBudget(budget); })
+            .map(function (initiative) { return _this.toInitiative(initiative); })
             .toPromise();
     };
-    BudgetService.prototype.getHero = function (id) {
+    InitiativeService.prototype.getHero = function (id) {
         /*return Promise.resolve(HEROES).then(
           heroes => heroes.filter(hero => hero.id === id)[0]
         );*/
     };
-    BudgetService.prototype.toBudgetArray = function (budgets) {
-        var budgetsArray = [];
-        budgetsArray = budgets.map(function (budget) { return new budget_1.Budget().fromJson(budget); });
-        return budgetsArray;
+    InitiativeService.prototype.toInitiativeArray = function (initiatives) {
+        var initiativesArray = [];
+        initiativesArray = initiatives.map(function (initiative) { return new initiative_1.Initiative().fromJson(initiative); });
+        return initiativesArray;
     };
-    BudgetService.prototype.toBudget = function (budgetJson) {
-        var budget = new budget_1.Budget();
-        budget = budget.fromJson(budgetJson);
-        return budget;
+    InitiativeService.prototype.toInitiative = function (initiativeJson) {
+        var initiative = new initiative_1.Initiative();
+        initiative = initiative.fromJson(initiativeJson);
+        return initiative;
     };
-    BudgetService = __decorate([
+    InitiativeService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [http_1.Http])
-    ], BudgetService);
-    return BudgetService;
+    ], InitiativeService);
+    return InitiativeService;
 }());
-exports.BudgetService = BudgetService;
-//# sourceMappingURL=budget.service.js.map
+exports.InitiativeService = InitiativeService;
+//# sourceMappingURL=initiative.service.js.map

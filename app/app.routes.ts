@@ -7,6 +7,7 @@ import { JournalsComponent } from './journal/journals.component';
 import { PostingsComponent } from './posting/postings.component';
 import { UnderlyingAccountsComponent } from './underlyingaccount/underlyingaccounts.component';
 import { NewBudgetComponent } from './budget/newBudget.component';
+import { NewInitiativeComponent } from './initiative/newInitiative.component';
 
 const routes: RouterConfig = [
     {
@@ -40,6 +41,10 @@ const routes: RouterConfig = [
     {
         path: "newbudget",
         component: NewBudgetComponent
+    },
+    {
+        path:"newinitiative",
+        component: NewInitiativeComponent
     }
 ];
 

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { JournalService } from '../services/journal/journal.service';
+import { Journal } from '../models/journal/journal'
 
 @Component({
   selector: "journals",
@@ -8,10 +10,16 @@ import { Router } from '@angular/router';
 })
 export class JournalsComponent implements OnInit {
 
-  constructor(private _router: Router) { }
+  allJournals: Journal[] = [];
+
+  constructor(private _router: Router, private _journalService: JournalService) { }
 
   ngOnInit() {
-
+    this._journalService.getJournals().then(journals => this.allJournals = journals);
   }
 
+  gotoNewJournal() {
+    let link = ['newjournal'];
+    this._router.navigate(link);
+  }
 }

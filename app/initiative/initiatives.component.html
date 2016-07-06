@@ -1,1 +1,14 @@
 <h1>Initiatives in the system</h1>
+<div>
+    <div>
+        <button type="button" class="btn btn-primary" (click)="gotoNewInitiative()">New Initiative</button>
+    </div>
+
+    <div *ngFor="#initiative of allInitiatives" (click)="gotoDetail(hero)">
+        <div>
+            <p>{{initiative.name}} {{initiative.description}}
+                <br/>{{initiative.balance}} {{initiative.instalmentAmount}}
+            </p>
+        </div>
+    </div>    
+</div>
