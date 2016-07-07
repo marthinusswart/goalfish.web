@@ -17,6 +17,7 @@ export class PostingsComponent implements OnInit {
   ngOnInit() {
     this._postingService.getPostings().then(postings => this.allPostings = postings);
   }
+
   gotoNewPosting() {
     let link = ['newposting'];
     this._router.navigate(link);

@@ -11,6 +11,7 @@ var newBudget_component_1 = require('./budget/newBudget.component');
 var newInitiative_component_1 = require('./initiative/newInitiative.component');
 var newJournal_component_1 = require('./journal/newJournal.component');
 var newPosting_component_1 = require('./posting/newPosting.component');
+var newTransaction_component_1 = require('./transaction/newTransaction.component');
 var routes = [
     {
         path: "members",
@@ -55,6 +56,10 @@ var routes = [
     {
         path: "newposting",
         component: newPosting_component_1.NewPostingComponent
+    },
+    {
+        path: "newtransaction",
+        component: newTransaction_component_1.NewTransactionComponent
     }
 ];
 exports.APP_ROUTER_PROVIDERS = [

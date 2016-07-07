@@ -15,6 +15,7 @@ var budget_service_1 = require('./services/budget/budget.service');
 var journal_service_1 = require('./services/journal/journal.service');
 var posting_service_1 = require('./services/posting/posting.service');
 var initiative_service_1 = require('./services/initiative/initiative.service');
+var transaction_service_1 = require('./services/transaction/transaction.service');
 var http_1 = require('@angular/http');
 var AppComponent = (function () {
     function AppComponent() {
@@ -25,7 +26,7 @@ var AppComponent = (function () {
             templateUrl: "app/app.component.html",
             directives: [router_1.ROUTER_DIRECTIVES],
             providers: [http_1.HTTP_PROVIDERS, member_service_1.MemberService, budget_service_1.BudgetService,
-                initiative_service_1.InitiativeService, journal_service_1.JournalService, posting_service_1.PostingService]
+                initiative_service_1.InitiativeService, journal_service_1.JournalService, posting_service_1.PostingService, transaction_service_1.TransactionService]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

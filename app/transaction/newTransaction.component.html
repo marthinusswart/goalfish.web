@@ -1,0 +1,11 @@
+<h1>Add new Transaction</h1>
+<div>
+    <div><button type="button" class="btn btn-primary" (click)="save()">Save</button></div>
+    <div>ID<input type="Text" [(ngModel)]="transaction.id"></div>    
+    <div>Classification<input type="Text" [(ngModel)]="transaction.classification"></div>
+    <div>Description<input type="Text" [(ngModel)]="transaction.description"></div>
+    <div>Underlying Account<input type="Text" [(ngModel)]="transaction.underlyingAccount"></div>
+    <div>Amount<input type="Text" [(ngModel)]="transaction.amount"></div>
+    <div>Date<input type="Text" [(ngModel)]="transaction.date"></div>
+    <div>Reference ID<input type="Text" [(ngModel)]="transaction.referenceId"></div>    
+</div>

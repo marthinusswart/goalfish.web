@@ -5,6 +5,7 @@ import { BudgetService } from './services/budget/budget.service';
 import { JournalService } from './services/journal/journal.service';
 import { PostingService } from './services/posting/posting.service';
 import { InitiativeService } from './services/initiative/initiative.service';
+import { TransactionService } from './services/transaction/transaction.service';
 import { HTTP_PROVIDERS } from '@angular/http';
 
 @Component({
@@ -12,7 +13,7 @@ import { HTTP_PROVIDERS } from '@angular/http';
     templateUrl: "app/app.component.html",
     directives: [ROUTER_DIRECTIVES],
     providers: [HTTP_PROVIDERS, MemberService, BudgetService, 
-    InitiativeService, JournalService, PostingService]
+    InitiativeService, JournalService, PostingService, TransactionService]
 })
 
 export class AppComponent { }

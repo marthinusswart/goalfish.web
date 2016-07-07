@@ -11,29 +11,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var transaction_service_1 = require('../services/transaction/transaction.service');
-var TransactionsComponent = (function () {
-    function TransactionsComponent(_router, _transactionService) {
+var transaction_1 = require('../models/transaction/transaction');
+var NewTransactionComponent = (function () {
+    function NewTransactionComponent(_router, _transactionService) {
         this._router = _router;
         this._transactionService = _transactionService;
-        this.allTransactions = [];
+        this.transaction = new transaction_1.Transaction();
     }
-    TransactionsComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this._transactionService.getTransactions().then(function (transactions) { return _this.allTransactions = transactions; });
+    NewTransactionComponent.prototype.ngOnInit = function () {
     };
-    TransactionsComponent.prototype.gotoNewTransaction = function () {
-        var link = ['newtransaction'];
-        this._router.navigate(link);
+    NewTransactionComponent.prototype.save = function () {
+        this._transactionService.addTransaction(this.transaction).then(function (transaction) { return alert("Transaction _id is: " + transaction.externalRef); });
     };
-    TransactionsComponent = __decorate([
+    NewTransactionComponent = __decorate([
         core_1.Component({
-            selector: "transactions",
-            templateUrl: "app/transaction/transactions.component.html",
-            styleUrls: ["app/transaction/transactions.component.css"]
+            selector: "newTransaction",
+            templateUrl: "app/transaction/newTransaction.component.html",
+            styleUrls: ["app/transaction/newTransaction.component.css"]
         }), 
         __metadata('design:paramtypes', [router_1.Router, transaction_service_1.TransactionService])
-    ], TransactionsComponent);
-    return TransactionsComponent;
+    ], NewTransactionComponent);
+    return NewTransactionComponent;
 }());
-exports.TransactionsComponent = TransactionsComponent;
-//# sourceMappingURL=transactions.component.js.map
+exports.NewTransactionComponent = NewTransactionComponent;
+//# sourceMappingURL=newTransaction.component.js.map

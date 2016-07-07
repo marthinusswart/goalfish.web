@@ -10,6 +10,7 @@ import { NewBudgetComponent } from './budget/newBudget.component';
 import { NewInitiativeComponent } from './initiative/newInitiative.component';
 import { NewJournalComponent } from './journal/newJournal.component';
 import { NewPostingComponent } from './posting/newPosting.component';
+import { NewTransactionComponent } from './transaction/newTransaction.component';
 
 const routes: RouterConfig = [
     {
@@ -55,6 +56,10 @@ const routes: RouterConfig = [
     {
         path:"newposting",
         component: NewPostingComponent
+    },
+    {
+        path:"newtransaction",
+        component: NewTransactionComponent
     }
 ];
 
