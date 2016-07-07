@@ -33,6 +33,17 @@ export class BudgetService {
       .toPromise();
   }
 
+   updateBudget(budget: Budget) {
+    let headers = new Headers({
+      'Content-Type': 'application/json'
+    });
+
+    return this._http.put(this.url + this.api + "/" + budget.externalRef, JSON.stringify(budget), { headers: headers })
+      .map((resp: Response) => resp.json())
+      .map(budget => { return this.toBudget(budget); })
+      .toPromise();
+  }
+
   getHero(id: string) {
     /*return Promise.resolve(HEROES).then(
       heroes => heroes.filter(hero => hero.id === id)[0]

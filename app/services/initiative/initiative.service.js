@@ -37,6 +37,16 @@ var InitiativeService = (function () {
             .map(function (initiative) { return _this.toInitiative(initiative); })
             .toPromise();
     };
+    InitiativeService.prototype.updateInitiative = function (initiative) {
+        var _this = this;
+        var headers = new http_1.Headers({
+            'Content-Type': 'application/json'
+        });
+        return this._http.put(this.url + this.api + "/" + initiative.externalRef, JSON.stringify(initiative), { headers: headers })
+            .map(function (resp) { return resp.json(); })
+            .map(function (initiative) { return _this.toInitiative(initiative); })
+            .toPromise();
+    };
     InitiativeService.prototype.getHero = function (id) {
         /*return Promise.resolve(HEROES).then(
           heroes => heroes.filter(hero => hero.id === id)[0]

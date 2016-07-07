@@ -4,12 +4,11 @@
     <div>
         <button type="button" class="btn btn-primary" (click)="gotoNewAccount()">New Underlying Account</button>
     </div>
-
+ <div>DESCRIPTION -> HOLDING INSTITUTION -> BALANCE</div>
+    <p></p>
     <div *ngFor="let account of allAccounts" (click)="gotoDetail(hero)">
         <div>
-            <p>{{account.description}} 
-                <br/>{{account.holdingInstitution}}
-                <br/>{{account.balance}}
+            <p>{{account.description}} -> {{account.holdingInstitution}} -> {{account.balance}}
             </p>
         </div>
     </div>    

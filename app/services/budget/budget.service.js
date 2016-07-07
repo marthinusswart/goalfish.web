@@ -37,6 +37,16 @@ var BudgetService = (function () {
             .map(function (budget) { return _this.toBudget(budget); })
             .toPromise();
     };
+    BudgetService.prototype.updateBudget = function (budget) {
+        var _this = this;
+        var headers = new http_1.Headers({
+            'Content-Type': 'application/json'
+        });
+        return this._http.put(this.url + this.api + "/" + budget.externalRef, JSON.stringify(budget), { headers: headers })
+            .map(function (resp) { return resp.json(); })
+            .map(function (budget) { return _this.toBudget(budget); })
+            .toPromise();
+    };
     BudgetService.prototype.getHero = function (id) {
         /*return Promise.resolve(HEROES).then(
           heroes => heroes.filter(hero => hero.id === id)[0]

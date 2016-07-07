@@ -3,11 +3,12 @@
     <div>
         <button type="button" class="btn btn-primary" (click)="gotoNewJournal()">New Journal</button>
     </div>
-
+    <div>ID -> IS POSTED -> AMOUNT -> NAME -> DESCRIPTION</div>
+    <p></p>
     <div *ngFor="let journal of allJournals" (click)="gotoDetail(hero)">
         <div>
             <p>{{journal.id}} -> {{journal.isPosted}} -> {{journal.amount}} -> {{journal.name}} -> {{journal.description}}
             </p>
         </div>
-    </div>    
+    </div>
 </div>

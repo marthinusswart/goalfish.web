@@ -4,11 +4,12 @@
     <div>
         <button type="button" class="btn btn-primary" (click)="gotoNewPosting()">New Posting</button>
     </div>
-
+    <div>ID -> DESCRIPTION -> TYPE -> AMOUNT</div>
+    <p></p>
     <div *ngFor="let posting of allPostings" (click)="gotoDetail(hero)">
         <div>
             <p>{{posting.id}} -> {{posting.description}} -> {{posting.type}} -> {{posting.amount}}
             </p>
         </div>
-    </div>    
+    </div>
 </div>

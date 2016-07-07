@@ -33,6 +33,17 @@ export class InitiativeService {
       .toPromise();
   }
 
+  updateInitiative(initiative: Initiative){
+    let headers = new Headers({
+      'Content-Type': 'application/json'
+    });
+
+    return this._http.put(this.url + this.api + "/" + initiative.externalRef, JSON.stringify(initiative), { headers: headers })
+      .map((resp: Response) => resp.json())
+      .map(initiative => { return this.toInitiative(initiative); })
+      .toPromise();
+  }
+
   getHero(id: string) {
     /*return Promise.resolve(HEROES).then(
       heroes => heroes.filter(hero => hero.id === id)[0]

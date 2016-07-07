@@ -3,12 +3,14 @@
     <div>
         <button type="button" class="btn btn-primary" (click)="gotoNewBudget()">New Budget</button>
     </div>
-
-    <div *ngFor="let budget of allBudgets" (click)="gotoDetail(hero)">
+   <div>NAME -> DESCRIPTION -> BALANCE -> INSTALMENT</div>
+    <p></p>
+    <div *ngFor="let budget of allBudgets" (click)="onSelect(budget)">
         <div>
-            <p>{{budget.name}} {{budget.description}}
-                <br/>{{budget.balance}} {{budget.instalmentAmount}}
+            <p>{{budget.name}} -> {{budget.description}} -> {{budget.balance}} -> {{budget.instalmentAmount}}
             </p>
         </div>
     </div>    
 </div>
+
+<budget-detail [budget]="selectedBudget"></budget-detail>

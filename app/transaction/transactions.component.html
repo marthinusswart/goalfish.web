@@ -4,7 +4,8 @@
     <div>
         <button type="button" class="btn btn-primary" (click)="gotoNewTransaction()">New Transaction</button>
     </div>
-
+ <div>ID -> IS POSTED -> DESCRIPTION -> CLASSIFICATION -> AMOUNT</div>
+    <p></p>
     <div *ngFor="let transaction of allTransactions" (click)="gotoDetail(hero)">
         <div>
             <p>{{transaction.id}} -> {{transaction.isPosted}} -> {{transaction.description}} -> {{transaction.classification}} -> {{transaction.amount}}

@@ -11,34 +11,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var initiative_service_1 = require('../services/initiative/initiative.service');
-var initiativeDetail_component_1 = require('./initiativeDetail.component');
-var InitiativesComponent = (function () {
-    function InitiativesComponent(_router, _initiativeService) {
+var initiative_1 = require('../models/initiative/initiative');
+var InitiativeDetailComponent = (function () {
+    function InitiativeDetailComponent(_router, _initiativeService) {
         this._router = _router;
         this._initiativeService = _initiativeService;
-        this.allInitiatives = [];
     }
-    InitiativesComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this._initiativeService.getInitiatives().then(function (initiatives) { return _this.allInitiatives = initiatives; });
+    InitiativeDetailComponent.prototype.save = function () {
+        this._initiativeService.updateInitiative(this.initiative).then(function (initiative) { return alert("Initiative _id is: " + initiative.externalRef); });
     };
-    InitiativesComponent.prototype.gotoNewInitiative = function () {
-        var link = ['newinitiative'];
-        this._router.navigate(link);
-    };
-    InitiativesComponent.prototype.onSelect = function (initiative) {
-        this.selectedInitiative = initiative;
-    };
-    InitiativesComponent = __decorate([
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', initiative_1.Initiative)
+    ], InitiativeDetailComponent.prototype, "initiative", void 0);
+    InitiativeDetailComponent = __decorate([
         core_1.Component({
-            selector: "initiatives",
-            templateUrl: "app/initiative/initiatives.component.html",
-            styleUrls: ["app/initiative/initiatives.component.css"],
-            directives: [initiativeDetail_component_1.InitiativeDetailComponent]
+            selector: "initiative-detail",
+            templateUrl: "app/initiative/initiativeDetail.component.html",
+            styleUrls: ["app/initiative/initiativeDetail.component.css"]
         }), 
         __metadata('design:paramtypes', [router_1.Router, initiative_service_1.InitiativeService])
-    ], InitiativesComponent);
-    return InitiativesComponent;
+    ], InitiativeDetailComponent);
+    return InitiativeDetailComponent;
 }());
-exports.InitiativesComponent = InitiativesComponent;
-//# sourceMappingURL=initiatives.component.js.map
+exports.InitiativeDetailComponent = InitiativeDetailComponent;
+//# sourceMappingURL=initiativeDetail.component.js.map
