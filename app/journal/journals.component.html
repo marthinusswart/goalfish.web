@@ -6,8 +6,7 @@
 
     <div *ngFor="let journal of allJournals" (click)="gotoDetail(hero)">
         <div>
-            <p>{{journal.name}} {{journal.description}}
-                <br/>{{journal.amount}}
+            <p>{{journal.id}} -> {{journal.isPosted}} -> {{journal.amount}} -> {{journal.name}} -> {{journal.description}}
             </p>
         </div>
     </div>    

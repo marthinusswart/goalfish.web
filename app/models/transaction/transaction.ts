@@ -7,6 +7,7 @@ export class Transaction {
     date: Date;
     amount: number;
     underlyingAccount: string;
+    isPosted: string;
 
     constructor() {
         this.externalRef = "";
@@ -16,7 +17,8 @@ export class Transaction {
         this.classification = "";
         this.amount = 0;
         this.date = new Date();
-        this.underlyingAccount = "";       
+        this.underlyingAccount = "";      
+        this.isPosted = "N"; 
     }
 
     fromJson(transaction: any) : Transaction {
@@ -27,7 +29,8 @@ export class Transaction {
         this.description = transaction.description;
         this.amount = transaction.amount;
         this.date = transaction.date;
-        this.underlyingAccount = transaction.underlyingAccount;        
+        this.underlyingAccount = transaction.underlyingAccount;   
+        this.isPosted = transaction.isPosted;     
 
         return this;
     }

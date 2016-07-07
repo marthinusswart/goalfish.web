@@ -11,29 +11,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var underlyingAccount_service_1 = require('../services/underlyingaccount/underlyingAccount.service');
-var UnderlyingAccountsComponent = (function () {
-    function UnderlyingAccountsComponent(_router, _underlyingAccountService) {
+var underlyingAccount_1 = require('../models/underlyingaccount/underlyingAccount');
+var NewUnderlyingAccountComponent = (function () {
+    function NewUnderlyingAccountComponent(_router, _underlyingAccountService) {
         this._router = _router;
         this._underlyingAccountService = _underlyingAccountService;
-        this.allAccounts = [];
+        this.account = new underlyingAccount_1.UnderlyingAccount();
     }
-    UnderlyingAccountsComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this._underlyingAccountService.getAccounts().then(function (accounts) { return _this.allAccounts = accounts; });
+    NewUnderlyingAccountComponent.prototype.ngOnInit = function () {
     };
-    UnderlyingAccountsComponent.prototype.gotoNewAccount = function () {
-        var link = ['newunderlyingaccount'];
-        this._router.navigate(link);
+    NewUnderlyingAccountComponent.prototype.save = function () {
+        this._underlyingAccountService.addAccount(this.account).then(function (account) { return alert("Account _id is: " + account.externalRef); });
     };
-    UnderlyingAccountsComponent = __decorate([
+    NewUnderlyingAccountComponent = __decorate([
         core_1.Component({
-            selector: "underlyingaccounts",
-            templateUrl: "app/underlyingaccount/underlyingaccounts.component.html",
-            styleUrls: ["app/underlyingaccount/underlyingaccounts.component.css"]
+            selector: "newUnderlyingAccount",
+            templateUrl: "app/underlyingaccount/newUnderlyingAccount.component.html",
+            styleUrls: ["app/underlyingaccount/newUnderlyingAccount.component.css"]
         }), 
         __metadata('design:paramtypes', [router_1.Router, underlyingAccount_service_1.UnderlyingAccountService])
-    ], UnderlyingAccountsComponent);
-    return UnderlyingAccountsComponent;
+    ], NewUnderlyingAccountComponent);
+    return NewUnderlyingAccountComponent;
 }());
-exports.UnderlyingAccountsComponent = UnderlyingAccountsComponent;
-//# sourceMappingURL=underlyingaccounts.component.js.map
+exports.NewUnderlyingAccountComponent = NewUnderlyingAccountComponent;
+//# sourceMappingURL=newUnderlyingAccount.component.js.map

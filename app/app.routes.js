@@ -12,6 +12,7 @@ var newInitiative_component_1 = require('./initiative/newInitiative.component');
 var newJournal_component_1 = require('./journal/newJournal.component');
 var newPosting_component_1 = require('./posting/newPosting.component');
 var newTransaction_component_1 = require('./transaction/newTransaction.component');
+var newUnderlyingAccount_component_1 = require('./underlyingaccount/newUnderlyingAccount.component');
 var routes = [
     {
         path: "members",
@@ -60,6 +61,10 @@ var routes = [
     {
         path: "newtransaction",
         component: newTransaction_component_1.NewTransactionComponent
+    },
+    {
+        path: "newunderlyingaccount",
+        component: newUnderlyingAccount_component_1.NewUnderlyingAccountComponent
     }
 ];
 exports.APP_ROUTER_PROVIDERS = [

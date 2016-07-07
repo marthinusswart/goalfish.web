@@ -7,9 +7,7 @@
 
     <div *ngFor="let transaction of allTransactions" (click)="gotoDetail(hero)">
         <div>
-            <p>{{transaction.description}} 
-                <br/>{{transaction.classification}}
-                <br/>{{transaction.amount}}
+            <p>{{transaction.id}} -> {{transaction.isPosted}} -> {{transaction.description}} -> {{transaction.classification}} -> {{transaction.amount}}
             </p>
         </div>
     </div>    

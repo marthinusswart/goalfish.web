@@ -11,6 +11,7 @@ import { NewInitiativeComponent } from './initiative/newInitiative.component';
 import { NewJournalComponent } from './journal/newJournal.component';
 import { NewPostingComponent } from './posting/newPosting.component';
 import { NewTransactionComponent } from './transaction/newTransaction.component';
+import { NewUnderlyingAccountComponent } from './underlyingaccount/newUnderlyingAccount.component';
 
 const routes: RouterConfig = [
     {
@@ -60,6 +61,10 @@ const routes: RouterConfig = [
     {
         path:"newtransaction",
         component: NewTransactionComponent
+    },
+     {
+        path:"newunderlyingaccount",
+        component: NewUnderlyingAccountComponent
     }
 ];
 

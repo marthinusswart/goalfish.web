@@ -6,6 +6,7 @@ export class Journal {
     date: Date;
     amount: number;
     accountNumber: string;
+    isPosted: string;
 
     constructor() {
         this.externalRef = "";
@@ -14,7 +15,8 @@ export class Journal {
         this.description = "";
         this.amount = 0;
         this.date = new Date();
-        this.accountNumber = "";       
+        this.accountNumber = "";     
+        this.isPosted = "N";  
     }
 
     fromJson(journal: any) : Journal {
@@ -24,7 +26,8 @@ export class Journal {
         this.description = journal.description;
         this.amount = journal.amount;
         this.date = journal.date;
-        this.accountNumber = journal.accountNumber;        
+        this.accountNumber = journal.accountNumber;   
+        this.isPosted = journal.isPosted;     
 
         return this;
     }

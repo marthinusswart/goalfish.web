@@ -8,6 +8,7 @@ var Journal = (function () {
         this.amount = 0;
         this.date = new Date();
         this.accountNumber = "";
+        this.isPosted = "N";
     }
     Journal.prototype.fromJson = function (journal) {
         this.externalRef = journal.externalRef;
@@ -17,6 +18,7 @@ var Journal = (function () {
         this.amount = journal.amount;
         this.date = journal.date;
         this.accountNumber = journal.accountNumber;
+        this.isPosted = journal.isPosted;
         return this;
     };
     return Journal;
