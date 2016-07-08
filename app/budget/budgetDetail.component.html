@@ -1,7 +1,6 @@
 <div *ngIf="budget">
     <h2>{{budget.name}} details!</h2>
     <div>
-        <div><button type="button" class="btn btn-primary" (click)="save()">Save</button></div>
         <div>ID<input type="Text" [(ngModel)]="budget.id"></div>
         <div>Member ID<input type="Text" [(ngModel)]="budget.memberId"></div>
         <div>Name<input type="Text" [(ngModel)]="budget.name"></div>
@@ -11,5 +10,6 @@
         <div>Frequency<input type="Text" [(ngModel)]="budget.frequency"></div>
         <div>Underlying Account<input type="Text" [(ngModel)]="budget.underlyingAccount"></div>
         <div>External Reference<input type="Text" [(ngModel)]="budget.externalRef"></div>
+        <div><button type="button" class="btn btn-primary" (click)="save()">Save</button></div>
     </div>
 </div>

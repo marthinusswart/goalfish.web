@@ -37,6 +37,16 @@ var UnderlyingAccountService = (function () {
             .map(function (account) { return _this.toAccount(account); })
             .toPromise();
     };
+    UnderlyingAccountService.prototype.updateAccount = function (account) {
+        var _this = this;
+        var headers = new http_1.Headers({
+            'Content-Type': 'application/json'
+        });
+        return this._http.put(this.url + this.api + "/" + account.externalRef, JSON.stringify(account), { headers: headers })
+            .map(function (resp) { return resp.json(); })
+            .map(function (account) { return _this.toAccount(account); })
+            .toPromise();
+    };
     UnderlyingAccountService.prototype.getHero = function (id) {
         /*return Promise.resolve(HEROES).then(
           heroes => heroes.filter(hero => hero.id === id)[0]

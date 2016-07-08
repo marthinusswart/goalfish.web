@@ -33,6 +33,17 @@ export class UnderlyingAccountService {
       .toPromise();
   }
 
+  updateAccount(account: UnderlyingAccount) {
+    let headers = new Headers({
+      'Content-Type': 'application/json'
+    });
+
+    return this._http.put(this.url + this.api + "/" + account.externalRef, JSON.stringify(account), { headers: headers })
+      .map((resp: Response) => resp.json())
+      .map(account => { return this.toAccount(account); })
+      .toPromise();
+  }
+
   getHero(id: string) {
     /*return Promise.resolve(HEROES).then(
       heroes => heroes.filter(hero => hero.id === id)[0]

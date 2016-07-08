@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 import { MemberService } from './services/member/member.service';
 import { BudgetService } from './services/budget/budget.service';
@@ -13,8 +13,22 @@ import { HTTP_PROVIDERS } from '@angular/http';
     selector: "goalfish",
     templateUrl: "app/app.component.html",
     directives: [ROUTER_DIRECTIVES],
-    providers: [HTTP_PROVIDERS, MemberService, BudgetService, 
-    InitiativeService, JournalService, PostingService, TransactionService, UnderlyingAccountService]
+    providers: [HTTP_PROVIDERS, MemberService, BudgetService,
+        InitiativeService, JournalService, PostingService, TransactionService, UnderlyingAccountService]
 })
 
-export class AppComponent { }
+export class AppComponent implements OnInit {
+    activeNavigationItem: string;
+
+    ngOnInit() {
+        this.activeNavigationItem = "members";
+    }
+
+    onSelect(navigationItem: string) {
+        this.activeNavigationItem = navigationItem;
+    }
+
+    isActive(navigationItem: string) {
+        return navigationItem === this.activeNavigationItem;
+    }
+}

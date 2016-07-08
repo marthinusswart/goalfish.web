@@ -21,6 +21,15 @@ var http_1 = require('@angular/http');
 var AppComponent = (function () {
     function AppComponent() {
     }
+    AppComponent.prototype.ngOnInit = function () {
+        this.activeNavigationItem = "members";
+    };
+    AppComponent.prototype.onSelect = function (navigationItem) {
+        this.activeNavigationItem = navigationItem;
+    };
+    AppComponent.prototype.isActive = function (navigationItem) {
+        return navigationItem === this.activeNavigationItem;
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: "goalfish",

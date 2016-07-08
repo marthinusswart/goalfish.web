@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var underlyingAccount_service_1 = require('../services/underlyingaccount/underlyingAccount.service');
+var underlyingAccountDetail_component_1 = require('./underlyingAccountDetail.component');
 var UnderlyingAccountsComponent = (function () {
     function UnderlyingAccountsComponent(_router, _underlyingAccountService) {
         this._router = _router;
@@ -25,11 +26,15 @@ var UnderlyingAccountsComponent = (function () {
         var link = ['newunderlyingaccount'];
         this._router.navigate(link);
     };
+    UnderlyingAccountsComponent.prototype.onSelect = function (account) {
+        this.selectedAccount = account;
+    };
     UnderlyingAccountsComponent = __decorate([
         core_1.Component({
             selector: "underlyingaccounts",
             templateUrl: "app/underlyingaccount/underlyingaccounts.component.html",
-            styleUrls: ["app/underlyingaccount/underlyingaccounts.component.css"]
+            styleUrls: ["app/underlyingaccount/underlyingaccounts.component.css"],
+            directives: [underlyingAccountDetail_component_1.UnderlyingAccountDetail]
         }), 
         __metadata('design:paramtypes', [router_1.Router, underlyingAccount_service_1.UnderlyingAccountService])
     ], UnderlyingAccountsComponent);

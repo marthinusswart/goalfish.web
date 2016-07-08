@@ -1,0 +1,16 @@
+<div *ngIf="account">
+    <h2>{{account.name}} details!</h2>
+    <div>        
+        <div>ID<input type="Text" [(ngModel)]="account.id"></div>
+        <div>Member ID<input type="Text" [(ngModel)]="account.memberId"></div>
+        <div>Name<input type="Text" [(ngModel)]="account.name"></div>
+        <div>Description<input type="Text" [(ngModel)]="account.description"></div>
+        <div>Product Name<input type="Text" [(ngModel)]="account.productName"></div>
+        <div>Interest Rate<input type="Text" [(ngModel)]="account.interestRate"></div>
+        <div>Account Number<input type="Text" [(ngModel)]="account.accountNumber"></div>
+        <div>Holding Institution<input type="Text" [(ngModel)]="account.holdingInstitution"></div>
+        <div>Balance<input type="Text" [(ngModel)]="account.balance"></div>
+        <div>External Reference<input type="Text" [(ngModel)]="account.externalRef"></div>
+        <div><button type="button" class="btn btn-primary" (click)="save()">Save</button></div>
+    </div>
+</div>

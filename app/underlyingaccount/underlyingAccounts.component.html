@@ -1,15 +1,21 @@
 <h1>Underlying Accounts in the system</h1>
 
-<div>
-    <div>
-        <button type="button" class="btn btn-primary" (click)="gotoNewAccount()">New Underlying Account</button>
-    </div>
- <div>DESCRIPTION -> HOLDING INSTITUTION -> BALANCE</div>
-    <p></p>
-    <div *ngFor="let account of allAccounts" (click)="gotoDetail(hero)">
+<div class="row">
+    <div class="col-md-6">
         <div>
-            <p>{{account.description}} -> {{account.holdingInstitution}} -> {{account.balance}}
-            </p>
+            <button type="button" class="btn btn-primary" (click)="gotoNewAccount()">New Underlying Account</button>
         </div>
-    </div>    
+        <div>DESCRIPTION -> HOLDING INSTITUTION -> BALANCE</div>
+        <p></p>
+        <div *ngFor="let account of allAccounts" (click)="onSelect(account)">
+            <div>
+                <p>{{account.description}} -> {{account.holdingInstitution}} -> {{account.balance}}
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <account-detail [account]="selectedAccount"></account-detail>
+    </div>
+
 </div>

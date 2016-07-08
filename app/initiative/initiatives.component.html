@@ -1,16 +1,19 @@
 <h1>Initiatives in the system</h1>
-<div>
-    <div>
-        <button type="button" class="btn btn-primary" (click)="gotoNewInitiative()">New Initiative</button>
-    </div>
-    <div>NAME -> DESCRIPTION -> BALANCE -> INSTALMENT</div>
-    <p></p>
-    <div *ngFor="let initiative of allInitiatives" (click)="onSelect(initiative)">
+<div class="row">
+    <div class="col-md-6">
         <div>
-            <p>{{initiative.name}} -> {{initiative.description}} -> {{initiative.balance}} -> {{initiative.instalmentAmount}}
-            </p>
+            <button type="button" class="btn btn-primary" (click)="gotoNewInitiative()">New Initiative</button>
+        </div>
+        <div>NAME -> DESCRIPTION -> BALANCE -> INSTALMENT</div>
+        <p></p>
+        <div *ngFor="let initiative of allInitiatives" (click)="onSelect(initiative)">
+            <div>
+                <p>{{initiative.name}} -> {{initiative.description}} -> {{initiative.balance}} -> {{initiative.instalmentAmount}}
+                </p>
+            </div>
         </div>
     </div>
+    <div class="col-md-6">
+        <initiative-detail [initiative]="selectedInitiative"></initiative-detail>
+    </div>
 </div>
-
-<initiative-detail [initiative]="selectedInitiative"></initiative-detail>

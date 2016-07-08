@@ -1,7 +1,6 @@
 <div *ngIf="initiative">
     <h2>{{initiative.name}} details!</h2>
-    <div>
-        <div><button type="button" class="btn btn-primary" (click)="save()">Save</button></div>
+    <div>        
         <div>ID<input type="Text" [(ngModel)]="initiative.id"></div>
         <div>Member ID<input type="Text" [(ngModel)]="initiative.memberId"></div>
         <div>Name<input type="Text" [(ngModel)]="initiative.name"></div>
@@ -13,5 +12,6 @@
         <div>Target Balance<input type="Text" [(ngModel)]="initiative.targetBalance"></div>
         <div>Underlying Account<input type="Text" [(ngModel)]="initiative.underlyingAccount"></div>
         <div>External Reference<input type="Text" [(ngModel)]="initiative.externalRef"></div>
+        <div><button type="button" class="btn btn-primary" (click)="save()">Save</button></div>
     </div>
 </div>

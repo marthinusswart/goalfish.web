@@ -1,16 +1,19 @@
 <h1>Budgets in the system</h1>
-<div>
-    <div>
-        <button type="button" class="btn btn-primary" (click)="gotoNewBudget()">New Budget</button>
-    </div>
-   <div>NAME -> DESCRIPTION -> BALANCE -> INSTALMENT</div>
-    <p></p>
-    <div *ngFor="let budget of allBudgets" (click)="onSelect(budget)">
+<div class="row">
+    <div class="col-md-6">
         <div>
-            <p>{{budget.name}} -> {{budget.description}} -> {{budget.balance}} -> {{budget.instalmentAmount}}
-            </p>
+            <button type="button" class="btn btn-primary" (click)="gotoNewBudget()">New Budget</button>
         </div>
-    </div>    
+        <div>NAME -> DESCRIPTION -> BALANCE -> INSTALMENT</div>
+        <p></p>
+        <div *ngFor="let budget of allBudgets" (click)="onSelect(budget)">
+            <div>
+                <p>{{budget.name}} -> {{budget.description}} -> {{budget.balance}} -> {{budget.instalmentAmount}}
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <budget-detail [budget]="selectedBudget"></budget-detail>
+    </div>
 </div>
-
-<budget-detail [budget]="selectedBudget"></budget-detail>
