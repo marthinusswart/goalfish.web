@@ -1,14 +1,43 @@
 <h1>Journals in the system</h1>
-<div>
-    <div>
-        <button type="button" class="btn btn-primary" (click)="gotoNewJournal()">New Journal</button>
-    </div>
-    <div>ID -> IS POSTED -> AMOUNT -> NAME -> DESCRIPTION</div>
-    <p></p>
-    <div *ngFor="let journal of allJournals" (click)="gotoDetail(hero)">
+<div class="row">
+    <div class="col-md-6">
         <div>
-            <p>{{journal.id}} -> {{journal.isPosted}} -> {{journal.amount}} -> {{journal.name}} -> {{journal.description}}
-            </p>
+            <button type="button" class="btn btn-primary" (click)="gotoNewJournal()">New Journal</button>
         </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Journals</h3>
+            </div>
+            <div class="panel-body">
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Amount</th>
+                            <th>Is Posted</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let journal of allJournals">
+                            <td>{{journal.id}}</td>
+                            <td>{{journal.name}}</td>
+                            <td>{{journal.description}}</td>
+                            <td>{{journal.amount}} </td>
+                            <td>{{journal.isPosted}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
     </div>
 </div>

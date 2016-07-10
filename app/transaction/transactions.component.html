@@ -1,15 +1,47 @@
 <h1>Transactions in the system</h1>
 
-<div>
-    <div>
-        <button type="button" class="btn btn-primary" (click)="gotoNewTransaction()">New Transaction</button>
-    </div>
- <div>ID -> IS POSTED -> DESCRIPTION -> CLASSIFICATION -> AMOUNT</div>
-    <p></p>
-    <div *ngFor="let transaction of allTransactions" (click)="gotoDetail(hero)">
+<div class="row">
+    <div class="col-md-6">
         <div>
-            <p>{{transaction.id}} -> {{transaction.isPosted}} -> {{transaction.description}} -> {{transaction.classification}} -> {{transaction.amount}}
-            </p>
+            <button type="button" class="btn btn-primary" (click)="gotoNewTransaction()">New Transaction</button>
         </div>
-    </div>    
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Transactios</h3>
+            </div>
+            <div class="panel-body">
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Description</th>
+                            <th>Classification</th>
+                            <th>Amount</th>
+                            <th>Is Posted</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let transaction of allTransactions">
+                            <td>{{transaction.id}}</td>
+                            <td>{{transaction.description}}</td>
+                            <td>{{transaction.classification}} </td>
+                            <td>{{transaction.amount}}</td>
+                            <td>{{transaction.isPosted}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+
+
+    </div>
 </div>

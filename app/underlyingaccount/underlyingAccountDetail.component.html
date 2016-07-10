@@ -1,16 +1,59 @@
-<div *ngIf="account">
-    <h2>{{account.name}} details!</h2>
-    <div>        
-        <div>ID<input type="Text" [(ngModel)]="account.id"></div>
-        <div>Member ID<input type="Text" [(ngModel)]="account.memberId"></div>
-        <div>Name<input type="Text" [(ngModel)]="account.name"></div>
-        <div>Description<input type="Text" [(ngModel)]="account.description"></div>
-        <div>Product Name<input type="Text" [(ngModel)]="account.productName"></div>
-        <div>Interest Rate<input type="Text" [(ngModel)]="account.interestRate"></div>
-        <div>Account Number<input type="Text" [(ngModel)]="account.accountNumber"></div>
-        <div>Holding Institution<input type="Text" [(ngModel)]="account.holdingInstitution"></div>
-        <div>Balance<input type="Text" [(ngModel)]="account.balance"></div>
-        <div>External Reference<input type="Text" [(ngModel)]="account.externalRef"></div>
-        <div><button type="button" class="btn btn-primary" (click)="save()">Save</button></div>
+<div class="panel panel-default" *ngIf="account">
+    <div class="panel-heading">
+        <h3 class="panel-title">{{account.name}} details!</h3>
+    </div>
+
+    <div class="panel-body">
+
+
+        <div class="row">
+            <div class="col-md-4">Name</div>
+            <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="account.name"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">Description</div>
+            <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="account.description"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">Product Name</div>
+            <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="account.productName"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">Interest Rate</div>
+            <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="account.interestRate"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">Account Number</div>
+            <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="account.accountNumber"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">Holding Institution</div>
+            <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="account.holdingInstitution"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">Balance</div>
+            <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="account.balance"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">ID</div>
+            <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="account.id" disabled></div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">Member ID</div>
+            <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="account.memberId" disabled></div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">External Reference</div>
+            <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="account.externalRef" disabled></div>
+        </div>
+        <div>
+            <button type="button" class="btn btn-primary" (click)="save()">Save</button>
+        </div>
+        <div class="alert alert-success" role="alert" *ngIf="saveWasSuccessful">
+            <strong>Account saved!</strong> Account detail was successfully saved.
+        </div>
+        <div class="alert alert-danger" role="alert" *ngIf="saveWasInsuccessful">
+            <strong>Account error!</strong> Error saving account detail.
+        </div>
     </div>
 </div>

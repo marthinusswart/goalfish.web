@@ -1,15 +1,43 @@
 <h1>Postings in the system</h1>
 
-<div>
-    <div>
-        <button type="button" class="btn btn-primary" (click)="gotoNewPosting()">New Posting</button>
-    </div>
-    <div>ID -> DESCRIPTION -> TYPE -> AMOUNT</div>
-    <p></p>
-    <div *ngFor="let posting of allPostings" (click)="gotoDetail(hero)">
+<div class="row">
+    <div class="col-md-6">
         <div>
-            <p>{{posting.id}} -> {{posting.description}} -> {{posting.type}} -> {{posting.amount}}
-            </p>
+            <button type="button" class="btn btn-primary" (click)="gotoNewPosting()">New Posting</button>
         </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Postings</h3>
+            </div>
+            <div class="panel-body">
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Description</th>
+                            <th>Type</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let posting of allPostings">
+                            <td>{{posting.id}}</td>
+                            <td>{{posting.description}}</td>
+                            <td>{{posting.type}} </td>
+                            <td>{{posting.amount}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
     </div>
 </div>

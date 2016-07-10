@@ -10,25 +10,37 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
+require('rxjs/add/operator/map');
 var underlyingAccount_service_1 = require('../services/underlyingaccount/underlyingAccount.service');
-var underlyingAccount_1 = require('../models/underlyingaccount/underlyingAccount');
 var UnderlyingAccountDetail = (function () {
     function UnderlyingAccountDetail(_router, _underlyingAccountService) {
         this._router = _router;
         this._underlyingAccountService = _underlyingAccountService;
+        this.saveWasSuccessful = false;
+        this.saveWasUnsuccessful = false;
     }
+    Object.defineProperty(UnderlyingAccountDetail.prototype, "account", {
+        get: function () {
+            return this._account;
+        },
+        set: function (account) {
+            this._account = account;
+            this.saveWasSuccessful = false;
+            this.saveWasUnsuccessful = false;
+        },
+        enumerable: true,
+        configurable: true
+    });
     UnderlyingAccountDetail.prototype.save = function () {
-        this._underlyingAccountService.updateAccount(this.account).then(function (account) { return alert("Account _id is: " + account.externalRef); });
+        var _this = this;
+        this._underlyingAccountService.updateAccount(this.account).then(function (account) { return _this.saveWasSuccessful = true; });
     };
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', underlyingAccount_1.UnderlyingAccount)
-    ], UnderlyingAccountDetail.prototype, "account", void 0);
     UnderlyingAccountDetail = __decorate([
         core_1.Component({
             selector: "account-detail",
             templateUrl: "app/underlyingaccount/underlyingAccountDetail.component.html",
-            styleUrls: ["app/underlyingaccount/underlyingAccountDetail.component.css"]
+            styleUrls: ["app/underlyingaccount/underlyingAccountDetail.component.css"],
+            inputs: ["account"]
         }), 
         __metadata('design:paramtypes', [router_1.Router, underlyingAccount_service_1.UnderlyingAccountService])
     ], UnderlyingAccountDetail);
