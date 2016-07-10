@@ -43,5 +43,11 @@
         <div>
             <button type="button" class="btn btn-primary" (click)="save()">Save</button>
         </div>
+         <div class="alert alert-success" role="alert" *ngIf="saveWasSuccessful">
+            <strong>Budget saved!</strong> Budget detail was successfully saved.
+        </div>
+        <div class="alert alert-danger" role="alert" *ngIf="saveWasInsuccessful">
+            <strong>Budget error!</strong> Error saving budget detail.
+        </div>
     </div>
 </div>

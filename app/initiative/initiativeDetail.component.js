@@ -11,24 +11,35 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var initiative_service_1 = require('../services/initiative/initiative.service');
-var initiative_1 = require('../models/initiative/initiative');
 var InitiativeDetailComponent = (function () {
     function InitiativeDetailComponent(_router, _initiativeService) {
         this._router = _router;
         this._initiativeService = _initiativeService;
+        this.saveWasSuccessful = false;
+        this.saveWasUnsuccessful = false;
     }
+    Object.defineProperty(InitiativeDetailComponent.prototype, "initiative", {
+        get: function () {
+            return this._initiative;
+        },
+        set: function (initiative) {
+            this._initiative = initiative;
+            this.saveWasSuccessful = false;
+            this.saveWasUnsuccessful = false;
+        },
+        enumerable: true,
+        configurable: true
+    });
     InitiativeDetailComponent.prototype.save = function () {
-        this._initiativeService.updateInitiative(this.initiative).then(function (initiative) { return alert("Initiative _id is: " + initiative.externalRef); });
+        var _this = this;
+        this._initiativeService.updateInitiative(this.initiative).then(function (initiative) { return _this.saveWasSuccessful = true; });
     };
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', initiative_1.Initiative)
-    ], InitiativeDetailComponent.prototype, "initiative", void 0);
     InitiativeDetailComponent = __decorate([
         core_1.Component({
             selector: "initiative-detail",
             templateUrl: "app/initiative/initiativeDetail.component.html",
-            styleUrls: ["app/initiative/initiativeDetail.component.css"]
+            styleUrls: ["app/initiative/initiativeDetail.component.css"],
+            inputs: ["initiative"]
         }), 
         __metadata('design:paramtypes', [router_1.Router, initiative_service_1.InitiativeService])
     ], InitiativeDetailComponent);

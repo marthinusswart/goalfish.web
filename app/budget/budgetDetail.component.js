@@ -11,24 +11,35 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var budget_service_1 = require('../services/budget/budget.service');
-var budget_1 = require('../models/budget/budget');
 var BudgetDetailComponent = (function () {
     function BudgetDetailComponent(_router, _budgetService) {
         this._router = _router;
         this._budgetService = _budgetService;
+        this.saveWasSuccessful = false;
+        this.saveWasUnsuccessful = false;
     }
+    Object.defineProperty(BudgetDetailComponent.prototype, "budget", {
+        get: function () {
+            return this._budget;
+        },
+        set: function (budget) {
+            this._budget = budget;
+            this.saveWasSuccessful = false;
+            this.saveWasUnsuccessful = false;
+        },
+        enumerable: true,
+        configurable: true
+    });
     BudgetDetailComponent.prototype.save = function () {
-        this._budgetService.updateBudget(this.budget).then(function (budget) { return alert("Budget _id is: " + budget.externalRef); });
+        var _this = this;
+        this._budgetService.updateBudget(this.budget).then(function (budget) { return _this.saveWasSuccessful = true; });
     };
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', budget_1.Budget)
-    ], BudgetDetailComponent.prototype, "budget", void 0);
     BudgetDetailComponent = __decorate([
         core_1.Component({
             selector: "budget-detail",
             templateUrl: "app/budget/budgetDetail.component.html",
-            styleUrls: ["app/budget/budgetDetail.component.css"]
+            styleUrls: ["app/budget/budgetDetail.component.css"],
+            inputs: ["budget"]
         }), 
         __metadata('design:paramtypes', [router_1.Router, budget_service_1.BudgetService])
     ], BudgetDetailComponent);

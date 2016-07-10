@@ -51,5 +51,11 @@
         <div>
             <button type="button" class="btn btn-primary" (click)="save()">Save</button>
         </div>
+         <div class="alert alert-success" role="alert" *ngIf="saveWasSuccessful">
+            <strong>Inititiative saved!</strong> Initiative detail was successfully saved.
+        </div>
+        <div class="alert alert-danger" role="alert" *ngIf="saveWasInsuccessful">
+            <strong>Initiative error!</strong> Error saving initiative detail.
+        </div>
     </div>
 </div>
