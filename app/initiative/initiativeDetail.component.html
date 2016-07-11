@@ -3,51 +3,52 @@
         <h3 class="panel-title">{{initiative.name}} details!</h3>
     </div>
     <div class="panel-body">
-        
-        <div class="row">
+     <form role="form" class="form-horizontal">
+        <div class="row form-group">
             <div class="col-md-4">Name</div>
             <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="initiative.name"></div>
         </div>
-        <div class="row">
+        <div class="row form-group">
             <div class="col-md-4">Description</div>
             <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="initiative.description"></div>
         </div>
-        <div class="row">
+        <div class="row form-group">
             <div class="col-md-4">Balance</div>
             <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="initiative.balance"></div>
         </div>
-        <div class="row">
+        <div class="row form-group">
             <div class="col-md-4">Instalment Amount</div>
             <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="initiative.instalmentAmount"></div>
         </div>
-        <div class="row">
+        <div class="row form-group">
             <div class="col-md-4">Frequency</div>
             <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="initiative.frequency"></div>
         </div>
-        <div class="row">
+        <div class="row form-group">
             <div class="col-md-4">Target Date</div>
             <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="initiative.targetDate"></div>
         </div>
-        <div class="row">
+        <div class="row form-group">
             <div class="col-md-4">Target Balance</div>
             <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="initiative.targetBalance"></div>
         </div>
-        <div class="row">
+        <div class="row form-group">
             <div class="col-md-4">ID</div>
             <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="initiative.id" disabled></div>
         </div>
-        <div class="row">
+        <div class="row form-group">
             <div class="col-md-4">Member ID</div>
             <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="initiative.memberId" disabled></div>
         </div>
-        <div class="row">
+        <div class="row form-group">
             <div class="col-md-4">Underlying Account</div>
             <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="initiative.underlyingAccount" disabled></div>
         </div>
-        <div class="row">
+        <div class="row form-group">
             <div class="col-md-4">External Reference</div>
             <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="initiative.externalRef" disabled></div>
         </div>
+         </form>
         <div>
             <button type="button" class="btn btn-primary" (click)="save()">Save</button>
         </div>

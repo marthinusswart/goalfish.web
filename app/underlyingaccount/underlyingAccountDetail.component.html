@@ -5,47 +5,48 @@
 
     <div class="panel-body">
 
-
-        <div class="row">
-            <div class="col-md-4">Name</div>
-            <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="account.name"></div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">Description</div>
-            <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="account.description"></div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">Product Name</div>
-            <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="account.productName"></div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">Interest Rate</div>
-            <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="account.interestRate"></div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">Account Number</div>
-            <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="account.accountNumber"></div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">Holding Institution</div>
-            <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="account.holdingInstitution"></div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">Balance</div>
-            <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="account.balance"></div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">ID</div>
-            <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="account.id" disabled></div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">Member ID</div>
-            <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="account.memberId" disabled></div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">External Reference</div>
-            <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="account.externalRef" disabled></div>
-        </div>
+        <form role="form" class="form-horizontal">
+            <div class="row form-group">
+                <div class="col-md-4">Name</div>
+                <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="account.name"></div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-4">Description</div>
+                <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="account.description"></div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-4">Product Name</div>
+                <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="account.productName"></div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-4">Interest Rate</div>
+                <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="account.interestRate"></div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-4">Account Number</div>
+                <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="account.accountNumber"></div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-4">Holding Institution</div>
+                <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="account.holdingInstitution"></div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-4">Balance</div>
+                <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="account.balance"></div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-4">ID</div>
+                <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="account.id" disabled></div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-4">Member ID</div>
+                <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="account.memberId" disabled></div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-4">External Reference</div>
+                <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="account.externalRef" disabled></div>
+            </div>
+        </form>
         <div>
             <button type="button" class="btn btn-primary" (click)="save()">Save</button>
         </div>
