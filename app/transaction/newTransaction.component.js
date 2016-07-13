@@ -12,16 +12,31 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var transaction_service_1 = require('../services/transaction/transaction.service');
 var transaction_1 = require('../models/transaction/transaction');
+var key_service_1 = require('../services/key/key.service');
 var NewTransactionComponent = (function () {
-    function NewTransactionComponent(_router, _transactionService) {
+    function NewTransactionComponent(_router, _transactionService, _keyService) {
         this._router = _router;
         this._transactionService = _transactionService;
+        this._keyService = _keyService;
+        this.saveWasSuccessful = false;
+        this.saveWasUnsuccessful = false;
         this.transaction = new transaction_1.Transaction();
     }
     NewTransactionComponent.prototype.ngOnInit = function () {
+        this.initTransaction();
     };
     NewTransactionComponent.prototype.save = function () {
-        this._transactionService.addTransaction(this.transaction).then(function (transaction) { return alert("Transaction _id is: " + transaction.externalRef); });
+        var _this = this;
+        this._transactionService.addTransaction(this.transaction).then(function (transaction) {
+            _this.saveWasSuccessful = true;
+            _this.initTransaction();
+        });
+    };
+    NewTransactionComponent.prototype.initTransaction = function () {
+        var _this = this;
+        this._keyService.getNextKeyByName("transaction").then(function (key) { _this.transaction.id = _this.transaction.createIdFromKey(key.key); });
+        this.transaction.amount = 0;
+        this.transaction.description = "";
     };
     NewTransactionComponent = __decorate([
         core_1.Component({
@@ -29,7 +44,7 @@ var NewTransactionComponent = (function () {
             templateUrl: "app/transaction/newTransaction.component.html",
             styleUrls: ["app/transaction/newTransaction.component.css"]
         }), 
-        __metadata('design:paramtypes', [router_1.Router, transaction_service_1.TransactionService])
+        __metadata('design:paramtypes', [router_1.Router, transaction_service_1.TransactionService, key_service_1.KeyService])
     ], NewTransactionComponent);
     return NewTransactionComponent;
 }());

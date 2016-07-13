@@ -1,11 +1,48 @@
-<h1>Add new Transaction</h1>
-<div>
-    <div><button type="button" class="btn btn-primary" (click)="save()">Save</button></div>
-    <div>ID<input type="Text" [(ngModel)]="transaction.id"></div>    
-    <div>Classification<input type="Text" [(ngModel)]="transaction.classification"></div>
-    <div>Description<input type="Text" [(ngModel)]="transaction.description"></div>
-    <div>Underlying Account<input type="Text" [(ngModel)]="transaction.underlyingAccount"></div>
-    <div>Amount<input type="Text" [(ngModel)]="transaction.amount"></div>
-    <div>Date<input type="Text" [(ngModel)]="transaction.date"></div>
-    <div>Reference ID<input type="Text" [(ngModel)]="transaction.referenceId"></div>    
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Add new Transaction</h3>
+            </div>
+            <div class="panel-body">
+                <form role="form" class="form-horizontal">
+                    <div class="row form-group">
+                        <div class="col-md-3">ID</div>
+                        <div class="col-md-9"><input class="form-control" type="Text" [(ngModel)]="transaction.id"></div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-3">Classification</div>
+                        <div class="col-md-9"><input class="form-control" type="Text" [(ngModel)]="transaction.classification"></div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-3">Description</div>
+                        <div class="col-md-9"><input class="form-control" type="Text" [(ngModel)]="transaction.description"></div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-3">Underlying Account</div>
+                        <div class="col-md-9"><input class="form-control" type="Text" [(ngModel)]="transaction.underlyingAccount"></div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-3">Amount</div>
+                        <div class="col-md-9"><input class="form-control" type="Text" [(ngModel)]="transaction.amount"></div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-3">Date</div>
+                        <div class="col-md-9"><input class="form-control" type="Text" [(ngModel)]="transaction.date"></div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-3">Reference ID</div>
+                        <div class="col-md-9"><input class="form-control" type="Text" [(ngModel)]="transaction.referenceId"></div>
+                    </div>
+                </form>
+                <div><button type="button" class="btn btn-primary" (click)="save()">Save</button></div>
+                <div class="alert alert-success" role="alert" *ngIf="saveWasSuccessful">
+                    <strong>Transaction saved!</strong> Transaction detail was successfully saved.
+                </div>
+                <div class="alert alert-danger" role="alert" *ngIf="saveWasInsuccessful">
+                    <strong>Transaction error!</strong> Error saving transaction detail.
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

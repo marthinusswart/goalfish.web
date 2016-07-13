@@ -20,6 +20,7 @@
                     <thead>
                         <tr>
                             <th>ID</th>
+                            <th>Account</th>
                             <th>Name</th>
                             <th>Description</th>
                             <th>Balance</th>
@@ -29,6 +30,7 @@
                     <tbody>
                         <tr *ngFor="let initiative of allInitiatives" (click)="onSelect(initiative)">
                             <td>{{initiative.id}}</td>
+                            <td>{{initiative.underlyingAccount}}</td>
                             <td>{{initiative.name}}</td>
                             <td>{{initiative.description}}</td>
                             <td>{{initiative.balance}} </td>

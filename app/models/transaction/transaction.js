@@ -23,6 +23,13 @@ var Transaction = (function () {
         this.isPosted = transaction.isPosted;
         return this;
     };
+    Transaction.prototype.createIdFromKey = function (key) {
+        var keyStr = "TRN" + key;
+        if (key < 1000) {
+            keyStr = "TRN" + ("0000" + key).slice(-4);
+        }
+        return keyStr;
+    };
     return Transaction;
 }());
 exports.Transaction = Transaction;
