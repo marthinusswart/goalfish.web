@@ -6,6 +6,7 @@ import { JournalService } from './services/journal/journal.service';
 import { PostingService } from './services/posting/posting.service';
 import { InitiativeService } from './services/initiative/initiative.service';
 import { TransactionService } from './services/transaction/transaction.service';
+import { KeyService } from './services/key/key.service';
 import { UnderlyingAccountService } from './services/underlyingaccount/underlyingAccount.service';
 import { HTTP_PROVIDERS } from '@angular/http';
 
@@ -14,7 +15,8 @@ import { HTTP_PROVIDERS } from '@angular/http';
     templateUrl: "app/app.component.html",
     directives: [ROUTER_DIRECTIVES],
     providers: [HTTP_PROVIDERS, MemberService, BudgetService,
-        InitiativeService, JournalService, PostingService, TransactionService, UnderlyingAccountService]
+        InitiativeService, JournalService, PostingService, 
+        TransactionService, UnderlyingAccountService, KeyService]
 })
 
 export class AppComponent implements OnInit {

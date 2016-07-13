@@ -12,16 +12,32 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var journal_service_1 = require('../services/journal/journal.service');
 var journal_1 = require('../models/journal/journal');
+var key_service_1 = require('../services/key/key.service');
 var NewJournalComponent = (function () {
-    function NewJournalComponent(_router, _journalService) {
+    function NewJournalComponent(_router, _journalService, _keyService) {
         this._router = _router;
         this._journalService = _journalService;
+        this._keyService = _keyService;
+        this.saveWasSuccessful = false;
+        this.saveWasUnsuccessful = false;
         this.journal = new journal_1.Journal();
     }
     NewJournalComponent.prototype.ngOnInit = function () {
+        this.initJournal();
     };
     NewJournalComponent.prototype.save = function () {
-        this._journalService.addJournal(this.journal).then(function (journal) { return alert("Journal _id is: " + journal.externalRef); });
+        var _this = this;
+        this._journalService.addJournal(this.journal).then(function (journal) {
+            _this.saveWasSuccessful = true;
+            _this.initJournal();
+        });
+    };
+    NewJournalComponent.prototype.initJournal = function () {
+        var _this = this;
+        this._keyService.getNextKeyByName("journal").then(function (key) { _this.journal.id = _this.journal.createIdFromKey(key.key); });
+        this.journal.amount = 0;
+        this.journal.description = "";
+        this.journal.name = "";
     };
     NewJournalComponent = __decorate([
         core_1.Component({
@@ -29,7 +45,7 @@ var NewJournalComponent = (function () {
             templateUrl: "app/journal/newJournal.component.html",
             styleUrls: ["app/journal/newJournal.component.css"]
         }), 
-        __metadata('design:paramtypes', [router_1.Router, journal_service_1.JournalService])
+        __metadata('design:paramtypes', [router_1.Router, journal_service_1.JournalService, key_service_1.KeyService])
     ], NewJournalComponent);
     return NewJournalComponent;
 }());

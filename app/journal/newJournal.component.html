@@ -1,10 +1,44 @@
-<h1>Add new Journal</h1>
-<div>
-    <div><button type="button" class="btn btn-primary" (click)="save()">Save</button></div>
-    <div>ID<input type="Text" [(ngModel)]="journal.id"></div>    
-    <div>Name<input type="Text" [(ngModel)]="journal.name"></div>
-    <div>Description<input type="Text" [(ngModel)]="journal.description"></div>
-    <div>Account Number<input type="Text" [(ngModel)]="journal.accountNumber"></div>
-    <div>Amount<input type="Text" [(ngModel)]="journal.amount"></div>
-    <div>Date<input type="Text" [(ngModel)]="journal.date"></div>    
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Add new Journal</h3>
+            </div>
+            <div class="panel-body">
+                <form role="form" class="form-horizontal">
+                    <div class="row form-group">
+                        <div class="col-md-3">ID</div>
+                        <div class="col-md-9"><input class="form-control" type="Text" [(ngModel)]="journal.id"></div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-3">Name</div>
+                        <div class="col-md-9"><input class="form-control" type="Text" [(ngModel)]="journal.name"></div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-3">Description</div>
+                        <div class="col-md-9"><input class="form-control" type="Text" [(ngModel)]="journal.description"></div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-3">Account Number</div>
+                        <div class="col-md-9"><input class="form-control" type="Text" [(ngModel)]="journal.accountNumber"></div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-3">Amount</div>
+                        <div class="col-md-9"><input class="form-control" type="Text" [(ngModel)]="journal.amount"></div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-3">Date</div>
+                        <div class="col-md-9"><input class="form-control" type="Text" [(ngModel)]="journal.date"></div>
+                    </div>
+                </form>
+                <div><button type="button" class="btn btn-primary" (click)="save()">Save</button></div>
+                <div class="alert alert-success" role="alert" *ngIf="saveWasSuccessful">
+                    <strong>Journal saved!</strong> Journal detail was successfully saved.
+                </div>
+                <div class="alert alert-danger" role="alert" *ngIf="saveWasInsuccessful">
+                    <strong>Journal error!</strong> Error saving journal detail.
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

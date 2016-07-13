@@ -21,6 +21,13 @@ var Journal = (function () {
         this.isPosted = journal.isPosted;
         return this;
     };
+    Journal.prototype.createIdFromKey = function (key) {
+        var keyStr = "JNL" + key;
+        if (key < 1000) {
+            keyStr = "JNL" + ("0000" + key).slice(-4);
+        }
+        return keyStr;
+    };
     return Journal;
 }());
 exports.Journal = Journal;
