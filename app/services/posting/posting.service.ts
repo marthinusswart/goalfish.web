@@ -4,19 +4,22 @@ import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Rx';
-import { Posting } from '../../models/posting/posting'
+import { Posting } from '../../models/posting/posting';
+import { MemberService } from '../member/member.service';
 
 @Injectable()
 export class PostingService {
   url = "http://localhost:3010";
   api = "/api/v1/posting"
 
-  constructor(private _http: Http) {
-
-  }
+  constructor(private _http: Http, private _memberService: MemberService) { }
 
   getPostings() {
-    return this._http.get(this.url + this.api)
+    let headers = new Headers({
+      'x-access-token': this._memberService.activeMember.id
+    });
+
+    return this._http.get(this.url + this.api, { headers: headers })
       .map((resp: Response) => resp.json())
       .map(postings => { return this.toPostingArray(postings); })
       .toPromise();

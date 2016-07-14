@@ -14,16 +14,18 @@ require('rxjs/add/operator/toPromise');
 require('rxjs/add/operator/map');
 require('rxjs/add/operator/catch');
 var budget_1 = require('../../models/budget/budget');
+var member_service_1 = require('../member/member.service');
 var BudgetService = (function () {
-    function BudgetService(_http) {
+    function BudgetService(_http, _memberService) {
         this._http = _http;
+        this._memberService = _memberService;
         this.url = "http://localhost:3010";
         this.api = "/api/v1/budget";
     }
     BudgetService.prototype.getBudgets = function () {
         var _this = this;
         var headers = new http_1.Headers({
-            'x-access-token': 'MEM0001'
+            'x-access-token': this._memberService.activeMember.id
         });
         return this._http.get(this.url + this.api, { headers: headers })
             .map(function (resp) { return resp.json(); })
@@ -67,7 +69,7 @@ var BudgetService = (function () {
     };
     BudgetService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [http_1.Http])
+        __metadata('design:paramtypes', [http_1.Http, member_service_1.MemberService])
     ], BudgetService);
     return BudgetService;
 }());

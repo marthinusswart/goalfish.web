@@ -13,14 +13,23 @@ var http_1 = require('@angular/http');
 require('rxjs/add/operator/toPromise');
 require('rxjs/add/operator/map');
 require('rxjs/add/operator/catch');
+var Rx_1 = require('rxjs/Rx');
 var member_1 = require('../../models/member/member');
 //import { Hero } from './hero';
 //import { HEROES } from './mock-heroes';
 var MemberService = (function () {
     function MemberService(_http) {
+        var _this = this;
         this._http = _http;
         this.url = "http://localhost:3010";
         this.api = "/api/v1/member";
+        this.activeMemberSubject = new Rx_1.BehaviorSubject(null);
+        var member = new member_1.Member();
+        member.name = "anonymous";
+        this.activeMemberSubject.next(member);
+        this.activeMemberSubject.subscribe(function (member) {
+            _this.activeMember = member;
+        });
     }
     MemberService.prototype.getMembers = function () {
         var _this = this;
@@ -29,14 +38,9 @@ var MemberService = (function () {
             .map(function (members) { return _this.toMemberArray(members); })
             .toPromise();
     };
-    MemberService.prototype.getHero = function (id) {
-        /*return Promise.resolve(HEROES).then(
-          heroes => heroes.filter(hero => hero.id === id)[0]
-        );*/
-    };
     MemberService.prototype.toMemberArray = function (members) {
         var membersArray = [];
-        membersArray = members.map(function (member) { return new member_1.Member(member); });
+        membersArray = members.map(function (member) { return new member_1.Member().init(member); });
         return membersArray;
     };
     MemberService = __decorate([

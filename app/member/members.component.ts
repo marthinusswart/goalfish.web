@@ -18,4 +18,8 @@ export class MembersComponent implements OnInit {
     this._memberService.getMembers().then(members => this.allMembers = members);
   }
 
+  onSelect(member: Member){
+    this._memberService.activeMemberSubject.next(member);
+  }
+
 }

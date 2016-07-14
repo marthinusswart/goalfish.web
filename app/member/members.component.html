@@ -19,7 +19,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let member of allMembers">
+                        <tr *ngFor="let member of allMembers" (click)="onSelect(member)">
                             <td>{{member.id}}</td>
                             <td>{{member.name}}</td>
                             <td>{{member.surname}} </td>

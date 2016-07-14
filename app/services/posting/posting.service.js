@@ -14,15 +14,20 @@ require('rxjs/add/operator/toPromise');
 require('rxjs/add/operator/map');
 require('rxjs/add/operator/catch');
 var posting_1 = require('../../models/posting/posting');
+var member_service_1 = require('../member/member.service');
 var PostingService = (function () {
-    function PostingService(_http) {
+    function PostingService(_http, _memberService) {
         this._http = _http;
+        this._memberService = _memberService;
         this.url = "http://localhost:3010";
         this.api = "/api/v1/posting";
     }
     PostingService.prototype.getPostings = function () {
         var _this = this;
-        return this._http.get(this.url + this.api)
+        var headers = new http_1.Headers({
+            'x-access-token': this._memberService.activeMember.id
+        });
+        return this._http.get(this.url + this.api, { headers: headers })
             .map(function (resp) { return resp.json(); })
             .map(function (postings) { return _this.toPostingArray(postings); })
             .toPromise();
@@ -54,7 +59,7 @@ var PostingService = (function () {
     };
     PostingService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [http_1.Http])
+        __metadata('design:paramtypes', [http_1.Http, member_service_1.MemberService])
     ], PostingService);
     return PostingService;
 }());

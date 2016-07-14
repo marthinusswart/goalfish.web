@@ -18,13 +18,21 @@ var initiative_service_1 = require('./services/initiative/initiative.service');
 var transaction_service_1 = require('./services/transaction/transaction.service');
 var key_service_1 = require('./services/key/key.service');
 var underlyingAccount_service_1 = require('./services/underlyingaccount/underlyingAccount.service');
+var member_1 = require('./models/member/member');
 var http_1 = require('@angular/http');
 var ng2_dropdown_1 = require('ng2-dropdown');
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(_memberService) {
+        this._memberService = _memberService;
     }
     AppComponent.prototype.ngOnInit = function () {
+        var _this = this;
         this.activeNavigationItem = "members";
+        this.activeMember = new member_1.Member();
+        this.activeMember.name = "anonymous";
+        this._memberService.activeMemberSubject.subscribe(function (member) {
+            _this.activeMember = member;
+        });
     };
     AppComponent.prototype.onSelect = function (navigationItem) {
         this.activeNavigationItem = navigationItem;
@@ -41,7 +49,7 @@ var AppComponent = (function () {
                 initiative_service_1.InitiativeService, journal_service_1.JournalService, posting_service_1.PostingService,
                 transaction_service_1.TransactionService, underlyingAccount_service_1.UnderlyingAccountService, key_service_1.KeyService]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [member_service_1.MemberService])
     ], AppComponent);
     return AppComponent;
 }());

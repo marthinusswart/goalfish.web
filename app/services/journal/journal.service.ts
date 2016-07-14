@@ -4,23 +4,22 @@ import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Rx';
-import { Journal } from '../../models/journal/journal'
+import { Journal } from '../../models/journal/journal';
+import { MemberService } from '../member/member.service';
 
 @Injectable()
 export class JournalService {
   url = "http://localhost:3010";
   api = "/api/v1/journal"
 
-  constructor(private _http: Http) {
-
-  }
+  constructor(private _http: Http, private _memberService: MemberService) { }
 
   getJournals() {
-     let headers = new Headers({
-      'x-access-token': 'MEM0001'
+    let headers = new Headers({
+      'x-access-token': this._memberService.activeMember.id
     });
 
-    return this._http.get(this.url + this.api, { headers:headers })
+    return this._http.get(this.url + this.api, { headers: headers })
       .map((resp: Response) => resp.json())
       .map(journals => { return this.toJournalArray(journals); })
       .toPromise();

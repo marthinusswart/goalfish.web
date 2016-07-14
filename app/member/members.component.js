@@ -21,6 +21,9 @@ var MembersComponent = (function () {
         var _this = this;
         this._memberService.getMembers().then(function (members) { return _this.allMembers = members; });
     };
+    MembersComponent.prototype.onSelect = function (member) {
+        this._memberService.activeMemberSubject.next(member);
+    };
     MembersComponent = __decorate([
         core_1.Component({
             selector: "members",

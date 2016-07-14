@@ -8,6 +8,7 @@ import { InitiativeService } from './services/initiative/initiative.service';
 import { TransactionService } from './services/transaction/transaction.service';
 import { KeyService } from './services/key/key.service';
 import { UnderlyingAccountService } from './services/underlyingaccount/underlyingAccount.service';
+import { Member } from './models/member/member';
 import { HTTP_PROVIDERS } from '@angular/http';
 import { DROPDOWN_DIRECTIVES } from 'ng2-dropdown';
 
@@ -16,15 +17,24 @@ import { DROPDOWN_DIRECTIVES } from 'ng2-dropdown';
     templateUrl: "app/app.component.html",
     directives: [ROUTER_DIRECTIVES, DROPDOWN_DIRECTIVES],
     providers: [HTTP_PROVIDERS, MemberService, BudgetService,
-        InitiativeService, JournalService, PostingService, 
+        InitiativeService, JournalService, PostingService,
         TransactionService, UnderlyingAccountService, KeyService]
 })
 
 export class AppComponent implements OnInit {
     activeNavigationItem: string;
+    activeMember: Member;
+
+    constructor(private _memberService: MemberService) { }
 
     ngOnInit() {
         this.activeNavigationItem = "members";
+        this.activeMember = new Member();
+        this.activeMember.name = "anonymous";
+        this._memberService.activeMemberSubject.subscribe((member: Member) => {
+            this.activeMember = member;
+        });
+
     }
 
     onSelect(navigationItem: string) {
