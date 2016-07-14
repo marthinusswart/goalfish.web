@@ -16,7 +16,11 @@ export class InitiativeService {
   }
 
   getInitiatives() {
-    return this._http.get(this.url + this.api)
+    let headers = new Headers({
+      'x-access-token': 'MEM0001'
+    });
+
+    return this._http.get(this.url + this.api, { headers: headers })
       .map((resp: Response) => resp.json())
       .map(initiatives => { return this.toInitiativeArray(initiatives); })
       .toPromise();

@@ -22,7 +22,10 @@ var UnderlyingAccountService = (function () {
     }
     UnderlyingAccountService.prototype.getAccounts = function () {
         var _this = this;
-        return this._http.get(this.url + this.api)
+        var headers = new http_1.Headers({
+            'x-access-token': 'MEM0001'
+        });
+        return this._http.get(this.url + this.api, { headers: headers })
             .map(function (resp) { return resp.json(); })
             .map(function (accounts) { return _this.toAccountArray(accounts); })
             .toPromise();

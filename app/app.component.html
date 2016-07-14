@@ -10,13 +10,31 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li [class.active]="isActive('members')"><a [routerLink]="['/members']" (click)="onSelect('members')">Members</a></li>
                 <li [class.active]="isActive('initiatives')"><a [routerLink]="['/initiatives']" (click)="onSelect('initiatives')">Initiatives</a></li>
                 <li [class.active]="isActive('budgets')"><a [routerLink]="['/budgets']" (click)="onSelect('budgets')">Budgets</a></li>
-                <li [class.active]="isActive('postings')"><a [routerLink]="['/postings']" (click)="onSelect('postings')">Postings</a></li>
-                <li [class.active]="isActive('transactions')"><a [routerLink]="['/transactions']" (click)="onSelect('transactions')">Transactions</a></li>
-                <li [class.active]="isActive('journals')"><a [routerLink]="['/journals']" (click)="onSelect('journals')">Journals</a></li>
-                <li [class.active]="isActive('underlyingaccounts')"><a [routerLink]="['/underlyingaccounts']" (click)="onSelect('underlyingaccounts')">Underlying Accounts</a></li>
+
+                <li class="dropdown" dropdown>
+                    <a dropdown-open>
+                        Financial<span class="caret"></span>
+                        </a>
+                    <ul class="dropdown-menu">
+                        <li [class.active]="isActive('underlyingaccounts')"><a [routerLink]="['/underlyingaccounts']" (click)="onSelect('underlyingaccounts')">Underlying Accounts</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li [class.active]="isActive('postings')"><a [routerLink]="['/postings']" (click)="onSelect('postings')">Postings</a></li>
+                        <li [class.active]="isActive('transactions')"><a [routerLink]="['/transactions']" (click)="onSelect('transactions')">Transactions</a></li>
+                        <li [class.active]="isActive('journals')"><a [routerLink]="['/journals']" (click)="onSelect('journals')">Journals</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown" dropdown>
+                    <a dropdown-open>
+                        Maintenance<span class="caret"></span>
+                        </a>
+                    <ul class="dropdown-menu">
+                        <li [class.active]="isActive('members')"><a [routerLink]="['/members']" (click)="onSelect('members')">Members</a></li>
+                    </ul>
+                </li>
+
             </ul>
         </div>
         <!--/.nav-collapse -->

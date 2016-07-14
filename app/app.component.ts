@@ -9,11 +9,12 @@ import { TransactionService } from './services/transaction/transaction.service';
 import { KeyService } from './services/key/key.service';
 import { UnderlyingAccountService } from './services/underlyingaccount/underlyingAccount.service';
 import { HTTP_PROVIDERS } from '@angular/http';
+import { DROPDOWN_DIRECTIVES } from 'ng2-dropdown';
 
 @Component({
     selector: "goalfish",
     templateUrl: "app/app.component.html",
-    directives: [ROUTER_DIRECTIVES],
+    directives: [ROUTER_DIRECTIVES, DROPDOWN_DIRECTIVES],
     providers: [HTTP_PROVIDERS, MemberService, BudgetService,
         InitiativeService, JournalService, PostingService, 
         TransactionService, UnderlyingAccountService, KeyService]

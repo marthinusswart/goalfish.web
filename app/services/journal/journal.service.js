@@ -22,7 +22,10 @@ var JournalService = (function () {
     }
     JournalService.prototype.getJournals = function () {
         var _this = this;
-        return this._http.get(this.url + this.api)
+        var headers = new http_1.Headers({
+            'x-access-token': 'MEM0001'
+        });
+        return this._http.get(this.url + this.api, { headers: headers })
             .map(function (resp) { return resp.json(); })
             .map(function (journals) { return _this.toJournalArray(journals); })
             .toPromise();

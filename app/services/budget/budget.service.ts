@@ -16,7 +16,11 @@ export class BudgetService {
   }
 
   getBudgets() {
-    return this._http.get(this.url + this.api)
+    let headers = new Headers({
+      'x-access-token': 'MEM0001'
+    });
+
+    return this._http.get(this.url + this.api, { headers:headers })
       .map((resp: Response) => resp.json())
       .map(budgets => { return this.toBudgetArray(budgets); })
       .toPromise();
