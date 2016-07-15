@@ -7,6 +7,7 @@ import { PostingService } from './services/posting/posting.service';
 import { InitiativeService } from './services/initiative/initiative.service';
 import { TransactionService } from './services/transaction/transaction.service';
 import { KeyService } from './services/key/key.service';
+import { SecurityService } from './services/security/security.service';
 import { UnderlyingAccountService } from './services/underlyingaccount/underlyingAccount.service';
 import { Member } from './models/member/member';
 import { HTTP_PROVIDERS } from '@angular/http';
@@ -18,7 +19,8 @@ import { DROPDOWN_DIRECTIVES } from 'ng2-dropdown';
     directives: [ROUTER_DIRECTIVES, DROPDOWN_DIRECTIVES],
     providers: [HTTP_PROVIDERS, MemberService, BudgetService,
         InitiativeService, JournalService, PostingService,
-        TransactionService, UnderlyingAccountService, KeyService]
+        TransactionService, UnderlyingAccountService, 
+        KeyService, SecurityService]
 })
 
 export class AppComponent implements OnInit {

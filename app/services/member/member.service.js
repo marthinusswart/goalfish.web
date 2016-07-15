@@ -31,9 +31,12 @@ var MemberService = (function () {
             _this.activeMember = member;
         });
     }
-    MemberService.prototype.getMembers = function () {
+    MemberService.prototype.getMembers = function (token) {
         var _this = this;
-        return this._http.get(this.url + this.api)
+        var headers = new http_1.Headers({
+            'x-access-token': token.token
+        });
+        return this._http.get(this.url + this.api, { headers: headers })
             .map(function (resp) { return resp.json(); })
             .map(function (members) { return _this.toMemberArray(members); })
             .toPromise();

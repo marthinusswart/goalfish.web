@@ -5,7 +5,8 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Rx';
 import { Subject, BehaviorSubject } from 'rxjs/Rx';
-import { Member } from '../../models/member/member'
+import { Member } from '../../models/member/member';
+import { Token } from '../../models/security/token';
 
 //import { Hero } from './hero';
 //import { HEROES } from './mock-heroes';
@@ -23,12 +24,16 @@ export class MemberService {
     this.activeMemberSubject.next(member);
 
     this.activeMemberSubject.subscribe((member: Member) => {
-            this.activeMember = member;
-        });
+      this.activeMember = member;
+    });
   }
 
-  getMembers() {
-    return this._http.get(this.url + this.api)
+  getMembers(token: Token) {
+    let headers = new Headers({
+      'x-access-token': token.token
+    });
+
+    return this._http.get(this.url + this.api, { headers:headers })
       .map((resp: Response) => resp.json())
       .map(members => { return this.toMemberArray(members); })
       .toPromise();
