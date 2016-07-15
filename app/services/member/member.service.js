@@ -34,7 +34,7 @@ var MemberService = (function () {
     MemberService.prototype.getMembers = function (token) {
         var _this = this;
         var headers = new http_1.Headers({
-            'x-access-token': token.token
+            'x-access-token': ""
         });
         return this._http.get(this.url + this.api, { headers: headers })
             .map(function (resp) { return resp.json(); })

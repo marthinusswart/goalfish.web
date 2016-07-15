@@ -6,17 +6,18 @@ import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Rx';
 import { UnderlyingAccount } from '../../models/underlyingaccount/underlyingAccount';
 import { MemberService } from '../member/member.service';
+import { SecurityService } from '../security/security.service';
 
 @Injectable()
 export class UnderlyingAccountService {
   url = "http://localhost:3010";
   api = "/api/v1/underlyingaccount"
 
-  constructor(private _http: Http, private _memberService: MemberService) { }
+  constructor(private _http: Http, private _memberService: MemberService, private _securityService: SecurityService) { }
 
   getAccounts() {
     let headers = new Headers({
-      'x-access-token': this._memberService.activeMember.id
+      'x-access-token': this._securityService.token.token
     });
 
     return this._http.get(this.url + this.api, { headers: headers })

@@ -15,17 +15,19 @@ require('rxjs/add/operator/map');
 require('rxjs/add/operator/catch');
 var journal_1 = require('../../models/journal/journal');
 var member_service_1 = require('../member/member.service');
+var security_service_1 = require('../security/security.service');
 var JournalService = (function () {
-    function JournalService(_http, _memberService) {
+    function JournalService(_http, _memberService, _securityService) {
         this._http = _http;
         this._memberService = _memberService;
+        this._securityService = _securityService;
         this.url = "http://localhost:3010";
         this.api = "/api/v1/journal";
     }
     JournalService.prototype.getJournals = function () {
         var _this = this;
         var headers = new http_1.Headers({
-            'x-access-token': this._memberService.activeMember.id
+            'x-access-token': this._securityService.token.token
         });
         return this._http.get(this.url + this.api, { headers: headers })
             .map(function (resp) { return resp.json(); })
@@ -59,7 +61,7 @@ var JournalService = (function () {
     };
     JournalService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [http_1.Http, member_service_1.MemberService])
+        __metadata('design:paramtypes', [http_1.Http, member_service_1.MemberService, security_service_1.SecurityService])
     ], JournalService);
     return JournalService;
 }());

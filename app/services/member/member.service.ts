@@ -30,7 +30,7 @@ export class MemberService {
 
   getMembers(token: Token) {
     let headers = new Headers({
-      'x-access-token': token.token
+      'x-access-token': ""
     });
 
     return this._http.get(this.url + this.api, { headers:headers })
