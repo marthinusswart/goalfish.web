@@ -9,6 +9,8 @@ export class UnderlyingAccount {
     holdingInstitution: string;
     balance: number;
     memberId: string;
+    isReconciled: boolean;
+    calculatedBalance: number;
 
     constructor() {
         this.externalRef = "";
@@ -21,6 +23,8 @@ export class UnderlyingAccount {
         this.holdingInstitution = "";
         this.interestRate = 0;
         this.memberId = "";
+        this.isReconciled = false;
+        this.calculatedBalance = 0;
     }
 
     fromJson(underlyingAccount: any): UnderlyingAccount {
@@ -34,6 +38,10 @@ export class UnderlyingAccount {
         this.accountNumber = underlyingAccount.accountNumber;
         this.holdingInstitution = underlyingAccount.holdingInstitution;
         this.memberId = underlyingAccount.memberId;
+        if (underlyingAccount.isReconciled !== undefined) {
+            this.isReconciled = underlyingAccount.isReconciled;
+            this.calculatedBalance = underlyingAccount.calculatedBalance;
+        }
 
         return this;
     }

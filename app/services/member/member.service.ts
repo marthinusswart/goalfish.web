@@ -8,9 +8,6 @@ import { Subject, BehaviorSubject } from 'rxjs/Rx';
 import { Member } from '../../models/member/member';
 import { Token } from '../../models/security/token';
 
-//import { Hero } from './hero';
-//import { HEROES } from './mock-heroes';
-
 @Injectable()
 export class MemberService {
   url = "http://localhost:3010";

@@ -15,8 +15,6 @@ require('rxjs/add/operator/map');
 require('rxjs/add/operator/catch');
 var Rx_1 = require('rxjs/Rx');
 var member_1 = require('../../models/member/member');
-//import { Hero } from './hero';
-//import { HEROES } from './mock-heroes';
 var MemberService = (function () {
     function MemberService(_http) {
         var _this = this;

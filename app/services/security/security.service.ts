@@ -4,6 +4,7 @@ import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Rx';
+import { Subject, BehaviorSubject } from 'rxjs/Rx';
 import { Token } from '../../models/security/token';
 import { Credentials } from '../../models/security/credentials';
 
@@ -11,6 +12,7 @@ import { Credentials } from '../../models/security/credentials';
 export class SecurityService {
     url = "http://localhost:3010";
     api = "/api/v1/security";
+    activeTokenSubject: Subject<Token> = new BehaviorSubject<Token>(null);
     token: Token;
 
     constructor(private _http: Http) { }
@@ -29,6 +31,7 @@ export class SecurityService {
             .map((resp: Response) => resp.json())
             .map(tokenJson => {
                 self.token = this.toToken(tokenJson)
+                self.activeTokenSubject.next(self.token);
                 return self.token;
             })
             .toPromise();

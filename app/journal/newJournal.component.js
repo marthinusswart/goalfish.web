@@ -13,17 +13,24 @@ var router_1 = require('@angular/router');
 var journal_service_1 = require('../services/journal/journal.service');
 var journal_1 = require('../models/journal/journal');
 var key_service_1 = require('../services/key/key.service');
+var security_service_1 = require('../services/security/security.service');
 var NewJournalComponent = (function () {
-    function NewJournalComponent(_router, _journalService, _keyService) {
+    function NewJournalComponent(_router, _journalService, _keyService, _securityService) {
         this._router = _router;
         this._journalService = _journalService;
         this._keyService = _keyService;
+        this._securityService = _securityService;
+        this.accounts = [];
         this.saveWasSuccessful = false;
         this.saveWasUnsuccessful = false;
         this.journal = new journal_1.Journal();
     }
     NewJournalComponent.prototype.ngOnInit = function () {
+        var _this = this;
         this.initJournal();
+        this._securityService.activeTokenSubject.subscribe(function (token) {
+            _this.accounts = token.accounts;
+        });
     };
     NewJournalComponent.prototype.save = function () {
         var _this = this;
@@ -45,7 +52,7 @@ var NewJournalComponent = (function () {
             templateUrl: "app/journal/newJournal.component.html",
             styleUrls: ["app/journal/newJournal.component.css"]
         }), 
-        __metadata('design:paramtypes', [router_1.Router, journal_service_1.JournalService, key_service_1.KeyService])
+        __metadata('design:paramtypes', [router_1.Router, journal_service_1.JournalService, key_service_1.KeyService, security_service_1.SecurityService])
     ], NewJournalComponent);
     return NewJournalComponent;
 }());

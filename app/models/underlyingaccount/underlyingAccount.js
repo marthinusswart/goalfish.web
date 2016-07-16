@@ -11,6 +11,8 @@ var UnderlyingAccount = (function () {
         this.holdingInstitution = "";
         this.interestRate = 0;
         this.memberId = "";
+        this.isReconciled = false;
+        this.calculatedBalance = 0;
     }
     UnderlyingAccount.prototype.fromJson = function (underlyingAccount) {
         this.externalRef = underlyingAccount.externalRef;
@@ -23,6 +25,10 @@ var UnderlyingAccount = (function () {
         this.accountNumber = underlyingAccount.accountNumber;
         this.holdingInstitution = underlyingAccount.holdingInstitution;
         this.memberId = underlyingAccount.memberId;
+        if (underlyingAccount.isReconciled !== undefined) {
+            this.isReconciled = underlyingAccount.isReconciled;
+            this.calculatedBalance = underlyingAccount.calculatedBalance;
+        }
         return this;
     };
     return UnderlyingAccount;

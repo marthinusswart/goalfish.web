@@ -13,6 +13,7 @@ var http_1 = require('@angular/http');
 require('rxjs/add/operator/toPromise');
 require('rxjs/add/operator/map');
 require('rxjs/add/operator/catch');
+var Rx_1 = require('rxjs/Rx');
 var token_1 = require('../../models/security/token');
 var credentials_1 = require('../../models/security/credentials');
 var SecurityService = (function () {
@@ -20,6 +21,7 @@ var SecurityService = (function () {
         this._http = _http;
         this.url = "http://localhost:3010";
         this.api = "/api/v1/security";
+        this.activeTokenSubject = new Rx_1.BehaviorSubject(null);
     }
     SecurityService.prototype.login = function (email, password) {
         var _this = this;
@@ -34,6 +36,7 @@ var SecurityService = (function () {
             .map(function (resp) { return resp.json(); })
             .map(function (tokenJson) {
             self.token = _this.toToken(tokenJson);
+            self.activeTokenSubject.next(self.token);
             return self.token;
         })
             .toPromise();

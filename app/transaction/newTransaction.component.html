@@ -12,15 +12,23 @@
                     </div>
                     <div class="row form-group">
                         <div class="col-md-3">Classification</div>
-                        <div class="col-md-9"><input class="form-control" type="Text" [(ngModel)]="transaction.classification"></div>
+                        <div class="col-md-9">
+                            <select class="form-control" #classification (change)="onClassificationChange(classification)">
+                            <option *ngFor="let classification of classifications" [value]="classification">{{classification}}</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="row form-group">
                         <div class="col-md-3">Description</div>
                         <div class="col-md-9"><input class="form-control" type="Text" [(ngModel)]="transaction.description"></div>
                     </div>
                     <div class="row form-group">
-                        <div class="col-md-3">Underlying Account</div>
-                        <div class="col-md-9"><input class="form-control" type="Text" [(ngModel)]="transaction.underlyingAccount"></div>
+                        <div class="col-md-3">Account Number</div>
+                        <div class="col-md-9">
+                            <select class="form-control" [(ngModel)]="transaction.underlyingAccount">
+                            <option *ngFor="let account of accounts" [value]="account.id">{{account.name}}</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="row form-group">
                         <div class="col-md-3">Amount</div>
@@ -31,8 +39,12 @@
                         <div class="col-md-9"><input class="form-control" type="Text" [(ngModel)]="transaction.date"></div>
                     </div>
                     <div class="row form-group">
-                        <div class="col-md-3">Reference ID</div>
-                        <div class="col-md-9"><input class="form-control" type="Text" [(ngModel)]="transaction.referenceId"></div>
+                        <div class="col-md-3">{{referenceIdLabel}}</div>
+                        <div class="col-md-9">
+                            <select class="form-control" [(ngModel)]="transaction.referenceId">
+                            <option *ngFor="let reference of references" [value]="reference.id">{{reference.name}}</option>
+                            </select>
+                        </div>
                     </div>
                 </form>
                 <div><button type="button" class="btn btn-primary" (click)="save()">Save</button></div>
