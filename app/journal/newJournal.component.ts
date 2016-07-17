@@ -5,6 +5,7 @@ import { Journal } from '../models/journal/journal';
 import { KeyService } from '../services/key/key.service';
 import { SecurityService } from '../services/security/security.service';
 import { Token } from '../models/security/token';
+import { UnderlyingAccountService } from '../services/underlyingaccount/underlyingAccount.service';
 
 @Component({
   selector: "newJournal",
@@ -14,20 +15,30 @@ import { Token } from '../models/security/token';
 export class NewJournalComponent implements OnInit {
 
   journal: Journal;
-  accounts: string[] = [];
+  accounts: JournalAccount[] = [];
   saveWasSuccessful: boolean = false;
   saveWasUnsuccessful: boolean = false;
 
-  constructor(private _router: Router, private _journalService: JournalService, 
-  private _keyService: KeyService, private _securityService: SecurityService) {
+  constructor(private _router: Router, private _journalService: JournalService,
+    private _keyService: KeyService, private _securityService: SecurityService,
+    private _underlyingAccountService: UnderlyingAccountService) {
     this.journal = new Journal();
   }
 
   ngOnInit() {
+    let self = this;
     this.initJournal();
     this._securityService.activeTokenSubject.subscribe((token: Token) => {
-            this.accounts = token.accounts;
-        })
+      this._underlyingAccountService.getAccounts().then(allAccounts => {
+        self.accounts = [];
+        allAccounts.forEach(account => {
+          let jnlAccount = new JournalAccount();
+          jnlAccount.id = account.id;
+          jnlAccount.name = account.id + " | " + account.name;
+          self.accounts.push(jnlAccount);
+        });
+      });
+    });
   }
 
   save() {
@@ -44,4 +55,9 @@ export class NewJournalComponent implements OnInit {
     this.journal.name = "";
   }
 
+}
+
+class JournalAccount {
+  id: string;
+  name: string;
 }

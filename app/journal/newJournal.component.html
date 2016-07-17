@@ -21,8 +21,8 @@
                     <div class="row form-group">
                         <div class="col-md-3">Account Number</div>
                         <div class="col-md-9">
-                            <select class="form-control">
-                            <option *ngFor="let account of accounts">{{account}}</option>
+                            <select class="form-control"  [(ngModel)]="journal.accountNumber">>
+                            <option *ngFor="let account of accounts" [value]="account.id">{{account.name}}</option>
                             </select>
                         </div>
                     </div>

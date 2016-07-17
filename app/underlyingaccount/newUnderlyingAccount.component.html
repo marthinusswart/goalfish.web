@@ -1,13 +1,58 @@
-<h1>Add new Underlying Account</h1>
-<div>
-    <div><button type="button" class="btn btn-primary" (click)="save()">Save</button></div>
-    <div>ID<input type="Text" [(ngModel)]="account.id"></div>
-    <div>Member ID<input type="Text" [(ngModel)]="account.memberId"></div>    
-    <div>Name<input type="Text" [(ngModel)]="account.name"></div>
-    <div>Description<input type="Text" [(ngModel)]="account.description"></div>
-    <div>Account Number<input type="Text" [(ngModel)]="account.accountNumber"></div>
-    <div>Balance<input type="Text" [(ngModel)]="account.balance"></div>
-    <div>Product Name<input type="Text" [(ngModel)]="account.productName"></div>
-    <div>Interest Rate<input type="Text" [(ngModel)]="account.interestRate"></div>
-    <div>Holding Institution<input type="Text" [(ngModel)]="account.holdingInstitution"></div>    
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Add new Account</h3>
+            </div>
+            <div class="panel-body">
+                <form role="form" class="form-horizontal">
+                    <div class="row form-group">
+                        <div class="col-md-3">ID</div>
+                        <div class="col-md-9"><input class="form-control" type="Text" [(ngModel)]="account.id"></div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-3">Member ID</div>
+                        <div class="col-md-9"><input class="form-control" type="Text" [(ngModel)]="account.memberId"></div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-3">Name</div>
+                        <div class="col-md-9"><input class="form-control" type="Text" [(ngModel)]="account.name"></div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-3">Description</div>
+                        <div class="col-md-9"><input class="form-control" type="Text" [(ngModel)]="account.description"></div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-3">Account Number</div>
+                        <div class="col-md-9"><input class="form-control" type="Text" [(ngModel)]="account.accountNumber"></div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-3">Balance</div>
+                        <div class="col-md-9"><input class="form-control" type="Text" [(ngModel)]="account.balance"></div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-3">Product Name</div>
+                        <div class="col-md-9"><input class="form-control" type="Text" [(ngModel)]="account.productName"></div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-3">Interest Rate</div>
+                        <div class="col-md-9"><input class="form-control" type="Text" [(ngModel)]="account.interestRate"></div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-3">Holding Institution</div>
+                        <div class="col-md-9"><input class="form-control" type="Text" [(ngModel)]="account.holdingInstitution"></div>
+                    </div>
+                </form>
+
+
+                <div><button type="button" class="btn btn-primary" (click)="save()">Save</button></div>
+                <div class="alert alert-success" role="alert" *ngIf="saveWasSuccessful">
+                    <strong>Account saved!</strong> Account detail was successfully saved.
+                </div>
+                <div class="alert alert-danger" role="alert" *ngIf="saveWasInsuccessful">
+                    <strong>Account error!</strong> Error saving account detail.
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

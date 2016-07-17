@@ -52,6 +52,10 @@ var NewTransactionComponent = (function () {
     };
     NewTransactionComponent.prototype.save = function () {
         var _this = this;
+        if ((this.transaction.underlyingAccount === "") ||
+            (this.transaction.underlyingAccount === undefined)) {
+            alert("Error! No underlying account");
+        }
         this._transactionService.addTransaction(this.transaction).then(function (transaction) {
             _this.saveWasSuccessful = true;
             _this.initTransaction();

@@ -1,13 +1,54 @@
-<h1>Add new Budget</h1>
-<div>
-    <div><button type="button" class="btn btn-primary" (click)="save()">Save</button></div>
-    <div>ID<input type="Text" [(ngModel)]="budget.id"></div>
-    <div>Member ID<input type="Text" [(ngModel)]="budget.memberId"></div>
-    <div>Name<input type="Text" [(ngModel)]="budget.name"></div>
-    <div>Description<input type="Text" [(ngModel)]="budget.description"></div>
-    <div>Balance<input type="Text" [(ngModel)]="budget.balance"></div>
-    <div>Instalment Amount<input type="Text" [(ngModel)]="budget.instalmentAmount"></div>
-    <div>Frequency<input type="Text" [(ngModel)]="budget.frequency"></div>
-    <div>Underlying Account<input type="Text" [(ngModel)]="budget.underlyingAccount"></div>
-    <div>External Reference<input type="Text" [(ngModel)]="budget.externalRef"></div>    
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Add new Budget</h3>
+            </div>
+            <div class="panel-body">
+                <form role="form" class="form-horizontal">
+                    <div class="row form-group">
+                        <div class="col-md-3">ID</div>
+                        <div class="col-md-9"><input class="form-control" type="Text" [(ngModel)]="budget.id"></div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-3">Member ID</div>
+                        <div class="col-md-9"><input class="form-control" type="Text" [(ngModel)]="budget.memberId"></div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-3">Name</div>
+                        <div class="col-md-9"><input class="form-control" type="Text" [(ngModel)]="budget.name"></div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-3">Description</div>
+                        <div class="col-md-9"><input class="form-control" type="Text" [(ngModel)]="budget.description"></div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-3">Balance</div>
+                        <div class="col-md-9"><input class="form-control" type="Text" [(ngModel)]="budget.balance"></div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-3">Instalment Amount</div>
+                        <div class="col-md-9"><input class="form-control" type="Text" [(ngModel)]="budget.instalmentAmount"></div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-3">Frequency</div>
+                        <div class="col-md-9"><input class="form-control" type="Text" [(ngModel)]="budget.frequency"></div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-3">Underlying Account</div>
+                        <div class="col-md-9"><input class="form-control" type="Text" [(ngModel)]="budget.underlyingAccount"></div>
+                    </div>
+
+                </form>
+
+                <div><button type="button" class="btn btn-primary" (click)="save()">Save</button></div>
+                <div class="alert alert-success" role="alert" *ngIf="saveWasSuccessful">
+                    <strong>Budget saved!</strong> Budget detail was successfully saved.
+                </div>
+                <div class="alert alert-danger" role="alert" *ngIf="saveWasInsuccessful">
+                    <strong>Budget error!</strong> Error saving budget detail.
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

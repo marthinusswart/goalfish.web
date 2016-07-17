@@ -49,6 +49,11 @@ export class NewTransactionComponent implements OnInit {
   }
 
   save() {
+    if ((this.transaction.underlyingAccount === "") ||
+      (this.transaction.underlyingAccount === undefined)) {
+      alert("Error! No underlying account")
+    }
+
     this._transactionService.addTransaction(this.transaction).then(transaction => {
       this.saveWasSuccessful = true;
       this.initTransaction();
@@ -100,12 +105,12 @@ export class NewTransactionComponent implements OnInit {
 
 }
 
-class TransactionAccount{
+class TransactionAccount {
   id: string;
   name: string;
 }
 
-class TransactionReference{
+class TransactionReference {
   id: string;
   name: string;
 }

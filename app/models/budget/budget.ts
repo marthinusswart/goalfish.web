@@ -36,4 +36,12 @@ export class Budget {
         return this;
     }
 
+     createIdFromKey(key: number): string {
+        let keyStr = "BGT" + key;
+        if (key < 1000) {
+            keyStr = "BGT" + ("0000" + key).slice(-4);
+        }
+        return keyStr;
+    }
+
 }

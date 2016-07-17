@@ -45,4 +45,12 @@ export class UnderlyingAccount {
 
         return this;
     }
+
+     createIdFromKey(key: number): string {
+        let keyStr = "ACC" + key;
+        if (key < 1000) {
+            keyStr = "ACC" + ("0000" + key).slice(-4);
+        }
+        return keyStr;
+    }
 }

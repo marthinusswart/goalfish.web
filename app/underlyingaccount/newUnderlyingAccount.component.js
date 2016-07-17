@@ -12,16 +12,35 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var underlyingAccount_service_1 = require('../services/underlyingaccount/underlyingAccount.service');
 var underlyingAccount_1 = require('../models/underlyingaccount/underlyingAccount');
+var key_service_1 = require('../services/key/key.service');
+var security_service_1 = require('../services/security/security.service');
 var NewUnderlyingAccountComponent = (function () {
-    function NewUnderlyingAccountComponent(_router, _underlyingAccountService) {
+    function NewUnderlyingAccountComponent(_router, _underlyingAccountService, _keyService, _securityService) {
         this._router = _router;
         this._underlyingAccountService = _underlyingAccountService;
+        this._keyService = _keyService;
+        this._securityService = _securityService;
+        this.saveWasSuccessful = false;
+        this.saveWasUnsuccessful = false;
         this.account = new underlyingAccount_1.UnderlyingAccount();
     }
     NewUnderlyingAccountComponent.prototype.ngOnInit = function () {
+        var self = this;
+        this.initAccount();
     };
     NewUnderlyingAccountComponent.prototype.save = function () {
-        this._underlyingAccountService.addAccount(this.account).then(function (account) { return alert("Account _id is: " + account.externalRef); });
+        var _this = this;
+        this._underlyingAccountService.addAccount(this.account).then(function (account) {
+            _this.saveWasSuccessful = true;
+            _this.initAccount();
+        });
+    };
+    NewUnderlyingAccountComponent.prototype.initAccount = function () {
+        var _this = this;
+        this._keyService.getNextKeyByName("underlyingaccount").then(function (key) { _this.account.id = _this.account.createIdFromKey(key.key); });
+        this.account.balance = 0;
+        this.account.description = "";
+        this.account.name = "";
     };
     NewUnderlyingAccountComponent = __decorate([
         core_1.Component({
@@ -29,7 +48,7 @@ var NewUnderlyingAccountComponent = (function () {
             templateUrl: "app/underlyingaccount/newUnderlyingAccount.component.html",
             styleUrls: ["app/underlyingaccount/newUnderlyingAccount.component.css"]
         }), 
-        __metadata('design:paramtypes', [router_1.Router, underlyingAccount_service_1.UnderlyingAccountService])
+        __metadata('design:paramtypes', [router_1.Router, underlyingAccount_service_1.UnderlyingAccountService, key_service_1.KeyService, security_service_1.SecurityService])
     ], NewUnderlyingAccountComponent);
     return NewUnderlyingAccountComponent;
 }());

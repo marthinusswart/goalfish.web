@@ -23,6 +23,13 @@ var Budget = (function () {
         this.memberId = budget.memberId;
         return this;
     };
+    Budget.prototype.createIdFromKey = function (key) {
+        var keyStr = "BGT" + key;
+        if (key < 1000) {
+            keyStr = "BGT" + ("0000" + key).slice(-4);
+        }
+        return keyStr;
+    };
     return Budget;
 }());
 exports.Budget = Budget;
