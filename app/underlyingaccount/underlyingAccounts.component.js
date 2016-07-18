@@ -17,6 +17,7 @@ var UnderlyingAccountsComponent = (function () {
         this._router = _router;
         this._underlyingAccountService = _underlyingAccountService;
         this.allAccounts = [];
+        this.showIsReconciledField = false;
     }
     UnderlyingAccountsComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -28,6 +29,11 @@ var UnderlyingAccountsComponent = (function () {
     };
     UnderlyingAccountsComponent.prototype.onSelect = function (account) {
         this.selectedAccount = account;
+    };
+    UnderlyingAccountsComponent.prototype.reconcile = function () {
+        var _this = this;
+        this._underlyingAccountService.reconcile().then(function (accounts) { return _this.allAccounts = accounts; });
+        this.showIsReconciledField = true;
     };
     UnderlyingAccountsComponent = __decorate([
         core_1.Component({

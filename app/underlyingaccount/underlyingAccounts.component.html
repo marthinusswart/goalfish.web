@@ -4,6 +4,7 @@
     <div class="col-md-6">
         <div>
             <button type="button" class="btn btn-primary" (click)="gotoNewAccount()">New Underlying Account</button>
+            <button type="button" class="btn btn-default" (click)="reconcile()">Reconcile Accounts</button>
         </div>
     </div>
 </div>
@@ -24,6 +25,8 @@
                             <th>Description</th>
                             <th>Holding Institution</th>
                             <th>Balance</th>
+                            <th *ngIf="showIsReconciledField">Is Reconciled</th>
+                            <th *ngIf="showIsReconciledField">Calculated Balance</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -32,6 +35,8 @@
                             <td>{{account.description}}</td>
                             <td>{{account.holdingInstitution}} </td>
                             <td>{{account.balance}}</td>
+                            <td *ngIf="showIsReconciledField">{{account.isReconciled?"Yes":"No"}}</td>
+                            <td *ngIf="showIsReconciledField">{{account.calculatedBalance}}</td>
                         </tr>
                     </tbody>
                 </table>

@@ -14,6 +14,7 @@ export class UnderlyingAccountsComponent implements OnInit {
 
   allAccounts: UnderlyingAccount[] = [];
   selectedAccount: UnderlyingAccount;
+  showIsReconciledField: boolean = false;
 
   constructor(private _router: Router, private _underlyingAccountService: UnderlyingAccountService) { }
 
@@ -28,6 +29,11 @@ export class UnderlyingAccountsComponent implements OnInit {
 
   onSelect(account: UnderlyingAccount){
     this.selectedAccount = account;
+  }
+
+  reconcile(){
+     this._underlyingAccountService.reconcile().then(accounts => this.allAccounts = accounts);
+     this.showIsReconciledField = true;
   }
 
 }

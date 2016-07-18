@@ -54,10 +54,16 @@ var UnderlyingAccountService = (function () {
             .map(function (account) { return _this.toAccount(account); })
             .toPromise();
     };
-    UnderlyingAccountService.prototype.getHero = function (id) {
-        /*return Promise.resolve(HEROES).then(
-          heroes => heroes.filter(hero => hero.id === id)[0]
-        );*/
+    UnderlyingAccountService.prototype.reconcile = function () {
+        var _this = this;
+        console.log(this._securityService.token.token);
+        var headers = new http_1.Headers({
+            'x-access-token': this._securityService.token.token
+        });
+        return this._http.post(this.url + this.api + "/reconcile", "{}", { headers: headers })
+            .map(function (resp) { return resp.json(); })
+            .map(function (accounts) { return _this.toAccountArray(accounts); })
+            .toPromise();
     };
     UnderlyingAccountService.prototype.toAccountArray = function (accounts) {
         var accountArray = [];
