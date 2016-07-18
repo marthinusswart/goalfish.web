@@ -38,6 +38,7 @@ export class NewTransactionComponent implements OnInit {
     this._securityService.activeTokenSubject.subscribe((token: Token) => {
       this._underlyingAccountService.getAccounts().then(allAccounts => {
         self.accounts = [];
+        self.accounts.push(new TransactionAccount());
         allAccounts.forEach(account => {
           let trxAccount = new TransactionAccount();
           trxAccount.id = account.id;
@@ -81,6 +82,7 @@ export class NewTransactionComponent implements OnInit {
     let self = this;
     this._budgetService.getBudgets().then(budgets => {
       self.references = [];
+      self.references.push(new TransactionReference());
       budgets.forEach(budget => {
         let trxReference = new TransactionReference();
         trxReference.id = budget.id;
@@ -94,6 +96,7 @@ export class NewTransactionComponent implements OnInit {
     let self = this;
     this._initiativeService.getInitiatives().then(initiatives => {
       self.references = [];
+      self.references.push(new TransactionReference());
       initiatives.forEach(initiative => {
         let trxReference = new TransactionReference();
         trxReference.id = initiative.id;

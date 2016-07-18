@@ -41,6 +41,7 @@ var NewTransactionComponent = (function () {
         this._securityService.activeTokenSubject.subscribe(function (token) {
             _this._underlyingAccountService.getAccounts().then(function (allAccounts) {
                 self.accounts = [];
+                self.accounts.push(new TransactionAccount());
                 allAccounts.forEach(function (account) {
                     var trxAccount = new TransactionAccount();
                     trxAccount.id = account.id;
@@ -81,6 +82,7 @@ var NewTransactionComponent = (function () {
         var self = this;
         this._budgetService.getBudgets().then(function (budgets) {
             self.references = [];
+            self.references.push(new TransactionReference());
             budgets.forEach(function (budget) {
                 var trxReference = new TransactionReference();
                 trxReference.id = budget.id;
@@ -93,6 +95,7 @@ var NewTransactionComponent = (function () {
         var self = this;
         this._initiativeService.getInitiatives().then(function (initiatives) {
             self.references = [];
+            self.references.push(new TransactionReference());
             initiatives.forEach(function (initiative) {
                 var trxReference = new TransactionReference();
                 trxReference.id = initiative.id;

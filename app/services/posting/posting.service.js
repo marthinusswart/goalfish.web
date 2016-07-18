@@ -44,10 +44,21 @@ var PostingService = (function () {
             .map(function (posting) { return _this.toPosting(posting); })
             .toPromise();
     };
-    PostingService.prototype.getHero = function (id) {
-        /*return Promise.resolve(HEROES).then(
-          heroes => heroes.filter(hero => hero.id === id)[0]
-        );*/
+    PostingService.prototype.processJournals = function () {
+        var headers = new http_1.Headers({
+            'x-access-token': this._securityService.token.token
+        });
+        return this._http.post(this.url + this.api + '/process/journals', { headers: headers })
+            .map(function (resp) { return resp.json(); })
+            .toPromise();
+    };
+    PostingService.prototype.processTransactions = function () {
+        var headers = new http_1.Headers({
+            'x-access-token': this._securityService.token.token
+        });
+        return this._http.post(this.url + this.api + '/process/transactions', { headers: headers })
+            .map(function (resp) { return resp.json(); })
+            .toPromise();
     };
     PostingService.prototype.toPostingArray = function (postings) {
         var postingsArray = [];

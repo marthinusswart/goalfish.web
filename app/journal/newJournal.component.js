@@ -34,6 +34,7 @@ var NewJournalComponent = (function () {
         this._securityService.activeTokenSubject.subscribe(function (token) {
             _this._underlyingAccountService.getAccounts().then(function (allAccounts) {
                 self.accounts = [];
+                self.accounts.push(new JournalAccount());
                 allAccounts.forEach(function (account) {
                     var jnlAccount = new JournalAccount();
                     jnlAccount.id = account.id;

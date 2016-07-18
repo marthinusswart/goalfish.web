@@ -16,6 +16,8 @@ var PostingsComponent = (function () {
         this._router = _router;
         this._postingService = _postingService;
         this.allPostings = [];
+        this.wasSuccess = false;
+        this.wasFailure = false;
     }
     PostingsComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -24,6 +26,16 @@ var PostingsComponent = (function () {
     PostingsComponent.prototype.gotoNewPosting = function () {
         var link = ['newposting'];
         this._router.navigate(link);
+    };
+    PostingsComponent.prototype.processJournals = function () {
+        var _this = this;
+        this.processingMessage = "Journal processing completed successfully";
+        this._postingService.processJournals().then(function (result) { return _this.wasSuccess = true; });
+    };
+    PostingsComponent.prototype.processTransactions = function () {
+        var _this = this;
+        this.processingMessage = "Transaction processing completed successfully";
+        this._postingService.processTransactions().then(function (result) { return _this.wasSuccess = true; });
     };
     PostingsComponent = __decorate([
         core_1.Component({

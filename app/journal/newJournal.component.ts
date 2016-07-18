@@ -31,6 +31,7 @@ export class NewJournalComponent implements OnInit {
     this._securityService.activeTokenSubject.subscribe((token: Token) => {
       this._underlyingAccountService.getAccounts().then(allAccounts => {
         self.accounts = [];
+        self.accounts.push(new JournalAccount());
         allAccounts.forEach(account => {
           let jnlAccount = new JournalAccount();
           jnlAccount.id = account.id;

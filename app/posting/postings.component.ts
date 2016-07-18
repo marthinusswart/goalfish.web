@@ -11,6 +11,9 @@ import { Posting } from '../models/posting/posting'
 export class PostingsComponent implements OnInit {
 
   allPostings: Posting[] = [];
+  wasSuccess: boolean = false;
+  wasFailure: boolean = false;
+  processingMessage: string;
 
   constructor(private _router: Router, private _postingService: PostingService) { }
 
@@ -21,5 +24,15 @@ export class PostingsComponent implements OnInit {
   gotoNewPosting() {
     let link = ['newposting'];
     this._router.navigate(link);
+  }
+
+  processJournals(){
+    this.processingMessage = "Journal processing completed successfully";
+    this._postingService.processJournals().then(result => this.wasSuccess = true);
+  }
+
+  processTransactions(){
+    this.processingMessage = "Transaction processing completed successfully";
+    this._postingService.processTransactions().then(result => this.wasSuccess = true);
   }
 }
