@@ -10,6 +10,8 @@ var Budget = (function () {
         this.instalmentAmount = 0;
         this.frequency = "";
         this.memberId = "";
+        this.isReconciled = false;
+        this.calculatedBalance = 0;
     }
     Budget.prototype.fromJson = function (budget) {
         this.externalRef = budget.externalRef;
@@ -21,6 +23,10 @@ var Budget = (function () {
         this.instalmentAmount = budget.instalmentAmount;
         this.frequency = budget.frequency;
         this.memberId = budget.memberId;
+        if (budget.isReconciled !== undefined) {
+            this.isReconciled = budget.isReconciled;
+            this.calculatedBalance = budget.calculatedBalance;
+        }
         return this;
     };
     Budget.prototype.createIdFromKey = function (key) {

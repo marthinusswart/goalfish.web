@@ -3,6 +3,7 @@
     <div class="col-md-6">
         <div>
             <button type="button" class="btn btn-primary" (click)="gotoNewBudget()">New Budget</button>
+            <button type="button" class="btn btn-default" (click)="reconcile()">Reconcile Budgets</button>
         </div>
     </div>
 </div>
@@ -23,6 +24,8 @@
                             <th>Description</th>
                             <th>Balance</th>
                             <th>Instalment</th>
+                            <th *ngIf="showIsReconciledField">Is Reconciled</th>
+                            <th *ngIf="showIsReconciledField">Calculated Balance</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -32,6 +35,8 @@
                             <td>{{budget.description}}</td>
                             <td>{{budget.balance}} </td>
                             <td>{{budget.instalmentAmount}}</td>
+                            <td *ngIf="showIsReconciledField">{{budget.isReconciled?"Yes":"No"}}</td>
+                            <td *ngIf="showIsReconciledField">{{budget.calculatedBalance}}</td>
                         </tr>
                     </tbody>
                 </table>

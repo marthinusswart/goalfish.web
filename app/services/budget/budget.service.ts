@@ -48,10 +48,17 @@ export class BudgetService {
       .toPromise();
   }
 
-  getHero(id: string) {
-    /*return Promise.resolve(HEROES).then(
-      heroes => heroes.filter(hero => hero.id === id)[0]
-    );*/
+ reconcile() {
+    console.log(this._securityService.token.token);
+    
+    let headers = new Headers({
+      'x-access-token': this._securityService.token.token
+    });
+
+    return this._http.post(this.url + this.api + "/reconcile", "{}", { headers: headers })
+      .map((resp: Response) => resp.json())
+      .map(budgets => { return this.toBudgetArray(budgets); })
+      .toPromise();
   }
 
   toBudgetArray(budgets: any[]) {

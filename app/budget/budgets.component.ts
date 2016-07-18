@@ -14,6 +14,7 @@ export class BudgetsComponent implements OnInit {
 
   allBudgets: Budget[] = [];
   selectedBudget: Budget;
+  showIsReconciledField: boolean = false;
 
   constructor(private _router: Router, private _budgetService: BudgetService) { }
 
@@ -28,6 +29,11 @@ export class BudgetsComponent implements OnInit {
 
   onSelect(budget: Budget){
     this.selectedBudget = budget;
+  }
+
+  reconcile(){
+     this._budgetService.reconcile().then(budgets => this.allBudgets = budgets);
+     this.showIsReconciledField = true;
   }
 
 }

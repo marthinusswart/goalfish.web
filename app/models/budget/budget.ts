@@ -9,6 +9,8 @@ export class Budget {
     instalmentAmount: number;
     frequency: string;
     memberId: string;
+    isReconciled: boolean;
+    calculatedBalance: number;
 
     constructor() {
         this.externalRef = "";
@@ -20,9 +22,11 @@ export class Budget {
         this.instalmentAmount = 0;
         this.frequency = "";
         this.memberId = "";
+        this.isReconciled = false;
+        this.calculatedBalance = 0;
     }
 
-    fromJson(budget: any) : Budget {
+    fromJson(budget: any): Budget {
         this.externalRef = budget.externalRef;
         this.id = budget.id;
         this.name = budget.name;
@@ -33,10 +37,15 @@ export class Budget {
         this.frequency = budget.frequency;
         this.memberId = budget.memberId;
 
+        if (budget.isReconciled !== undefined) {
+            this.isReconciled = budget.isReconciled;
+            this.calculatedBalance = budget.calculatedBalance;
+        }
+
         return this;
     }
 
-     createIdFromKey(key: number): string {
+    createIdFromKey(key: number): string {
         let keyStr = "BGT" + key;
         if (key < 1000) {
             keyStr = "BGT" + ("0000" + key).slice(-4);

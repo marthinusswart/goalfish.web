@@ -17,6 +17,7 @@ var BudgetsComponent = (function () {
         this._router = _router;
         this._budgetService = _budgetService;
         this.allBudgets = [];
+        this.showIsReconciledField = false;
     }
     BudgetsComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -28,6 +29,11 @@ var BudgetsComponent = (function () {
     };
     BudgetsComponent.prototype.onSelect = function (budget) {
         this.selectedBudget = budget;
+    };
+    BudgetsComponent.prototype.reconcile = function () {
+        var _this = this;
+        this._budgetService.reconcile().then(function (budgets) { return _this.allBudgets = budgets; });
+        this.showIsReconciledField = true;
     };
     BudgetsComponent = __decorate([
         core_1.Component({
