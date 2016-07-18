@@ -35,6 +35,10 @@ var BudgetsComponent = (function () {
         this._budgetService.reconcile().then(function (budgets) { return _this.allBudgets = budgets; });
         this.showIsReconciledField = true;
     };
+    BudgetsComponent.prototype.gotoDeposit = function () {
+        var link = ['budgetdeposit'];
+        this._router.navigate(link);
+    };
     BudgetsComponent = __decorate([
         core_1.Component({
             selector: "budgets",

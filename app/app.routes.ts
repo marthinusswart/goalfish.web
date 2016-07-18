@@ -12,6 +12,7 @@ import { NewJournalComponent } from './journal/newJournal.component';
 import { NewPostingComponent } from './posting/newPosting.component';
 import { NewTransactionComponent } from './transaction/newTransaction.component';
 import { NewUnderlyingAccountComponent } from './underlyingaccount/newUnderlyingAccount.component';
+import { BudgetDepositComponent } from './budget/budgetDeposit.component';
 
 const routes: RouterConfig = [
     {
@@ -65,7 +66,11 @@ const routes: RouterConfig = [
      {
         path:"newunderlyingaccount",
         component: NewUnderlyingAccountComponent
-    }
+    },
+    {
+        path:"budgetdeposit",
+        component: BudgetDepositComponent
+    },
 ];
 
 export const APP_ROUTER_PROVIDERS = [

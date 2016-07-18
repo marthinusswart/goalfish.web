@@ -14,6 +14,7 @@ require('rxjs/add/operator/toPromise');
 require('rxjs/add/operator/map');
 require('rxjs/add/operator/catch');
 var budget_1 = require('../../models/budget/budget');
+var budget_deposit_1 = require('../../models/budget/budget.deposit');
 var member_service_1 = require('../member/member.service');
 var security_service_1 = require('../security/security.service');
 var BudgetService = (function () {
@@ -42,6 +43,16 @@ var BudgetService = (function () {
         return this._http.post(this.url + this.api, JSON.stringify(budget), { headers: headers })
             .map(function (resp) { return resp.json(); })
             .map(function (budget) { return _this.toBudget(budget); })
+            .toPromise();
+    };
+    BudgetService.prototype.deposit = function (budgetDeposit) {
+        var _this = this;
+        var headers = new http_1.Headers({
+            'Content-Type': 'application/json'
+        });
+        return this._http.post(this.url + this.api, JSON.stringify(budgetDeposit), { headers: headers })
+            .map(function (resp) { return resp.json(); })
+            .map(function (budgetDeposit) { return _this.toBudgetDeposit(budgetDeposit); })
             .toPromise();
     };
     BudgetService.prototype.updateBudget = function (budget) {
@@ -74,6 +85,11 @@ var BudgetService = (function () {
         var budget = new budget_1.Budget();
         budget = budget.fromJson(budgetJson);
         return budget;
+    };
+    BudgetService.prototype.toBudgetDeposit = function (budgetDepositJson) {
+        var budgetDeposit = new budget_deposit_1.BudgetDeposit();
+        budgetDeposit = budgetDeposit.fromJson(budgetDepositJson);
+        return budgetDeposit;
     };
     BudgetService = __decorate([
         core_1.Injectable(), 

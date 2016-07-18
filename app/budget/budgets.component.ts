@@ -27,13 +27,18 @@ export class BudgetsComponent implements OnInit {
     this._router.navigate(link);
   }
 
-  onSelect(budget: Budget){
+  onSelect(budget: Budget) {
     this.selectedBudget = budget;
   }
 
-  reconcile(){
-     this._budgetService.reconcile().then(budgets => this.allBudgets = budgets);
-     this.showIsReconciledField = true;
+  reconcile() {
+    this._budgetService.reconcile().then(budgets => this.allBudgets = budgets);
+    this.showIsReconciledField = true;
+  }
+
+  gotoDeposit() {
+    let link = ['budgetdeposit'];
+    this._router.navigate(link);
   }
 
 }

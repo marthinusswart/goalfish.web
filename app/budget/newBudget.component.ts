@@ -14,27 +14,27 @@ import { Token } from '../models/security/token';
 export class NewBudgetComponent implements OnInit {
 
   budget: Budget;
-    saveWasSuccessful: boolean = false;
+  saveWasSuccessful: boolean = false;
   saveWasUnsuccessful: boolean = false;
 
   constructor(private _router: Router, private _budgetService: BudgetService,
-   private _keyService: KeyService, private _securityService: SecurityService) { 
+    private _keyService: KeyService, private _securityService: SecurityService) {
     this.budget = new Budget();
   }
 
   ngOnInit() {
-     let self = this;
+    let self = this;
     this.initBudget();
   }
 
-  save(){
+  save() {
     this._budgetService.addBudget(this.budget).then(budget => {
       this.saveWasSuccessful = true;
       this.initBudget();
     });
   }
 
-   initBudget() {
+  initBudget() {
     this._keyService.getNextKeyByName("budget").then(key => { this.budget.id = this.budget.createIdFromKey(key.key) });
     this.budget.balance = 0;
     this.budget.description = "";

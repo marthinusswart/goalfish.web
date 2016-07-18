@@ -5,6 +5,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Rx';
 import { Budget } from '../../models/budget/budget';
+import { BudgetDeposit } from '../../models/budget/budget.deposit';
 import { MemberService } from '../member/member.service';
 import { SecurityService } from '../security/security.service';
 
@@ -37,6 +38,17 @@ export class BudgetService {
       .toPromise();
   }
 
+  deposit(budgetDeposit: BudgetDeposit) {
+    let headers = new Headers({
+      'Content-Type': 'application/json'
+    });
+
+    return this._http.post(this.url + this.api, JSON.stringify(budgetDeposit), { headers: headers })
+      .map((resp: Response) => resp.json())
+      .map(budgetDeposit => { return this.toBudgetDeposit(budgetDeposit); })
+      .toPromise();
+  }
+
   updateBudget(budget: Budget) {
     let headers = new Headers({
       'Content-Type': 'application/json'
@@ -48,9 +60,9 @@ export class BudgetService {
       .toPromise();
   }
 
- reconcile() {
+  reconcile() {
     console.log(this._securityService.token.token);
-    
+
     let headers = new Headers({
       'x-access-token': this._securityService.token.token
     });
@@ -71,6 +83,12 @@ export class BudgetService {
     let budget: Budget = new Budget();
     budget = budget.fromJson(budgetJson);
     return budget;
+  }
+
+   toBudgetDeposit(budgetDepositJson: any) {
+    let budgetDeposit: BudgetDeposit = new BudgetDeposit();
+    budgetDeposit = budgetDeposit.fromJson(budgetDepositJson);
+    return budgetDeposit;
   }
 
 }

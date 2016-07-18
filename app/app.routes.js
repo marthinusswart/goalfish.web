@@ -13,6 +13,7 @@ var newJournal_component_1 = require('./journal/newJournal.component');
 var newPosting_component_1 = require('./posting/newPosting.component');
 var newTransaction_component_1 = require('./transaction/newTransaction.component');
 var newUnderlyingAccount_component_1 = require('./underlyingaccount/newUnderlyingAccount.component');
+var budgetDeposit_component_1 = require('./budget/budgetDeposit.component');
 var routes = [
     {
         path: "members",
@@ -65,7 +66,11 @@ var routes = [
     {
         path: "newunderlyingaccount",
         component: newUnderlyingAccount_component_1.NewUnderlyingAccountComponent
-    }
+    },
+    {
+        path: "budgetdeposit",
+        component: budgetDeposit_component_1.BudgetDepositComponent
+    },
 ];
 exports.APP_ROUTER_PROVIDERS = [
     router_1.provideRouter(routes)
