@@ -6,8 +6,8 @@ import { UnderlyingAccountDetail } from './underlyingAccountDetail.component';
 
 @Component({
   selector: "underlyingaccounts",
-  templateUrl: "app/underlyingaccount/underlyingaccounts.component.html",
-  styleUrls: ["app/underlyingaccount/underlyingaccounts.component.css"],
+  templateUrl: "app/underlyingaccount/underlyingAccounts.component.html",
+  styleUrls: ["app/underlyingaccount/underlyingAccounts.component.css"],
   directives: [UnderlyingAccountDetail]
 })
 export class UnderlyingAccountsComponent implements OnInit {

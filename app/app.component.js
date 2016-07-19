@@ -23,9 +23,12 @@ var member_1 = require('./models/member/member');
 var config_service_1 = require('./services/config/config.service');
 var http_1 = require('@angular/http');
 var ng2_dropdown_1 = require('ng2-dropdown');
+var app_config_1 = require('./app.config');
 var AppComponent = (function () {
-    function AppComponent(_memberService) {
+    function AppComponent(_memberService, _configService) {
         this._memberService = _memberService;
+        this._configService = _configService;
+        this.appConfig = new app_config_1.AppConfig();
     }
     AppComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -52,7 +55,7 @@ var AppComponent = (function () {
                 transaction_service_1.TransactionService, underlyingAccount_service_1.UnderlyingAccountService,
                 key_service_1.KeyService, security_service_1.SecurityService, config_service_1.ConfigService]
         }), 
-        __metadata('design:paramtypes', [member_service_1.MemberService])
+        __metadata('design:paramtypes', [member_service_1.MemberService, config_service_1.ConfigService])
     ], AppComponent);
     return AppComponent;
 }());

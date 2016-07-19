@@ -38,8 +38,8 @@ var UnderlyingAccountsComponent = (function () {
     UnderlyingAccountsComponent = __decorate([
         core_1.Component({
             selector: "underlyingaccounts",
-            templateUrl: "app/underlyingaccount/underlyingaccounts.component.html",
-            styleUrls: ["app/underlyingaccount/underlyingaccounts.component.css"],
+            templateUrl: "app/underlyingaccount/underlyingAccounts.component.html",
+            styleUrls: ["app/underlyingaccount/underlyingAccounts.component.css"],
             directives: [underlyingAccountDetail_component_1.UnderlyingAccountDetail]
         }), 
         __metadata('design:paramtypes', [router_1.Router, underlyingAccount_service_1.UnderlyingAccountService])

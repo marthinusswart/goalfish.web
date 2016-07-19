@@ -7,8 +7,14 @@ import { Observable } from 'rxjs/Rx';
 import { Subject, BehaviorSubject } from 'rxjs/Rx';
 import { Token } from '../../models/security/token';
 import { Credentials } from '../../models/security/credentials';
+import { AppConfig } from '../../app.config';
 
 @Injectable()
 export class ConfigService {
-    url:string = "http://localhost:3010";
+    url:string = "";
+    appConfig: AppConfig = new AppConfig();
+
+    constructor(){
+        this.url = this.appConfig.serverUrl;
+    }
 }

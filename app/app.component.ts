@@ -13,6 +13,7 @@ import { Member } from './models/member/member';
 import { ConfigService } from './services/config/config.service';
 import { HTTP_PROVIDERS } from '@angular/http';
 import { DROPDOWN_DIRECTIVES } from 'ng2-dropdown';
+import { AppConfig } from './app.config';
 
 @Component({
     selector: "goalfish",
@@ -27,10 +28,13 @@ import { DROPDOWN_DIRECTIVES } from 'ng2-dropdown';
 export class AppComponent implements OnInit {
     activeNavigationItem: string;
     activeMember: Member;
+    appConfig: AppConfig = new AppConfig();
 
-    constructor(private _memberService: MemberService) { }
+    constructor(private _memberService: MemberService, private _configService: ConfigService) { 
+             
+    }
 
-    ngOnInit() {
+    ngOnInit() { 
         this.activeNavigationItem = "members";
         this.activeMember = new Member();
         this.activeMember.name = "anonymous";
