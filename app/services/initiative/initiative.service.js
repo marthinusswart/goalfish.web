@@ -16,13 +16,16 @@ require('rxjs/add/operator/catch');
 var initiative_1 = require('../../models/initiative/initiative');
 var member_service_1 = require('../member/member.service');
 var security_service_1 = require('../security/security.service');
+var config_service_1 = require('../config/config.service');
 var InitiativeService = (function () {
-    function InitiativeService(_http, _memberService, _securityService) {
+    function InitiativeService(_http, _memberService, _securityService, _configService) {
         this._http = _http;
         this._memberService = _memberService;
         this._securityService = _securityService;
-        this.url = "http://localhost:3010";
+        this._configService = _configService;
+        this.url = "";
         this.api = "/api/v1/initiative";
+        this.url = _configService.url;
     }
     InitiativeService.prototype.getInitiatives = function () {
         var _this = this;
@@ -71,7 +74,7 @@ var InitiativeService = (function () {
     };
     InitiativeService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [http_1.Http, member_service_1.MemberService, security_service_1.SecurityService])
+        __metadata('design:paramtypes', [http_1.Http, member_service_1.MemberService, security_service_1.SecurityService, config_service_1.ConfigService])
     ], InitiativeService);
     return InitiativeService;
 }());

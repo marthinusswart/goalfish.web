@@ -7,15 +7,18 @@ import { Observable } from 'rxjs/Rx';
 import { Subject, BehaviorSubject } from 'rxjs/Rx';
 import { Token } from '../../models/security/token';
 import { Credentials } from '../../models/security/credentials';
+import { ConfigService } from '../config/config.service';
 
 @Injectable()
 export class SecurityService {
-    url = "http://localhost:3010";
+    url = "";
     api = "/api/v1/security";
     activeTokenSubject: Subject<Token> = new BehaviorSubject<Token>(null);
     token: Token;
 
-    constructor(private _http: Http) { }
+    constructor(private _http: Http, private _configService: ConfigService) {
+        this.url = _configService.url;
+     }
 
     login(email: string, password: string) {
         let headers = new Headers({

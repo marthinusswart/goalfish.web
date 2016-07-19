@@ -16,12 +16,15 @@ require('rxjs/add/operator/catch');
 var Rx_1 = require('rxjs/Rx');
 var token_1 = require('../../models/security/token');
 var credentials_1 = require('../../models/security/credentials');
+var config_service_1 = require('../config/config.service');
 var SecurityService = (function () {
-    function SecurityService(_http) {
+    function SecurityService(_http, _configService) {
         this._http = _http;
-        this.url = "http://localhost:3010";
+        this._configService = _configService;
+        this.url = "";
         this.api = "/api/v1/security";
         this.activeTokenSubject = new Rx_1.BehaviorSubject(null);
+        this.url = _configService.url;
     }
     SecurityService.prototype.login = function (email, password) {
         var _this = this;
@@ -48,7 +51,7 @@ var SecurityService = (function () {
     };
     SecurityService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [http_1.Http])
+        __metadata('design:paramtypes', [http_1.Http, config_service_1.ConfigService])
     ], SecurityService);
     return SecurityService;
 }());

@@ -10,6 +10,7 @@ import { KeyService } from './services/key/key.service';
 import { SecurityService } from './services/security/security.service';
 import { UnderlyingAccountService } from './services/underlyingaccount/underlyingAccount.service';
 import { Member } from './models/member/member';
+import { ConfigService } from './services/config/config.service';
 import { HTTP_PROVIDERS } from '@angular/http';
 import { DROPDOWN_DIRECTIVES } from 'ng2-dropdown';
 
@@ -20,7 +21,7 @@ import { DROPDOWN_DIRECTIVES } from 'ng2-dropdown';
     providers: [HTTP_PROVIDERS, MemberService, BudgetService,
         InitiativeService, JournalService, PostingService,
         TransactionService, UnderlyingAccountService, 
-        KeyService, SecurityService]
+        KeyService, SecurityService, ConfigService]
 })
 
 export class AppComponent implements OnInit {

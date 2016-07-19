@@ -16,13 +16,16 @@ require('rxjs/add/operator/catch');
 var posting_1 = require('../../models/posting/posting');
 var member_service_1 = require('../member/member.service');
 var security_service_1 = require('../security/security.service');
+var config_service_1 = require('../config/config.service');
 var PostingService = (function () {
-    function PostingService(_http, _memberService, _securityService) {
+    function PostingService(_http, _memberService, _securityService, _configService) {
         this._http = _http;
         this._memberService = _memberService;
         this._securityService = _securityService;
-        this.url = "http://localhost:3010";
+        this._configService = _configService;
+        this.url = "";
         this.api = "/api/v1/posting";
+        this.url = _configService.url;
     }
     PostingService.prototype.getPostings = function () {
         var _this = this;
@@ -72,7 +75,7 @@ var PostingService = (function () {
     };
     PostingService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [http_1.Http, member_service_1.MemberService, security_service_1.SecurityService])
+        __metadata('design:paramtypes', [http_1.Http, member_service_1.MemberService, security_service_1.SecurityService, config_service_1.ConfigService])
     ], PostingService);
     return PostingService;
 }());

@@ -5,7 +5,7 @@ import { TransactionsComponent } from './transaction/transactions.component';
 import { InitiativesComponent } from './initiative/initiatives.component';
 import { JournalsComponent } from './journal/journals.component';
 import { PostingsComponent } from './posting/postings.component';
-import { UnderlyingAccountsComponent } from './underlyingaccount/underlyingaccounts.component';
+import { UnderlyingAccountsComponent } from './underlyingaccount/underlyingAccounts.component';
 import { NewBudgetComponent } from './budget/newBudget.component';
 import { NewInitiativeComponent } from './initiative/newInitiative.component';
 import { NewJournalComponent } from './journal/newJournal.component';

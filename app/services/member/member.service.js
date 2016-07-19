@@ -15,13 +15,16 @@ require('rxjs/add/operator/map');
 require('rxjs/add/operator/catch');
 var Rx_1 = require('rxjs/Rx');
 var member_1 = require('../../models/member/member');
+var config_service_1 = require('../config/config.service');
 var MemberService = (function () {
-    function MemberService(_http) {
+    function MemberService(_http, _configService) {
         var _this = this;
         this._http = _http;
-        this.url = "http://localhost:3010";
+        this._configService = _configService;
+        this.url = "";
         this.api = "/api/v1/member";
         this.activeMemberSubject = new Rx_1.BehaviorSubject(null);
+        this.url = _configService.url;
         var member = new member_1.Member();
         member.name = "anonymous";
         this.activeMemberSubject.next(member);
@@ -46,7 +49,7 @@ var MemberService = (function () {
     };
     MemberService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [http_1.Http])
+        __metadata('design:paramtypes', [http_1.Http, config_service_1.ConfigService])
     ], MemberService);
     return MemberService;
 }());

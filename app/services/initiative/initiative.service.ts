@@ -7,13 +7,17 @@ import { Observable } from 'rxjs/Rx';
 import { Initiative } from '../../models/initiative/initiative';
 import { MemberService } from '../member/member.service';
 import { SecurityService } from '../security/security.service';
+import { ConfigService } from '../config/config.service';
 
 @Injectable()
 export class InitiativeService {
-  url = "http://localhost:3010";
+  url = "";
   api = "/api/v1/initiative"
 
-  constructor(private _http: Http, private _memberService: MemberService, private _securityService: SecurityService) { }
+  constructor(private _http: Http, private _memberService: MemberService, 
+  private _securityService: SecurityService, private _configService: ConfigService) {
+    this.url = _configService.url;
+   }
 
   getInitiatives() {
     let headers = new Headers({

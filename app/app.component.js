@@ -20,6 +20,7 @@ var key_service_1 = require('./services/key/key.service');
 var security_service_1 = require('./services/security/security.service');
 var underlyingAccount_service_1 = require('./services/underlyingaccount/underlyingAccount.service');
 var member_1 = require('./models/member/member');
+var config_service_1 = require('./services/config/config.service');
 var http_1 = require('@angular/http');
 var ng2_dropdown_1 = require('ng2-dropdown');
 var AppComponent = (function () {
@@ -49,7 +50,7 @@ var AppComponent = (function () {
             providers: [http_1.HTTP_PROVIDERS, member_service_1.MemberService, budget_service_1.BudgetService,
                 initiative_service_1.InitiativeService, journal_service_1.JournalService, posting_service_1.PostingService,
                 transaction_service_1.TransactionService, underlyingAccount_service_1.UnderlyingAccountService,
-                key_service_1.KeyService, security_service_1.SecurityService]
+                key_service_1.KeyService, security_service_1.SecurityService, config_service_1.ConfigService]
         }), 
         __metadata('design:paramtypes', [member_service_1.MemberService])
     ], AppComponent);

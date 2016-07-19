@@ -47,4 +47,4 @@ var UnderlyingAccountsComponent = (function () {
     return UnderlyingAccountsComponent;
 }());
 exports.UnderlyingAccountsComponent = UnderlyingAccountsComponent;
-//# sourceMappingURL=underlyingaccounts.component.js.map
+//# sourceMappingURL=underlyingAccounts.component.js.map

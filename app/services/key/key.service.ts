@@ -5,14 +5,15 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Rx';
 import { Key } from '../../models/key/key'
+import { ConfigService } from '../config/config.service';
 
 @Injectable()
 export class KeyService {
-  url = "http://localhost:3010";
+  url = "";
   api = "/api/v1/key"
 
-  constructor(private _http: Http) {
-
+  constructor(private _http: Http, private _configService: ConfigService) {
+    this.url = _configService.url;
   }
 
   getNextKeyByName(keyName: string) {

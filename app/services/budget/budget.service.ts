@@ -8,13 +8,17 @@ import { Budget } from '../../models/budget/budget';
 import { BudgetDeposit } from '../../models/budget/budget.deposit';
 import { MemberService } from '../member/member.service';
 import { SecurityService } from '../security/security.service';
+import { ConfigService } from '../config/config.service';
 
 @Injectable()
 export class BudgetService {
-  url = "http://localhost:3010";
+  url = "";
   api = "/api/v1/budget"
 
-  constructor(private _http: Http, private _memberService: MemberService, private _securityService: SecurityService) { }
+  constructor(private _http: Http, private _memberService: MemberService, 
+  private _securityService: SecurityService, private _configService: ConfigService) { 
+    this.url = _configService.url;
+  }
 
   getBudgets() {
     let headers = new Headers({

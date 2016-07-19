@@ -7,15 +7,17 @@ import { Observable } from 'rxjs/Rx';
 import { Subject, BehaviorSubject } from 'rxjs/Rx';
 import { Member } from '../../models/member/member';
 import { Token } from '../../models/security/token';
+import { ConfigService } from '../config/config.service';
 
 @Injectable()
 export class MemberService {
-  url = "http://localhost:3010";
+  url = "";
   api = "/api/v1/member";
   activeMemberSubject: Subject<Member> = new BehaviorSubject<Member>(null);
   activeMember: Member;
 
-  constructor(private _http: Http) {
+  constructor(private _http: Http, private _configService: ConfigService) {
+    this.url = _configService.url;
     let member = new Member();
     member.name = "anonymous";
     this.activeMemberSubject.next(member);

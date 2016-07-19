@@ -7,13 +7,17 @@ import { Observable } from 'rxjs/Rx';
 import { Posting } from '../../models/posting/posting';
 import { MemberService } from '../member/member.service';
 import { SecurityService } from '../security/security.service';
+import { ConfigService } from '../config/config.service';
 
 @Injectable()
 export class PostingService {
-  url = "http://localhost:3010";
+  url = "";
   api = "/api/v1/posting"
 
-  constructor(private _http: Http, private _memberService: MemberService, private _securityService: SecurityService) { }
+  constructor(private _http: Http, private _memberService: MemberService, 
+  private _securityService: SecurityService, private _configService: ConfigService) {
+    this.url = _configService.url;
+   }
 
   getPostings() {
     let headers = new Headers({

@@ -14,11 +14,14 @@ require('rxjs/add/operator/toPromise');
 require('rxjs/add/operator/map');
 require('rxjs/add/operator/catch');
 var key_1 = require('../../models/key/key');
+var config_service_1 = require('../config/config.service');
 var KeyService = (function () {
-    function KeyService(_http) {
+    function KeyService(_http, _configService) {
         this._http = _http;
-        this.url = "http://localhost:3010";
+        this._configService = _configService;
+        this.url = "";
         this.api = "/api/v1/key";
+        this.url = _configService.url;
     }
     KeyService.prototype.getNextKeyByName = function (keyName) {
         var _this = this;
@@ -34,7 +37,7 @@ var KeyService = (function () {
     };
     KeyService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [http_1.Http])
+        __metadata('design:paramtypes', [http_1.Http, config_service_1.ConfigService])
     ], KeyService);
     return KeyService;
 }());

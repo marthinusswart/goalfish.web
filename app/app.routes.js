@@ -6,7 +6,7 @@ var transactions_component_1 = require('./transaction/transactions.component');
 var initiatives_component_1 = require('./initiative/initiatives.component');
 var journals_component_1 = require('./journal/journals.component');
 var postings_component_1 = require('./posting/postings.component');
-var underlyingaccounts_component_1 = require('./underlyingaccount/underlyingaccounts.component');
+var underlyingAccounts_component_1 = require('./underlyingaccount/underlyingAccounts.component');
 var newBudget_component_1 = require('./budget/newBudget.component');
 var newInitiative_component_1 = require('./initiative/newInitiative.component');
 var newJournal_component_1 = require('./journal/newJournal.component');
@@ -41,7 +41,7 @@ var routes = [
     },
     {
         path: "underlyingaccounts",
-        component: underlyingaccounts_component_1.UnderlyingAccountsComponent
+        component: underlyingAccounts_component_1.UnderlyingAccountsComponent
     },
     {
         path: "newbudget",

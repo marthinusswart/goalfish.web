@@ -17,13 +17,16 @@ var budget_1 = require('../../models/budget/budget');
 var budget_deposit_1 = require('../../models/budget/budget.deposit');
 var member_service_1 = require('../member/member.service');
 var security_service_1 = require('../security/security.service');
+var config_service_1 = require('../config/config.service');
 var BudgetService = (function () {
-    function BudgetService(_http, _memberService, _securityService) {
+    function BudgetService(_http, _memberService, _securityService, _configService) {
         this._http = _http;
         this._memberService = _memberService;
         this._securityService = _securityService;
-        this.url = "http://localhost:3010";
+        this._configService = _configService;
+        this.url = "";
         this.api = "/api/v1/budget";
+        this.url = _configService.url;
     }
     BudgetService.prototype.getBudgets = function () {
         var _this = this;
@@ -94,7 +97,7 @@ var BudgetService = (function () {
     };
     BudgetService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [http_1.Http, member_service_1.MemberService, security_service_1.SecurityService])
+        __metadata('design:paramtypes', [http_1.Http, member_service_1.MemberService, security_service_1.SecurityService, config_service_1.ConfigService])
     ], BudgetService);
     return BudgetService;
 }());
