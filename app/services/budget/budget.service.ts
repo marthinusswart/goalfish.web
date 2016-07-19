@@ -40,10 +40,11 @@ export class BudgetService {
 
   deposit(budgetDeposit: BudgetDeposit) {
     let headers = new Headers({
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'x-access-token': this._securityService.token.token
     });
 
-    return this._http.post(this.url + this.api, JSON.stringify(budgetDeposit), { headers: headers })
+    return this._http.post(this.url + this.api + '/deposit', JSON.stringify(budgetDeposit), { headers: headers })
       .map((resp: Response) => resp.json())
       .map(budgetDeposit => { return this.toBudgetDeposit(budgetDeposit); })
       .toPromise();

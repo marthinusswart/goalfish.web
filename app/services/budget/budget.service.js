@@ -48,9 +48,10 @@ var BudgetService = (function () {
     BudgetService.prototype.deposit = function (budgetDeposit) {
         var _this = this;
         var headers = new http_1.Headers({
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'x-access-token': this._securityService.token.token
         });
-        return this._http.post(this.url + this.api, JSON.stringify(budgetDeposit), { headers: headers })
+        return this._http.post(this.url + this.api + '/deposit', JSON.stringify(budgetDeposit), { headers: headers })
             .map(function (resp) { return resp.json(); })
             .map(function (budgetDeposit) { return _this.toBudgetDeposit(budgetDeposit); })
             .toPromise();
