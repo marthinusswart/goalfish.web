@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Deposit money into an Initiative</h3>
+            </div>
+            <div class="panel-body">
+                <form role="form" class="form-horizontal">
+                    <div class="row form-group">
+                        <div class="col-md-3">Initiative</div>
+                       <div class="col-md-9">
+                            <select class="form-control" [(ngModel)]="initiativeDeposit.initiativeId">
+                            <option *ngFor="let initiative of initiatives" [value]="initiative.id">{{initiative.name}}</option>
+                            </select>
+                        </div>
+                         </div>
+                   <div class="row form-group">
+                        <div class="col-md-3">From Account</div>
+                        <div class="col-md-9">
+                            <select class="form-control" [(ngModel)]="initiativeDeposit.fromAccountId">
+                            <option *ngFor="let account of accounts" [value]="account.id">{{account.name}}</option>
+                            </select>
+                        </div>
+                    </div>      
+                    <div class="row form-group">
+                        <div class="col-md-3">To Account</div>
+                        <div class="col-md-9">
+                            <select class="form-control" [(ngModel)]="initiativeDeposit.toAccountId">
+                            <option *ngFor="let account of accounts" [value]="account.id">{{account.name}}</option>
+                            </select>
+                        </div>
+                    </div>                 
+                    <div class="row form-group">
+                        <div class="col-md-3">Description</div>
+                        <div class="col-md-9"><input class="form-control" type="Text" [(ngModel)]="initiativeDeposit.description"></div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-3">Amount</div>
+                        <div class="col-md-9"><input class="form-control" type="Text" [(ngModel)]="initiativeDeposit.amount"></div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-3">Date</div>
+                        <div class="col-md-9"><input class="form-control" type="Text" [(ngModel)]="initiativeDeposit.depositDate"></div>
+                    </div>                   
+
+                </form>
+
+                <div><button type="button" class="btn btn-primary" (click)="deposit()">Deposit</button></div>
+                <div class="alert alert-success" role="alert" *ngIf="saveWasSuccessful">
+                    <strong>Deposit saved!</strong> Budget deposit was successfully saved.
+                </div>
+                <div class="alert alert-danger" role="alert" *ngIf="saveWasInsuccessful">
+                    <strong>Deposit error!</strong> Error saving budget deposit.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
