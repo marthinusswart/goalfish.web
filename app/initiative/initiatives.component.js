@@ -17,6 +17,7 @@ var InitiativesComponent = (function () {
         this._router = _router;
         this._initiativeService = _initiativeService;
         this.allInitiatives = [];
+        this.showIsReconciledField = false;
     }
     InitiativesComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -28,6 +29,14 @@ var InitiativesComponent = (function () {
     };
     InitiativesComponent.prototype.onSelect = function (initiative) {
         this.selectedInitiative = initiative;
+    };
+    InitiativesComponent.prototype.reconcile = function () {
+        //this._initiativeService.reconcile().then(budgets => this.allBudgets = budgets);
+        this.showIsReconciledField = true;
+    };
+    InitiativesComponent.prototype.gotoDeposit = function () {
+        var link = ['initiativedeposit'];
+        this._router.navigate(link);
     };
     InitiativesComponent = __decorate([
         core_1.Component({

@@ -14,6 +14,7 @@ require('rxjs/add/operator/toPromise');
 require('rxjs/add/operator/map');
 require('rxjs/add/operator/catch');
 var initiative_1 = require('../../models/initiative/initiative');
+var initiative_deposit_1 = require('../../models/initiative/initiative.deposit');
 var member_service_1 = require('../member/member.service');
 var security_service_1 = require('../security/security.service');
 var config_service_1 = require('../config/config.service');
@@ -47,6 +48,17 @@ var InitiativeService = (function () {
             .map(function (initiative) { return _this.toInitiative(initiative); })
             .toPromise();
     };
+    InitiativeService.prototype.deposit = function (initiativeDeposit) {
+        var _this = this;
+        var headers = new http_1.Headers({
+            'Content-Type': 'application/json',
+            'x-access-token': this._securityService.token.token
+        });
+        return this._http.post(this.url + this.api + '/deposit', JSON.stringify(initiativeDeposit), { headers: headers })
+            .map(function (resp) { return resp.json(); })
+            .map(function (budgetDeposit) { return _this.toInitiativeDeposit(budgetDeposit); })
+            .toPromise();
+    };
     InitiativeService.prototype.updateInitiative = function (initiative) {
         var _this = this;
         var headers = new http_1.Headers({
@@ -57,11 +69,6 @@ var InitiativeService = (function () {
             .map(function (initiative) { return _this.toInitiative(initiative); })
             .toPromise();
     };
-    InitiativeService.prototype.getHero = function (id) {
-        /*return Promise.resolve(HEROES).then(
-          heroes => heroes.filter(hero => hero.id === id)[0]
-        );*/
-    };
     InitiativeService.prototype.toInitiativeArray = function (initiatives) {
         var initiativesArray = [];
         initiativesArray = initiatives.map(function (initiative) { return new initiative_1.Initiative().fromJson(initiative); });
@@ -71,6 +78,11 @@ var InitiativeService = (function () {
         var initiative = new initiative_1.Initiative();
         initiative = initiative.fromJson(initiativeJson);
         return initiative;
+    };
+    InitiativeService.prototype.toInitiativeDeposit = function (initiativeDepositJson) {
+        var initiativeDeposit = new initiative_deposit_1.InitiativeDeposit();
+        initiativeDeposit = initiativeDeposit.fromJson(initiativeDepositJson);
+        return initiativeDeposit;
     };
     InitiativeService = __decorate([
         core_1.Injectable(), 

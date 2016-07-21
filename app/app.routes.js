@@ -14,6 +14,7 @@ var newPosting_component_1 = require('./posting/newPosting.component');
 var newTransaction_component_1 = require('./transaction/newTransaction.component');
 var newUnderlyingAccount_component_1 = require('./underlyingaccount/newUnderlyingAccount.component');
 var budgetDeposit_component_1 = require('./budget/budgetDeposit.component');
+var initiative_deposit_component_1 = require('./initiative/initiative.deposit.component');
 var routes = [
     {
         path: "members",
@@ -71,6 +72,10 @@ var routes = [
         path: "budgetdeposit",
         component: budgetDeposit_component_1.BudgetDepositComponent
     },
+    {
+        path: "initiativedeposit",
+        component: initiative_deposit_component_1.InitiativeDepositComponent
+    }
 ];
 exports.APP_ROUTER_PROVIDERS = [
     router_1.provideRouter(routes)

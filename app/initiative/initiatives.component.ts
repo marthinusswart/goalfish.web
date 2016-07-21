@@ -14,6 +14,7 @@ export class InitiativesComponent implements OnInit {
 
   allInitiatives: Initiative[] = [];
   selectedInitiative: Initiative;
+  showIsReconciledField: boolean = false;
 
   constructor(private _router: Router, private _initiativeService: InitiativeService) { }
 
@@ -28,6 +29,16 @@ export class InitiativesComponent implements OnInit {
 
   onSelect(initiative: Initiative) {
     this.selectedInitiative = initiative;
+  }
+
+  reconcile() {
+    //this._initiativeService.reconcile().then(budgets => this.allBudgets = budgets);
+    this.showIsReconciledField = true;
+  }
+
+  gotoDeposit() {
+    let link = ['initiativedeposit'];
+    this._router.navigate(link);
   }
 
 }

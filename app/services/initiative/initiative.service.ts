@@ -5,6 +5,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Rx';
 import { Initiative } from '../../models/initiative/initiative';
+import { InitiativeDeposit } from '../../models/initiative/initiative.deposit';
 import { MemberService } from '../member/member.service';
 import { SecurityService } from '../security/security.service';
 import { ConfigService } from '../config/config.service';
@@ -41,6 +42,18 @@ export class InitiativeService {
       .toPromise();
   }
 
+   deposit(initiativeDeposit: InitiativeDeposit) {
+    let headers = new Headers({
+      'Content-Type': 'application/json',
+      'x-access-token': this._securityService.token.token
+    });
+
+    return this._http.post(this.url + this.api + '/deposit', JSON.stringify(initiativeDeposit), { headers: headers })
+      .map((resp: Response) => resp.json())
+      .map(budgetDeposit => { return this.toInitiativeDeposit(budgetDeposit); })
+      .toPromise();
+  }
+
   updateInitiative(initiative: Initiative) {
     let headers = new Headers({
       'Content-Type': 'application/json'
@@ -50,12 +63,6 @@ export class InitiativeService {
       .map((resp: Response) => resp.json())
       .map(initiative => { return this.toInitiative(initiative); })
       .toPromise();
-  }
-
-  getHero(id: string) {
-    /*return Promise.resolve(HEROES).then(
-      heroes => heroes.filter(hero => hero.id === id)[0]
-    );*/
   }
 
   toInitiativeArray(initiatives: any[]) {
@@ -68,6 +75,12 @@ export class InitiativeService {
     let initiative: Initiative = new Initiative();
     initiative = initiative.fromJson(initiativeJson);
     return initiative;
+  }
+
+   toInitiativeDeposit(initiativeDepositJson: any) {
+    let initiativeDeposit: InitiativeDeposit = new InitiativeDeposit();
+    initiativeDeposit = initiativeDeposit.fromJson(initiativeDepositJson);
+    return initiativeDeposit;
   }
 
 }

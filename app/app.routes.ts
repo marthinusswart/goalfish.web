@@ -13,6 +13,7 @@ import { NewPostingComponent } from './posting/newPosting.component';
 import { NewTransactionComponent } from './transaction/newTransaction.component';
 import { NewUnderlyingAccountComponent } from './underlyingaccount/newUnderlyingAccount.component';
 import { BudgetDepositComponent } from './budget/budgetDeposit.component';
+import { InitiativeDepositComponent } from './initiative/initiative.deposit.component';
 
 const routes: RouterConfig = [
     {
@@ -71,6 +72,10 @@ const routes: RouterConfig = [
         path:"budgetdeposit",
         component: BudgetDepositComponent
     },
+     {
+        path:"initiativedeposit",
+        component: InitiativeDepositComponent
+    }
 ];
 
 export const APP_ROUTER_PROVIDERS = [
