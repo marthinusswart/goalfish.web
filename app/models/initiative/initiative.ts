@@ -40,4 +40,12 @@ export class Initiative {
 
         return this;
     }
+
+      createIdFromKey(key: number): string {
+        let keyStr = "INI" + key;
+        if (key < 1000) {
+            keyStr = "INI" + ("0000" + key).slice(-4);
+        }
+        return keyStr;
+    }
 }

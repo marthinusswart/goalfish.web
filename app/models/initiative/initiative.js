@@ -27,6 +27,13 @@ var Initiative = (function () {
         this.memberId = initiative.memberId;
         return this;
     };
+    Initiative.prototype.createIdFromKey = function (key) {
+        var keyStr = "INI" + key;
+        if (key < 1000) {
+            keyStr = "INI" + ("0000" + key).slice(-4);
+        }
+        return keyStr;
+    };
     return Initiative;
 }());
 exports.Initiative = Initiative;
