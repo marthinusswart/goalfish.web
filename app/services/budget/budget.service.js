@@ -15,6 +15,7 @@ require('rxjs/add/operator/map');
 require('rxjs/add/operator/catch');
 var budget_1 = require('../../models/budget/budget');
 var budget_deposit_1 = require('../../models/budget/budget.deposit');
+var budget_withdrawal_1 = require('../../models/budget/budget.withdrawal');
 var member_service_1 = require('../member/member.service');
 var security_service_1 = require('../security/security.service');
 var config_service_1 = require('../config/config.service');
@@ -59,6 +60,17 @@ var BudgetService = (function () {
             .map(function (budgetDeposit) { return _this.toBudgetDeposit(budgetDeposit); })
             .toPromise();
     };
+    BudgetService.prototype.withdraw = function (budgetWithdrawal) {
+        var _this = this;
+        var headers = new http_1.Headers({
+            'Content-Type': 'application/json',
+            'x-access-token': this._securityService.token.token
+        });
+        return this._http.post(this.url + this.api + '/withdraw', JSON.stringify(budgetWithdrawal), { headers: headers })
+            .map(function (resp) { return resp.json(); })
+            .map(function (budgetWithdrawal) { return _this.toBudgetWithdrawal(budgetWithdrawal); })
+            .toPromise();
+    };
     BudgetService.prototype.updateBudget = function (budget) {
         var _this = this;
         var headers = new http_1.Headers({
@@ -94,6 +106,11 @@ var BudgetService = (function () {
         var budgetDeposit = new budget_deposit_1.BudgetDeposit();
         budgetDeposit = budgetDeposit.fromJson(budgetDepositJson);
         return budgetDeposit;
+    };
+    BudgetService.prototype.toBudgetWithdrawal = function (budgetWithdrawalJson) {
+        var budgetWithdrawal = new budget_withdrawal_1.BudgetWithdrawal();
+        budgetWithdrawal = budgetWithdrawal.fromJson(budgetWithdrawalJson);
+        return budgetWithdrawal;
     };
     BudgetService = __decorate([
         core_1.Injectable(), 

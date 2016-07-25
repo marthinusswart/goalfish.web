@@ -22,20 +22,22 @@
                         <tr>
                             <th>ID</th>
                             <th>Description</th>
-                            <th>Classification</th>
+                            <th>Reference Id</th>
                             <th>Account</th>
                             <th>Amount</th>
                             <th>Is Posted</th>
+                            <th>Date</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let transaction of allTransactions">
                             <td>{{transaction.id}}</td>
                             <td>{{transaction.description}}</td>
-                            <td>{{transaction.classification}} </td>
+                            <td>{{transaction.referenceId}} </td>
                             <td>{{transaction.underlyingAccount}} </td>
                             <td>{{transaction.amount}}</td>
                             <td>{{transaction.isPosted}}</td>
+                            <td>{{transaction.date | date:'dd/MM/yyyy'}}</td>
                         </tr>
                     </tbody>
                 </table>

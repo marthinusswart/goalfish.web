@@ -25,6 +25,7 @@
                             <th>Account</th>
                             <th>Amount</th>
                             <th>Is Posted</th>
+                            <th>Date</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -35,6 +36,7 @@
                             <td>{{journal.accountNumber}}</td>
                             <td>{{journal.amount}} </td>
                             <td>{{journal.isPosted}}</td>
+                            <td>{{journal.date | date:'dd/MM/yyyy'}}</td>
                         </tr>
                     </tbody>
                 </table>

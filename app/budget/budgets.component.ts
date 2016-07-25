@@ -41,4 +41,9 @@ export class BudgetsComponent implements OnInit {
     this._router.navigate(link);
   }
 
+  gotoWithdraw() {
+    let link = ['budgetwithdrawal'];
+    this._router.navigate(link);
+  }
+
 }

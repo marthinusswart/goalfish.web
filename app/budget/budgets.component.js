@@ -39,6 +39,10 @@ var BudgetsComponent = (function () {
         var link = ['budgetdeposit'];
         this._router.navigate(link);
     };
+    BudgetsComponent.prototype.gotoWithdraw = function () {
+        var link = ['budgetwithdrawal'];
+        this._router.navigate(link);
+    };
     BudgetsComponent = __decorate([
         core_1.Component({
             selector: "budgets",
