@@ -1,0 +1,55 @@
+<h1>Credit Notes in the system</h1>
+<div class="row">
+    <div class="col-md-6">
+        <div>
+            <form role="form" class="form-horizontal">
+                <div class="row form-group goalfish-spacing">
+                    <button type="button" class="btn btn-primary col-md-2" (click)="gotoNewCreditNote()">New Credit Note</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Credit Notes</h3>
+            </div>
+            <div class="panel-body">
+
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Amount</th>
+                            <th>From Account</th>
+                            <th>To Account</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let creditnote of allCreditNotes" (click)="onSelect(creditnote)">
+                            <td>{{creditnote.id}}</td>
+                            <td>{{creditnote.name}}</td>
+                            <td>{{creditnote.description}}</td>
+                            <td>{{creditnote.amount}} </td>
+                            <td>{{creditnote.fromAccount}}</td>
+                            <td>{{creditnote.toAccount}}</td>
+                            <td>{{creditnote.date | date:'dd/MM/yyyy'}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>* Credit Note detail available, select individual credit note</p>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="col-md-4">
+       <!-- <budget-detail [creditNote]="selectedCreditNote"></budget-detail>-->
+    </div>
+</div>
