@@ -5,8 +5,8 @@ import { Budget } from '../models/budget/budget';
 
 @Component({
     selector: "budget-detail",
-    templateUrl: "app/budget/budgetDetail.component.html",
-    styleUrls: ["app/budget/budgetDetail.component.css"],
+    templateUrl: "app/budget/budget.detail.component.html",
+    styleUrls: ["app/budget/budget.detail.component.css"],
     inputs:["budget"]
 })
 export class BudgetDetailComponent {

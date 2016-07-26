@@ -1,0 +1,54 @@
+<div class="panel panel-default" *ngIf="creditNote">
+    <div class="panel-heading">
+        <h3 class="panel-title">{{creditNote.name}} details!</h3>
+    </div>
+    <div class="panel-body">
+        <form role="form" class="form-horizontal">
+            <div class="row form-group">
+                <div class="col-md-4">Name</div>
+                <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="creditNote.name"></div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-4">Description</div>
+                <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="creditNote.description"></div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-4">Amount</div>
+                <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="creditNote.amount"></div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-4">From Account</div>
+                <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="creditNote.fromAccount" disabled></div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-4">To Account</div>
+                <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="creditNote.toAccount" disabled></div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-4">ID</div>
+                <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="creditNote.id" disabled></div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-4">Member ID</div>
+                <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="creditNote.memberId" disabled></div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-4">Date</div>
+                <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="creditNote.date" disabled></div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-4">State</div>
+                <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="creditNote.state" disabled></div>
+            </div>
+        </form>
+        <div>
+            <button type="button" class="btn btn-primary" (click)="save()">Save</button>
+        </div>
+        <div class="alert alert-success" role="alert" *ngIf="saveWasSuccessful">
+            <strong>Credit Note saved!</strong> Credit Note detail was successfully saved.
+        </div>
+        <div class="alert alert-danger" role="alert" *ngIf="saveWasInsuccessful">
+            <strong>Credit Note error!</strong> Error saving creditNote detail.
+        </div>
+    </div>
+</div>

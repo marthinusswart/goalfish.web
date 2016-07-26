@@ -37,8 +37,8 @@ var BudgetDetailComponent = (function () {
     BudgetDetailComponent = __decorate([
         core_1.Component({
             selector: "budget-detail",
-            templateUrl: "app/budget/budgetDetail.component.html",
-            styleUrls: ["app/budget/budgetDetail.component.css"],
+            templateUrl: "app/budget/budget.detail.component.html",
+            styleUrls: ["app/budget/budget.detail.component.css"],
             inputs: ["budget"]
         }), 
         __metadata('design:paramtypes', [router_1.Router, budget_service_1.BudgetService])
@@ -46,4 +46,4 @@ var BudgetDetailComponent = (function () {
     return BudgetDetailComponent;
 }());
 exports.BudgetDetailComponent = BudgetDetailComponent;
-//# sourceMappingURL=budgetDetail.component.js.map
+//# sourceMappingURL=budget.detail.component.js.map
