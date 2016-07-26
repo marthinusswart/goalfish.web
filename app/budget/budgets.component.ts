@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BudgetService } from '../services/budget/budget.service';
 import { Budget } from '../models/budget/budget'
-import { BudgetDetailComponent } from './budgetDetail.component';
+import { BudgetDetailComponent } from './budget.detail.component';
 
 @Component({
   selector: "budgets",

@@ -4,34 +4,34 @@ import { CreditNoteService } from '../services/creditnote/creditnote.service';
 import { CreditNote } from '../models/creditnote/creditnote';
 
 @Component({
-    selector: "budget-detail",
-    templateUrl: "app/budget/budgetDetail.component.html",
-    styleUrls: ["app/budget/budgetDetail.component.css"],
-    inputs:["budget"]
+    selector: "creditnote-detail",
+    templateUrl: "app/creditnote/creditnote.detail.component.html",
+    styleUrls: ["app/creditnote/creditnote.detail.component.css"],
+    inputs:["creditNote"]
 })
-export class BudgetDetailComponent {
+export class CreditNoteDetailComponent {
    
-    private _budget: Budget;
+    private _crNote: CreditNote;
 
-    set budget(budget: Budget) {
-        this._budget = budget;
+    set creditNote(crNote: CreditNote) {
+        this._crNote = crNote;
         this.saveWasSuccessful = false;
         this.saveWasUnsuccessful = false;
     }
 
-    get budget(): Budget {
-        return this._budget;
+    get creditNote(): CreditNote {
+        return this._crNote;
     }
 
     saveWasSuccessful: boolean = false;
     saveWasUnsuccessful: boolean = false;
 
-    constructor(private _router: Router, private _budgetService: BudgetService) { 
+    constructor(private _router: Router, private _crNoteService: CreditNoteService) { 
        
     }
 
     save(){
-        this._budgetService.updateBudget(this.budget).then(budget => this.saveWasSuccessful = true);
+        this._crNoteService.updateCreditNote(this.creditNote).then(crNote => this.saveWasSuccessful = true);
     }
 
 }

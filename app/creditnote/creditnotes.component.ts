@@ -2,18 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CreditNoteService } from '../services/creditnote/creditnote.service';
 import { CreditNote } from '../models/creditnote/creditnote'
-//import { BudgetDetailComponent } from './budgetDetail.component';
+import { CreditNoteDetailComponent } from './creditnote.detail.component';
 
 @Component({
   selector: "creditnotes",
   templateUrl: "app/creditnote/creditnotes.component.html",
-  styleUrls: ["app/creditnote/creditnotes.component.css"]
-  //directives: [CreditNoteDetailComponent]
+  styleUrls: ["app/creditnote/creditnotes.component.css"],
+  directives: [CreditNoteDetailComponent]
 })
 export class CreditNotesComponent implements OnInit {
 
   allCreditNotes: CreditNote[] = [];
-  selectedCrNote: CreditNote;
+  selectedCreditNote: CreditNote;
 
   constructor(private _router: Router, private _crNoteService: CreditNoteService) { }
 
@@ -27,7 +27,7 @@ export class CreditNotesComponent implements OnInit {
   }
 
   onSelect(creditNote: CreditNote) {
-    this.selectedCrNote = creditNote;
+    this.selectedCreditNote = creditNote;    
   }
 
 }

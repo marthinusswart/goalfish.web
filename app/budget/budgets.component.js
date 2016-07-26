@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var budget_service_1 = require('../services/budget/budget.service');
-var budgetDetail_component_1 = require('./budgetDetail.component');
+var budget_detail_component_1 = require('./budget.detail.component');
 var BudgetsComponent = (function () {
     function BudgetsComponent(_router, _budgetService) {
         this._router = _router;
@@ -48,7 +48,7 @@ var BudgetsComponent = (function () {
             selector: "budgets",
             templateUrl: "app/budget/budgets.component.html",
             styleUrls: ["app/budget/budgets.component.css"],
-            directives: [budgetDetail_component_1.BudgetDetailComponent]
+            directives: [budget_detail_component_1.BudgetDetailComponent]
         }), 
         __metadata('design:paramtypes', [router_1.Router, budget_service_1.BudgetService])
     ], BudgetsComponent);

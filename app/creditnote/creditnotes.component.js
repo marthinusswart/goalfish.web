@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var creditnote_service_1 = require('../services/creditnote/creditnote.service');
-//import { BudgetDetailComponent } from './budgetDetail.component';
+var creditnote_detail_component_1 = require('./creditnote.detail.component');
 var CreditNotesComponent = (function () {
     function CreditNotesComponent(_router, _crNoteService) {
         this._router = _router;
@@ -27,13 +27,14 @@ var CreditNotesComponent = (function () {
         this._router.navigate(link);
     };
     CreditNotesComponent.prototype.onSelect = function (creditNote) {
-        this.selectedCrNote = creditNote;
+        this.selectedCreditNote = creditNote;
     };
     CreditNotesComponent = __decorate([
         core_1.Component({
             selector: "creditnotes",
             templateUrl: "app/creditnote/creditnotes.component.html",
-            styleUrls: ["app/creditnote/creditnotes.component.css"]
+            styleUrls: ["app/creditnote/creditnotes.component.css"],
+            directives: [creditnote_detail_component_1.CreditNoteDetailComponent]
         }), 
         __metadata('design:paramtypes', [router_1.Router, creditnote_service_1.CreditNoteService])
     ], CreditNotesComponent);

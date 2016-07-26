@@ -28,6 +28,7 @@
                             <th>Amount</th>
                             <th>From Account</th>
                             <th>To Account</th>
+                            <th>State</th>
                             <th>Date</th>
                         </tr>
                     </thead>
@@ -39,6 +40,7 @@
                             <td>{{creditnote.amount}} </td>
                             <td>{{creditnote.fromAccount}}</td>
                             <td>{{creditnote.toAccount}}</td>
+                            <td>{{creditnote.state}}</td>
                             <td>{{creditnote.date | date:'dd/MM/yyyy'}}</td>
                         </tr>
                     </tbody>
@@ -50,6 +52,6 @@
 
     </div>
     <div class="col-md-4">
-       <!-- <budget-detail [creditNote]="selectedCreditNote"></budget-detail>-->
+       <creditnote-detail [creditNote]="selectedCreditNote"></creditnote-detail>
     </div>
 </div>

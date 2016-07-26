@@ -10,39 +10,40 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var BudgetDetailComponent = (function () {
-    function BudgetDetailComponent(_router, _budgetService) {
+var creditnote_service_1 = require('../services/creditnote/creditnote.service');
+var CreditNoteDetailComponent = (function () {
+    function CreditNoteDetailComponent(_router, _crNoteService) {
         this._router = _router;
-        this._budgetService = _budgetService;
+        this._crNoteService = _crNoteService;
         this.saveWasSuccessful = false;
         this.saveWasUnsuccessful = false;
     }
-    Object.defineProperty(BudgetDetailComponent.prototype, "budget", {
+    Object.defineProperty(CreditNoteDetailComponent.prototype, "creditNote", {
         get: function () {
-            return this._budget;
+            return this._crNote;
         },
-        set: function (budget) {
-            this._budget = budget;
+        set: function (crNote) {
+            this._crNote = crNote;
             this.saveWasSuccessful = false;
             this.saveWasUnsuccessful = false;
         },
         enumerable: true,
         configurable: true
     });
-    BudgetDetailComponent.prototype.save = function () {
+    CreditNoteDetailComponent.prototype.save = function () {
         var _this = this;
-        this._budgetService.updateBudget(this.budget).then(function (budget) { return _this.saveWasSuccessful = true; });
+        this._crNoteService.updateCreditNote(this.creditNote).then(function (crNote) { return _this.saveWasSuccessful = true; });
     };
-    BudgetDetailComponent = __decorate([
+    CreditNoteDetailComponent = __decorate([
         core_1.Component({
-            selector: "budget-detail",
-            templateUrl: "app/budget/budgetDetail.component.html",
-            styleUrls: ["app/budget/budgetDetail.component.css"],
-            inputs: ["budget"]
+            selector: "creditnote-detail",
+            templateUrl: "app/creditnote/creditnote.detail.component.html",
+            styleUrls: ["app/creditnote/creditnote.detail.component.css"],
+            inputs: ["creditNote"]
         }), 
-        __metadata('design:paramtypes', [router_1.Router, Object])
-    ], BudgetDetailComponent);
-    return BudgetDetailComponent;
+        __metadata('design:paramtypes', [router_1.Router, creditnote_service_1.CreditNoteService])
+    ], CreditNoteDetailComponent);
+    return CreditNoteDetailComponent;
 }());
-exports.BudgetDetailComponent = BudgetDetailComponent;
+exports.CreditNoteDetailComponent = CreditNoteDetailComponent;
 //# sourceMappingURL=creditnote.detail.component.js.map
