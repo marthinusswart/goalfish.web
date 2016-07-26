@@ -2,6 +2,7 @@
 var router_1 = require('@angular/router');
 var members_component_1 = require('./member/members.component');
 var budgets_component_1 = require('./budget/budgets.component');
+var creditnotes_component_1 = require('./creditnote/creditnotes.component');
 var transactions_component_1 = require('./transaction/transactions.component');
 var initiatives_component_1 = require('./initiative/initiatives.component');
 var journals_component_1 = require('./journal/journals.component');
@@ -24,6 +25,10 @@ var routes = [
     {
         path: "budgets",
         component: budgets_component_1.BudgetsComponent
+    },
+    {
+        path: "creditnotes",
+        component: creditnotes_component_1.CreditNotesComponent
     },
     {
         path: "transactions",

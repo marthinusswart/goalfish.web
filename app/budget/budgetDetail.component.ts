@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { BudgetService } from '../services/budget/budget.service';
-import { Budget } from '../models/budget/budget'
+import { Budget } from '../models/budget/budget';
 
 @Component({
     selector: "budget-detail",

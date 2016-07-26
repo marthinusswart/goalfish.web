@@ -1,6 +1,7 @@
 import { provideRouter, RouterConfig }  from '@angular/router';
 import { MembersComponent } from './member/members.component';
 import { BudgetsComponent } from './budget/budgets.component';
+import { CreditNotesComponent } from './creditnote/creditnotes.component';
 import { TransactionsComponent } from './transaction/transactions.component';
 import { InitiativesComponent } from './initiative/initiatives.component';
 import { JournalsComponent } from './journal/journals.component';
@@ -24,6 +25,10 @@ const routes: RouterConfig = [
     {
         path: "budgets",
         component: BudgetsComponent
+    },
+    {
+        path: "creditnotes",
+        component: CreditNotesComponent
     },
     {
         path: "transactions",

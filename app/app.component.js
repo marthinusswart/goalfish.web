@@ -12,6 +12,7 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var member_service_1 = require('./services/member/member.service');
 var budget_service_1 = require('./services/budget/budget.service');
+var creditnote_service_1 = require('./services/creditnote/creditnote.service');
 var journal_service_1 = require('./services/journal/journal.service');
 var posting_service_1 = require('./services/posting/posting.service');
 var initiative_service_1 = require('./services/initiative/initiative.service');
@@ -53,7 +54,7 @@ var AppComponent = (function () {
             providers: [http_1.HTTP_PROVIDERS, member_service_1.MemberService, budget_service_1.BudgetService,
                 initiative_service_1.InitiativeService, journal_service_1.JournalService, posting_service_1.PostingService,
                 transaction_service_1.TransactionService, underlyingAccount_service_1.UnderlyingAccountService,
-                key_service_1.KeyService, security_service_1.SecurityService, config_service_1.ConfigService]
+                key_service_1.KeyService, security_service_1.SecurityService, config_service_1.ConfigService, creditnote_service_1.CreditNoteService]
         }), 
         __metadata('design:paramtypes', [member_service_1.MemberService, config_service_1.ConfigService])
     ], AppComponent);

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 import { MemberService } from './services/member/member.service';
 import { BudgetService } from './services/budget/budget.service';
+import { CreditNoteService } from './services/creditnote/creditnote.service';
 import { JournalService } from './services/journal/journal.service';
 import { PostingService } from './services/posting/posting.service';
 import { InitiativeService } from './services/initiative/initiative.service';
@@ -22,7 +23,7 @@ import { AppConfig } from './app.config';
     providers: [HTTP_PROVIDERS, MemberService, BudgetService,
         InitiativeService, JournalService, PostingService,
         TransactionService, UnderlyingAccountService, 
-        KeyService, SecurityService, ConfigService]
+        KeyService, SecurityService, ConfigService, CreditNoteService]
 })
 
 export class AppComponent implements OnInit {
