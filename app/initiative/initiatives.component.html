@@ -44,8 +44,8 @@
                             <td>{{initiative.description}}</td>
                             <td>{{initiative.balance}} </td>
                             <td>{{initiative.instalmentAmount}}</td>
-                            <td *ngIf="showIsReconciledField">{{budget.isReconciled?"Yes":"No"}}</td>
-                            <td *ngIf="showIsReconciledField">{{budget.calculatedBalance}}</td>
+                            <td *ngIf="showIsReconciledField">{{initiative.isReconciled?"Yes":"No"}}</td>
+                            <td *ngIf="showIsReconciledField">{{initiative.calculatedBalance}}</td>
                         </tr>
                     </tbody>
                 </table>

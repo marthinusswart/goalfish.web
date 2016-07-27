@@ -58,6 +58,7 @@ export class InitiativeDepositComponent implements OnInit {
     deposit() {
         this._initiativeService.deposit(this.initiativeDeposit).then(initiativeDeposit => {
              this.saveWasSuccessful = true;
+             this.initiativeDeposit = new InitiativeDeposit();
          });
     }
 

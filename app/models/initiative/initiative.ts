@@ -10,8 +10,10 @@ export class Initiative {
     instalmentAmount: number;
     frequency: string;
     memberId: string;
+    isReconciled: boolean;
+    calculatedBalance: number;
 
-     constructor() {
+    constructor() {
         this.externalRef = "";
         this.id = "";
         this.name = "";
@@ -23,9 +25,11 @@ export class Initiative {
         this.memberId = "";
         this.targetDate = new Date();
         this.targetBalance = 0;
+        this.isReconciled = false;
+        this.calculatedBalance = 0;
     }
 
-    fromJson(initiative: any) : Initiative {
+    fromJson(initiative: any): Initiative {
         this.externalRef = initiative.externalRef;
         this.id = initiative.id;
         this.name = initiative.name;
@@ -38,10 +42,15 @@ export class Initiative {
         this.frequency = initiative.frequency;
         this.memberId = initiative.memberId;
 
+        if (initiative.isReconciled !== undefined) {
+            this.isReconciled = initiative.isReconciled;
+            this.calculatedBalance = initiative.calculatedBalance;
+        }
+
         return this;
     }
 
-      createIdFromKey(key: number): string {
+    createIdFromKey(key: number): string {
         let keyStr = "INI" + key;
         if (key < 1000) {
             keyStr = "INI" + ("0000" + key).slice(-4);

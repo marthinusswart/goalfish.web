@@ -58,6 +58,7 @@ export class BudgetDepositComponent implements OnInit {
     deposit() {
         this._budgetService.deposit(this.budgetDeposit).then(budgetDeposit => {
              this.saveWasSuccessful = true;
+             this.budgetDeposit = new BudgetDeposit();
          });
     }
 

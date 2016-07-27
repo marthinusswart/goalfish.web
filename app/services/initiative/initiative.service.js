@@ -69,6 +69,16 @@ var InitiativeService = (function () {
             .map(function (initiative) { return _this.toInitiative(initiative); })
             .toPromise();
     };
+    InitiativeService.prototype.reconcile = function () {
+        var _this = this;
+        var headers = new http_1.Headers({
+            'x-access-token': this._securityService.token.token
+        });
+        return this._http.post(this.url + this.api + "/reconcile", "{}", { headers: headers })
+            .map(function (resp) { return resp.json(); })
+            .map(function (initiatives) { return _this.toInitiativeArray(initiatives); })
+            .toPromise();
+    };
     InitiativeService.prototype.toInitiativeArray = function (initiatives) {
         var initiativesArray = [];
         initiativesArray = initiatives.map(function (initiative) { return new initiative_1.Initiative().fromJson(initiative); });

@@ -8,6 +8,7 @@ import { JournalsComponent } from './journal/journals.component';
 import { PostingsComponent } from './posting/postings.component';
 import { UnderlyingAccountsComponent } from './underlyingaccount/underlyingAccounts.component';
 import { NewBudgetComponent } from './budget/newBudget.component';
+import { NewCreditNoteComponent } from './creditnote/creditnote.new.component';
 import { NewInitiativeComponent } from './initiative/newInitiative.component';
 import { NewJournalComponent } from './journal/newJournal.component';
 import { NewPostingComponent } from './posting/newPosting.component';
@@ -55,36 +56,40 @@ const routes: RouterConfig = [
         component: NewBudgetComponent
     },
     {
-        path:"newinitiative",
+        path: "newinitiative",
         component: NewInitiativeComponent
     },
     {
-        path:"newjournal",
+        path: "newjournal",
         component: NewJournalComponent
     },
     {
-        path:"newposting",
+        path: "newposting",
         component: NewPostingComponent
     },
     {
-        path:"newtransaction",
+        path: "newtransaction",
         component: NewTransactionComponent
     },
-     {
-        path:"newunderlyingaccount",
+    {
+        path: "newunderlyingaccount",
         component: NewUnderlyingAccountComponent
     },
     {
-        path:"budgetdeposit",
+        path: "budgetdeposit",
         component: BudgetDepositComponent
     },
-     {
-        path:"budgetwithdrawal",
+    {
+        path: "budgetwithdrawal",
         component: BudgetWithdrawalComponent
     },
-     {
-        path:"initiativedeposit",
+    {
+        path: "initiativedeposit",
         component: InitiativeDepositComponent
+    },
+    {
+        path: "newcreditnote",
+        component: NewCreditNoteComponent
     }
 ];
 

@@ -32,7 +32,7 @@ export class InitiativesComponent implements OnInit {
   }
 
   reconcile() {
-    //this._initiativeService.reconcile().then(budgets => this.allBudgets = budgets);
+    this._initiativeService.reconcile().then(initiatives => this.allInitiatives = initiatives);
     this.showIsReconciledField = true;
   }
 

@@ -58,6 +58,7 @@ var InitiativeDepositComponent = (function () {
         var _this = this;
         this._initiativeService.deposit(this.initiativeDeposit).then(function (initiativeDeposit) {
             _this.saveWasSuccessful = true;
+            _this.initiativeDeposit = new initiative_deposit_1.InitiativeDeposit();
         });
     };
     InitiativeDepositComponent = __decorate([

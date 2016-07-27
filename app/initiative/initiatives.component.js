@@ -31,7 +31,8 @@ var InitiativesComponent = (function () {
         this.selectedInitiative = initiative;
     };
     InitiativesComponent.prototype.reconcile = function () {
-        //this._initiativeService.reconcile().then(budgets => this.allBudgets = budgets);
+        var _this = this;
+        this._initiativeService.reconcile().then(function (initiatives) { return _this.allInitiatives = initiatives; });
         this.showIsReconciledField = true;
     };
     InitiativesComponent.prototype.gotoDeposit = function () {

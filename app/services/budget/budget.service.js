@@ -83,7 +83,6 @@ var BudgetService = (function () {
     };
     BudgetService.prototype.reconcile = function () {
         var _this = this;
-        console.log(this._securityService.token.token);
         var headers = new http_1.Headers({
             'x-access-token': this._securityService.token.token
         });

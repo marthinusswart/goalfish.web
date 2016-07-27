@@ -79,7 +79,6 @@ export class BudgetService {
   }
 
   reconcile() {
-    console.log(this._securityService.token.token);
 
     let headers = new Headers({
       'x-access-token': this._securityService.token.token

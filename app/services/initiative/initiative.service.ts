@@ -65,6 +65,18 @@ export class InitiativeService {
       .toPromise();
   }
 
+  reconcile() {
+
+    let headers = new Headers({
+      'x-access-token': this._securityService.token.token
+    });
+
+    return this._http.post(this.url + this.api + "/reconcile", "{}", { headers: headers })
+      .map((resp: Response) => resp.json())
+      .map(initiatives => { return this.toInitiativeArray(initiatives); })
+      .toPromise();
+  }
+
   toInitiativeArray(initiatives: any[]) {
     let initiativesArray: Initiative[] = [];
     initiativesArray = initiatives.map(initiative => new Initiative().fromJson(initiative));

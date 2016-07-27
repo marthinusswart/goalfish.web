@@ -12,6 +12,8 @@ var Initiative = (function () {
         this.memberId = "";
         this.targetDate = new Date();
         this.targetBalance = 0;
+        this.isReconciled = false;
+        this.calculatedBalance = 0;
     }
     Initiative.prototype.fromJson = function (initiative) {
         this.externalRef = initiative.externalRef;
@@ -25,6 +27,10 @@ var Initiative = (function () {
         this.instalmentAmount = initiative.instalmentAmount;
         this.frequency = initiative.frequency;
         this.memberId = initiative.memberId;
+        if (initiative.isReconciled !== undefined) {
+            this.isReconciled = initiative.isReconciled;
+            this.calculatedBalance = initiative.calculatedBalance;
+        }
         return this;
     };
     Initiative.prototype.createIdFromKey = function (key) {

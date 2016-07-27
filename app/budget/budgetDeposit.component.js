@@ -58,6 +58,7 @@ var BudgetDepositComponent = (function () {
         var _this = this;
         this._budgetService.deposit(this.budgetDeposit).then(function (budgetDeposit) {
             _this.saveWasSuccessful = true;
+            _this.budgetDeposit = new budget_deposit_1.BudgetDeposit();
         });
     };
     BudgetDepositComponent = __decorate([

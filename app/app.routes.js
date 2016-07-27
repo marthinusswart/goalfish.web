@@ -9,6 +9,7 @@ var journals_component_1 = require('./journal/journals.component');
 var postings_component_1 = require('./posting/postings.component');
 var underlyingAccounts_component_1 = require('./underlyingaccount/underlyingAccounts.component');
 var newBudget_component_1 = require('./budget/newBudget.component');
+var creditnote_new_component_1 = require('./creditnote/creditnote.new.component');
 var newInitiative_component_1 = require('./initiative/newInitiative.component');
 var newJournal_component_1 = require('./journal/newJournal.component');
 var newPosting_component_1 = require('./posting/newPosting.component');
@@ -85,6 +86,10 @@ var routes = [
     {
         path: "initiativedeposit",
         component: initiative_deposit_component_1.InitiativeDepositComponent
+    },
+    {
+        path: "newcreditnote",
+        component: creditnote_new_component_1.NewCreditNoteComponent
     }
 ];
 exports.APP_ROUTER_PROVIDERS = [
