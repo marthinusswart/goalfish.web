@@ -15,7 +15,7 @@ var newJournal_component_1 = require('./journal/newJournal.component');
 var newPosting_component_1 = require('./posting/newPosting.component');
 var newTransaction_component_1 = require('./transaction/newTransaction.component');
 var newUnderlyingAccount_component_1 = require('./underlyingaccount/newUnderlyingAccount.component');
-var budgetDeposit_component_1 = require('./budget/budgetDeposit.component');
+var budget_deposit_component_1 = require('./budget/budget.deposit.component');
 var budgetWithdrawal_component_1 = require('./budget/budgetWithdrawal.component');
 var initiative_deposit_component_1 = require('./initiative/initiative.deposit.component');
 var routes = [
@@ -77,7 +77,7 @@ var routes = [
     },
     {
         path: "budgetdeposit",
-        component: budgetDeposit_component_1.BudgetDepositComponent
+        component: budget_deposit_component_1.BudgetDepositComponent
     },
     {
         path: "budgetwithdrawal",

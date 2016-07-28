@@ -40,15 +40,26 @@
                 <div class="col-md-4">State</div>
                 <div class="col-md-8"><input class="form-control" type="Text" [(ngModel)]="creditNote.state" disabled></div>
             </div>
+
+            <div class="row form-group">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <button type="button" class="btn btn-primary form-control" (click)="process()">Process</button>
+                </div>
+                <div class="col-md-4">
+                    <button type="button" class="btn btn-default form-control" (click)="save()">Save</button>
+                </div>
+            </div>
         </form>
-        <div>
-            <button type="button" class="btn btn-primary" (click)="save()">Save</button>
-        </div>
+
         <div class="alert alert-success" role="alert" *ngIf="saveWasSuccessful">
             <strong>Credit Note saved!</strong> Credit Note detail was successfully saved.
         </div>
         <div class="alert alert-danger" role="alert" *ngIf="saveWasInsuccessful">
             <strong>Credit Note error!</strong> Error saving creditNote detail.
+        </div>
+        <div class="alert alert-success" role="alert" *ngIf="processingWasSuccessful">
+            <strong>Credit Note processed!</strong> Credit Note detail was successfully processed.
         </div>
     </div>
 </div>

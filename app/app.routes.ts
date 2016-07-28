@@ -14,7 +14,7 @@ import { NewJournalComponent } from './journal/newJournal.component';
 import { NewPostingComponent } from './posting/newPosting.component';
 import { NewTransactionComponent } from './transaction/newTransaction.component';
 import { NewUnderlyingAccountComponent } from './underlyingaccount/newUnderlyingAccount.component';
-import { BudgetDepositComponent } from './budget/budgetDeposit.component';
+import { BudgetDepositComponent } from './budget/budget.deposit.component';
 import { BudgetWithdrawalComponent } from './budget/budgetWithdrawal.component';
 import { InitiativeDepositComponent } from './initiative/initiative.deposit.component';
 

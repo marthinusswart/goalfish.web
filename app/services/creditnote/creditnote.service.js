@@ -57,6 +57,15 @@ var CreditNoteService = (function () {
             .map(function (crNote) { return _this.toCreditNote(crNote); })
             .toPromise();
     };
+    CreditNoteService.prototype.processCreditNote = function (creditNote) {
+        var headers = new http_1.Headers({
+            'Content-Type': 'application/json'
+        });
+        var creditNoteArray = [creditNote.id];
+        return this._http.post(this.url + this.api + "/process", JSON.stringify(creditNoteArray), { headers: headers })
+            .map(function (resp) { return creditNote.state = "Processed"; })
+            .toPromise();
+    };
     CreditNoteService.prototype.toCreditNoteArray = function (creditNotes) {
         var crNoteArray = [];
         crNoteArray = creditNotes.map(function (crNote) { return new creditnote_1.CreditNote().fromJson(crNote); });

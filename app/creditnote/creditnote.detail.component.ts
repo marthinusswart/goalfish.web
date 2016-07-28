@@ -24,6 +24,7 @@ export class CreditNoteDetailComponent {
     }
 
     saveWasSuccessful: boolean = false;
+    processingWasSuccessful: boolean = false;
     saveWasUnsuccessful: boolean = false;
 
     constructor(private _router: Router, private _crNoteService: CreditNoteService) { 
@@ -32,6 +33,10 @@ export class CreditNoteDetailComponent {
 
     save(){
         this._crNoteService.updateCreditNote(this.creditNote).then(crNote => this.saveWasSuccessful = true);
+    }
+
+    process(){
+        this._crNoteService.processCreditNote(this.creditNote).then(crNote => this.processingWasSuccessful = true);
     }
 
 }

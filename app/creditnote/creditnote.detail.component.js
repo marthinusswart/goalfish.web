@@ -16,6 +16,7 @@ var CreditNoteDetailComponent = (function () {
         this._router = _router;
         this._crNoteService = _crNoteService;
         this.saveWasSuccessful = false;
+        this.processingWasSuccessful = false;
         this.saveWasUnsuccessful = false;
     }
     Object.defineProperty(CreditNoteDetailComponent.prototype, "creditNote", {
@@ -33,6 +34,10 @@ var CreditNoteDetailComponent = (function () {
     CreditNoteDetailComponent.prototype.save = function () {
         var _this = this;
         this._crNoteService.updateCreditNote(this.creditNote).then(function (crNote) { return _this.saveWasSuccessful = true; });
+    };
+    CreditNoteDetailComponent.prototype.process = function () {
+        var _this = this;
+        this._crNoteService.processCreditNote(this.creditNote).then(function (crNote) { return _this.processingWasSuccessful = true; });
     };
     CreditNoteDetailComponent = __decorate([
         core_1.Component({

@@ -8,7 +8,7 @@ body {
 }
 
 .goalfish-spacing > .btn, .goalfish-spacing > .btn-group {
-    margin-right: 5px;
+    margin-left: 5px;
 }
  /*
   * See https://github.com/angular/angular.io/blob/master/public/docs/_examples/styles.css

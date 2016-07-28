@@ -52,6 +52,17 @@ export class CreditNoteService {
       .toPromise();
   }
 
+  processCreditNote(creditNote: CreditNote) {
+    let headers = new Headers({
+      'Content-Type': 'application/json'
+    });
+
+    let creditNoteArray = [creditNote.id];
+    return this._http.post(this.url + this.api + "/process", JSON.stringify(creditNoteArray), { headers: headers })
+      .map((resp: Response) => creditNote.state = "Processed")
+      .toPromise();
+  }
+
   toCreditNoteArray(creditNotes: any[]) {
     let crNoteArray: CreditNote[] = [];
     crNoteArray = creditNotes.map(crNote => new CreditNote().fromJson(crNote));
