@@ -64,8 +64,8 @@ var BudgetDepositComponent = (function () {
     BudgetDepositComponent = __decorate([
         core_1.Component({
             selector: "budgetDeposit",
-            templateUrl: "app/budget/budgetDeposit.component.html",
-            styleUrls: ["app/budget/budgetDeposit.component.css"]
+            templateUrl: "app/budget/budget.deposit.component.html",
+            styleUrls: ["app/budget/budget.deposit.component.css"]
         }), 
         __metadata('design:paramtypes', [router_1.Router, budget_service_1.BudgetService, key_service_1.KeyService, security_service_1.SecurityService, underlyingAccount_service_1.UnderlyingAccountService])
     ], BudgetDepositComponent);
@@ -82,4 +82,4 @@ var BudgetItem = (function () {
     }
     return BudgetItem;
 }());
-//# sourceMappingURL=budgetDeposit.component.js.map
+//# sourceMappingURL=budget.deposit.component.js.map

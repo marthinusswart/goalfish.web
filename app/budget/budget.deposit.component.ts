@@ -10,8 +10,8 @@ import { UnderlyingAccountService } from '../services/underlyingaccount/underlyi
 
 @Component({
     selector: "budgetDeposit",
-    templateUrl: "app/budget/budgetDeposit.component.html",
-    styleUrls: ["app/budget/budgetDeposit.component.css"]
+    templateUrl: "app/budget/budget.deposit.component.html",
+    styleUrls: ["app/budget/budget.deposit.component.css"]
 })
 export class BudgetDepositComponent implements OnInit {
 
