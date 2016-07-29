@@ -8,14 +8,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var initiative_service_1 = require('../services/initiative/initiative.service');
 var initiativeDetail_component_1 = require('./initiativeDetail.component');
+var platform_browser_1 = require('@angular/platform-browser');
 var InitiativesComponent = (function () {
-    function InitiativesComponent(_router, _initiativeService) {
+    function InitiativesComponent(_router, _initiativeService, _document) {
         this._router = _router;
         this._initiativeService = _initiativeService;
+        this._document = _document;
         this.allInitiatives = [];
         this.showIsReconciledField = false;
     }
@@ -39,14 +44,37 @@ var InitiativesComponent = (function () {
         var link = ['initiativedeposit'];
         this._router.navigate(link);
     };
+    InitiativesComponent.prototype.selectAll = function (elementId) {
+        var element = this._document.getElementById(elementId);
+        var body = this._document.body, range, sel;
+        if (this._document.createRange && window.getSelection) {
+            range = this._document.createRange();
+            sel = window.getSelection();
+            sel.removeAllRanges();
+            try {
+                range.selectNodeContents(element);
+                sel.addRange(range);
+            }
+            catch (e) {
+                range.selectNode(element);
+                sel.addRange(range);
+            }
+        }
+        else if (body.createTextRange) {
+            range = body.createTextRange();
+            range.moveToElementText(element);
+            range.select();
+        }
+    };
     InitiativesComponent = __decorate([
         core_1.Component({
             selector: "initiatives",
             templateUrl: "app/initiative/initiatives.component.html",
             styleUrls: ["app/initiative/initiatives.component.css"],
             directives: [initiativeDetail_component_1.InitiativeDetailComponent]
-        }), 
-        __metadata('design:paramtypes', [router_1.Router, initiative_service_1.InitiativeService])
+        }),
+        __param(2, core_1.Inject(platform_browser_1.DOCUMENT)), 
+        __metadata('design:paramtypes', [router_1.Router, initiative_service_1.InitiativeService, Object])
     ], InitiativesComponent);
     return InitiativesComponent;
 }());

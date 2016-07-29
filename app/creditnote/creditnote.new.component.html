@@ -12,7 +12,7 @@
                     </div>
                     <div class="row form-group">
                         <div class="col-md-3">Member ID</div>
-                        <div class="col-md-9"><input class="form-control" type="Text" [(ngModel)]="creditNote.memberId"></div>
+                        <div class="col-md-9"><input class="form-control" type="Text" [(ngModel)]="creditNote.memberId" disabled></div>
                     </div>
                     <div class="row form-group">
                         <div class="col-md-3">Name</div>
@@ -28,11 +28,19 @@
                     </div>
                     <div class="row form-group">
                         <div class="col-md-3">From Account</div>
-                        <div class="col-md-9"><input class="form-control" type="Text" [(ngModel)]="creditNote.fromAccount"></div>
+                        <div class="col-md-9">
+                            <select class="form-control"  [(ngModel)]="creditNote.fromAccount">>
+                            <option *ngFor="let account of accounts" [value]="account.id">{{account.name}}</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="row form-group">
                         <div class="col-md-3">To Account</div>
-                        <div class="col-md-9"><input class="form-control" type="Text" [(ngModel)]="creditNote.toAccount"></div>
+                         <div class="col-md-9">
+                            <select class="form-control"  [(ngModel)]="creditNote.toAccount">>
+                            <option *ngFor="let account of accounts" [value]="account.id">{{account.name}}</option>
+                            </select>
+                        </div>                       
                     </div>
                     <div class="row form-group">
                         <div class="col-md-3">Date</div>

@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { InitiativeService } from '../services/initiative/initiative.service';
 import { Initiative } from '../models/initiative/initiative';
 import { InitiativeDetailComponent } from './initiativeDetail.component';
+import { DOCUMENT } from '@angular/platform-browser';
 
 @Component({
   selector: "initiatives",
@@ -16,7 +17,8 @@ export class InitiativesComponent implements OnInit {
   selectedInitiative: Initiative;
   showIsReconciledField: boolean = false;
 
-  constructor(private _router: Router, private _initiativeService: InitiativeService) { }
+  constructor(private _router: Router, private _initiativeService: InitiativeService,
+  @Inject(DOCUMENT) private _document) { }
 
   ngOnInit() {
     this._initiativeService.getInitiatives().then(initiatives => this.allInitiatives = initiatives);
@@ -39,6 +41,26 @@ export class InitiativesComponent implements OnInit {
   gotoDeposit() {
     let link = ['initiativedeposit'];
     this._router.navigate(link);
+  }
+
+   selectAll(elementId) {
+    var element = this._document.getElementById(elementId);
+    var body = this._document.body, range, sel;
+    if (this._document.createRange && window.getSelection) {
+      range = this._document.createRange();
+      sel = window.getSelection();
+      sel.removeAllRanges();
+
+      try {
+        range.selectNodeContents(element); sel.addRange(range);
+      } catch (e) {
+        range.selectNode(element); sel.addRange(range);
+      }
+    } else if (body.createTextRange) {
+      range = body.createTextRange();
+      range.moveToElementText(element);
+      range.select();
+    }
   }
 
 }

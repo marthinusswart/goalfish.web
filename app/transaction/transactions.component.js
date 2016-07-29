@@ -8,13 +8,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var transaction_service_1 = require('../services/transaction/transaction.service');
+var platform_browser_1 = require('@angular/platform-browser');
 var TransactionsComponent = (function () {
-    function TransactionsComponent(_router, _transactionService) {
+    function TransactionsComponent(_router, _transactionService, _document) {
         this._router = _router;
         this._transactionService = _transactionService;
+        this._document = _document;
         this.allTransactions = [];
     }
     TransactionsComponent.prototype.ngOnInit = function () {
@@ -25,13 +30,36 @@ var TransactionsComponent = (function () {
         var link = ['newtransaction'];
         this._router.navigate(link);
     };
+    TransactionsComponent.prototype.selectAll = function (elementId) {
+        var element = this._document.getElementById(elementId);
+        var body = this._document.body, range, sel;
+        if (this._document.createRange && window.getSelection) {
+            range = this._document.createRange();
+            sel = window.getSelection();
+            sel.removeAllRanges();
+            try {
+                range.selectNodeContents(element);
+                sel.addRange(range);
+            }
+            catch (e) {
+                range.selectNode(element);
+                sel.addRange(range);
+            }
+        }
+        else if (body.createTextRange) {
+            range = body.createTextRange();
+            range.moveToElementText(element);
+            range.select();
+        }
+    };
     TransactionsComponent = __decorate([
         core_1.Component({
             selector: "transactions",
             templateUrl: "app/transaction/transactions.component.html",
             styleUrls: ["app/transaction/transactions.component.css"]
-        }), 
-        __metadata('design:paramtypes', [router_1.Router, transaction_service_1.TransactionService])
+        }),
+        __param(2, core_1.Inject(platform_browser_1.DOCUMENT)), 
+        __metadata('design:paramtypes', [router_1.Router, transaction_service_1.TransactionService, Object])
     ], TransactionsComponent);
     return TransactionsComponent;
 }());

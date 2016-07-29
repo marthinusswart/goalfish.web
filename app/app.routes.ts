@@ -10,7 +10,7 @@ import { UnderlyingAccountsComponent } from './underlyingaccount/underlyingAccou
 import { NewBudgetComponent } from './budget/newBudget.component';
 import { NewCreditNoteComponent } from './creditnote/creditnote.new.component';
 import { NewInitiativeComponent } from './initiative/newInitiative.component';
-import { NewJournalComponent } from './journal/newJournal.component';
+import { NewJournalComponent } from './journal/journal.new.component';
 import { NewPostingComponent } from './posting/newPosting.component';
 import { NewTransactionComponent } from './transaction/newTransaction.component';
 import { NewUnderlyingAccountComponent } from './underlyingaccount/newUnderlyingAccount.component';
