@@ -28,7 +28,7 @@ export class JournalsComponent implements OnInit {
   selectAll(elementId) {
     var element = this._document.getElementById(elementId);
     var body = this._document.body, range, sel;
-    if (this._document.createRange && window.getSelection) {
+    if (this._document.createRange && window.getSelection) {      
       range = this._document.createRange();
       sel = window.getSelection();
       sel.removeAllRanges();
@@ -38,10 +38,13 @@ export class JournalsComponent implements OnInit {
       } catch (e) {
         range.selectNode(element); sel.addRange(range);
       }
-    } else if (body.createTextRange) {
+    }
+    /*
+     else if (body.createTextRange) {      
       range = body.createTextRange();
       range.moveToElementText(element);
       range.select();
-    }
+    }*/
+
   }
 }

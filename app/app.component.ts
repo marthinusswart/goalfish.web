@@ -13,6 +13,7 @@ import { UnderlyingAccountService } from './services/underlyingaccount/underlyin
 import { Member } from './models/member/member';
 import { ConfigService } from './services/config/config.service';
 import { HTTP_PROVIDERS } from '@angular/http';
+import { BROWSER_PLATFORM_PROVIDERS } from '@angular/platform-browser'
 import { DROPDOWN_DIRECTIVES } from 'ng2-dropdown';
 import { AppConfig } from './app.config';
 
@@ -23,7 +24,8 @@ import { AppConfig } from './app.config';
     providers: [HTTP_PROVIDERS, MemberService, BudgetService,
         InitiativeService, JournalService, PostingService,
         TransactionService, UnderlyingAccountService, 
-        KeyService, SecurityService, ConfigService, CreditNoteService]
+        KeyService, SecurityService, ConfigService, 
+        CreditNoteService, BROWSER_PLATFORM_PROVIDERS]
 })
 
 export class AppComponent implements OnInit {

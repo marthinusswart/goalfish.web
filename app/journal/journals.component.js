@@ -46,11 +46,12 @@ var JournalsComponent = (function () {
                 sel.addRange(range);
             }
         }
-        else if (body.createTextRange) {
-            range = body.createTextRange();
-            range.moveToElementText(element);
-            range.select();
-        }
+        /*
+         else if (body.createTextRange) {
+          range = body.createTextRange();
+          range.moveToElementText(element);
+          range.select();
+        }*/
     };
     JournalsComponent = __decorate([
         core_1.Component({
