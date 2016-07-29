@@ -9,8 +9,8 @@ import { UnderlyingAccountService } from '../services/underlyingaccount/underlyi
 
 @Component({
   selector: "newJournal",
-  templateUrl: "app/journal/newJournal.component.html",
-  styleUrls: ["app/journal/newJournal.component.css"]
+  templateUrl: "app/journal/journal.new.component.html",
+  styleUrls: ["app/journal/journal.new.component.css"]
 })
 export class NewJournalComponent implements OnInit {
 

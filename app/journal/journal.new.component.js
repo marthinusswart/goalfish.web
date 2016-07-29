@@ -61,8 +61,8 @@ var NewJournalComponent = (function () {
     NewJournalComponent = __decorate([
         core_1.Component({
             selector: "newJournal",
-            templateUrl: "app/journal/newJournal.component.html",
-            styleUrls: ["app/journal/newJournal.component.css"]
+            templateUrl: "app/journal/journal.new.component.html",
+            styleUrls: ["app/journal/journal.new.component.css"]
         }), 
         __metadata('design:paramtypes', [router_1.Router, journal_service_1.JournalService, key_service_1.KeyService, security_service_1.SecurityService, underlyingAccount_service_1.UnderlyingAccountService])
     ], NewJournalComponent);
@@ -74,4 +74,4 @@ var JournalAccount = (function () {
     }
     return JournalAccount;
 }());
-//# sourceMappingURL=newJournal.component.js.map
+//# sourceMappingURL=journal.new.component.js.map
