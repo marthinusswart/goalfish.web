@@ -36,8 +36,8 @@ var NewTransactionComponent = (function () {
     }
     NewTransactionComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.initTransaction();
         var self = this;
+        this.initTransaction();
         this._securityService.activeTokenSubject.subscribe(function (token) {
             _this._underlyingAccountService.getAccounts().then(function (allAccounts) {
                 self.accounts = [];
@@ -67,6 +67,7 @@ var NewTransactionComponent = (function () {
         this._keyService.getNextKeyByName("transaction").then(function (key) { _this.transaction.id = _this.transaction.createIdFromKey(key.key); });
         this.transaction.amount = 0;
         this.transaction.description = "";
+        this.transaction.memberId = this._securityService.token.memberId;
     };
     NewTransactionComponent.prototype.onClassificationChange = function (classification) {
         this.transaction.classification = classification.value;
@@ -125,4 +126,4 @@ var TransactionReference = (function () {
     }
     return TransactionReference;
 }());
-//# sourceMappingURL=newTransaction.component.js.map
+//# sourceMappingURL=transaction.new.component.js.map

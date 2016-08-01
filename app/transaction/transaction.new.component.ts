@@ -32,8 +32,8 @@ export class NewTransactionComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.initTransaction();
     let self = this;
+    this.initTransaction();
 
     this._securityService.activeTokenSubject.subscribe((token: Token) => {
       this._underlyingAccountService.getAccounts().then(allAccounts => {
@@ -65,6 +65,7 @@ export class NewTransactionComponent implements OnInit {
     this._keyService.getNextKeyByName("transaction").then(key => { this.transaction.id = this.transaction.createIdFromKey(key.key) });
     this.transaction.amount = 0;
     this.transaction.description = "";
+    this.transaction.memberId = this._securityService.token.memberId;
   }
 
   onClassificationChange(classification: any) {
