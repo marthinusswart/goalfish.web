@@ -11,8 +11,8 @@ import { UnderlyingAccountService } from '../services/underlyingaccount/underlyi
 
 @Component({
   selector: "newTransaction",
-  templateUrl: "app/transaction/newTransaction.component.html",
-  styleUrls: ["app/transaction/newTransaction.component.css"]
+  templateUrl: "app/transaction/transaction.new.component.html",
+  styleUrls: ["app/transaction/transaction.new.component.css"]
 })
 export class NewTransactionComponent implements OnInit {
 

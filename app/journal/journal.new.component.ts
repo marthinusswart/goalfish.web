@@ -22,7 +22,7 @@ export class NewJournalComponent implements OnInit {
   constructor(private _router: Router, private _journalService: JournalService,
     private _keyService: KeyService, private _securityService: SecurityService,
     private _underlyingAccountService: UnderlyingAccountService) {
-    this.journal = new Journal();
+    this.journal = new Journal();    
   }
 
   ngOnInit() {
@@ -54,6 +54,7 @@ export class NewJournalComponent implements OnInit {
     this.journal.amount = 0;
     this.journal.description = "";
     this.journal.name = "";
+    this.journal.memberId = this._securityService.token.memberId;
   }
 
 }

@@ -10,6 +10,7 @@ var Transaction = (function () {
         this.date = new Date();
         this.underlyingAccount = "";
         this.isPosted = "N";
+        this.memberId = "";
     }
     Transaction.prototype.fromJson = function (transaction) {
         this.externalRef = transaction.externalRef;
@@ -19,6 +20,7 @@ var Transaction = (function () {
         this.description = transaction.description;
         this.amount = transaction.amount;
         this.date = transaction.date;
+        this.memberId = transaction.memberId;
         this.underlyingAccount = transaction.underlyingAccount;
         this.isPosted = transaction.isPosted;
         return this;

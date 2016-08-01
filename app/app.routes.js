@@ -13,7 +13,7 @@ var creditnote_new_component_1 = require('./creditnote/creditnote.new.component'
 var newInitiative_component_1 = require('./initiative/newInitiative.component');
 var journal_new_component_1 = require('./journal/journal.new.component');
 var newPosting_component_1 = require('./posting/newPosting.component');
-var newTransaction_component_1 = require('./transaction/newTransaction.component');
+var transaction_new_component_1 = require('./transaction/transaction.new.component');
 var newUnderlyingAccount_component_1 = require('./underlyingaccount/newUnderlyingAccount.component');
 var budget_deposit_component_1 = require('./budget/budget.deposit.component');
 var budgetWithdrawal_component_1 = require('./budget/budgetWithdrawal.component');
@@ -69,7 +69,7 @@ var routes = [
     },
     {
         path: "newtransaction",
-        component: newTransaction_component_1.NewTransactionComponent
+        component: transaction_new_component_1.NewTransactionComponent
     },
     {
         path: "newunderlyingaccount",

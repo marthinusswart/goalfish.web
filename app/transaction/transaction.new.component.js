@@ -108,8 +108,8 @@ var NewTransactionComponent = (function () {
     NewTransactionComponent = __decorate([
         core_1.Component({
             selector: "newTransaction",
-            templateUrl: "app/transaction/newTransaction.component.html",
-            styleUrls: ["app/transaction/newTransaction.component.css"]
+            templateUrl: "app/transaction/transaction.new.component.html",
+            styleUrls: ["app/transaction/transaction.new.component.css"]
         }), 
         __metadata('design:paramtypes', [router_1.Router, transaction_service_1.TransactionService, key_service_1.KeyService, security_service_1.SecurityService, budget_service_1.BudgetService, initiative_service_1.InitiativeService, underlyingAccount_service_1.UnderlyingAccountService])
     ], NewTransactionComponent);

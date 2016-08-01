@@ -57,6 +57,7 @@ var NewJournalComponent = (function () {
         this.journal.amount = 0;
         this.journal.description = "";
         this.journal.name = "";
+        this.journal.memberId = this._securityService.token.memberId;
     };
     NewJournalComponent = __decorate([
         core_1.Component({

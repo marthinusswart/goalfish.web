@@ -12,7 +12,7 @@ import { NewCreditNoteComponent } from './creditnote/creditnote.new.component';
 import { NewInitiativeComponent } from './initiative/newInitiative.component';
 import { NewJournalComponent } from './journal/journal.new.component';
 import { NewPostingComponent } from './posting/newPosting.component';
-import { NewTransactionComponent } from './transaction/newTransaction.component';
+import { NewTransactionComponent } from './transaction/transaction.new.component';
 import { NewUnderlyingAccountComponent } from './underlyingaccount/newUnderlyingAccount.component';
 import { BudgetDepositComponent } from './budget/budget.deposit.component';
 import { BudgetWithdrawalComponent } from './budget/budgetWithdrawal.component';
