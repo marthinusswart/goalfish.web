@@ -38,10 +38,6 @@ export class TransactionsComponent implements OnInit {
       } catch (e) {
         range.selectNode(element); sel.addRange(range);
       }
-    }/* else if (body.createTextRange) {
-      range = body.createTextRange();
-      range.moveToElementText(element);
-      range.select();
-    }*/
+    }
   }
 }

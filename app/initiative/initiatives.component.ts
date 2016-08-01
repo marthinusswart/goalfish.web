@@ -43,24 +43,4 @@ export class InitiativesComponent implements OnInit {
     this._router.navigate(link);
   }
 
-   selectAll(elementId) {
-    var element = this._document.getElementById(elementId);
-    var body = this._document.body, range, sel;
-    if (this._document.createRange && window.getSelection) {
-      range = this._document.createRange();
-      sel = window.getSelection();
-      sel.removeAllRanges();
-
-      try {
-        range.selectNodeContents(element); sel.addRange(range);
-      } catch (e) {
-        range.selectNode(element); sel.addRange(range);
-      }
-    } else if (body.createTextRange) {
-      range = body.createTextRange();
-      range.moveToElementText(element);
-      range.select();
-    }
-  }
-
 }

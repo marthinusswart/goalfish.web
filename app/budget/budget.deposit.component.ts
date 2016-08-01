@@ -40,6 +40,11 @@ export class BudgetDepositComponent implements OnInit {
                     bgtAccount.name = account.id + " | " + account.name;
                     self.accounts.push(bgtAccount);
                 });
+
+                let extAccount = new BudgetAccount();
+                extAccount.id = "-1"
+                extAccount.name = "External Account";
+                self.accounts.push(extAccount);
             });
         });
 
@@ -57,9 +62,9 @@ export class BudgetDepositComponent implements OnInit {
 
     deposit() {
         this._budgetService.deposit(this.budgetDeposit).then(budgetDeposit => {
-             this.saveWasSuccessful = true;
-             this.budgetDeposit = new BudgetDeposit();
-         });
+            this.saveWasSuccessful = true;
+            this.budgetDeposit = new BudgetDeposit();
+        });
     }
 
 }

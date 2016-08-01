@@ -45,11 +45,7 @@ var TransactionsComponent = (function () {
                 range.selectNode(element);
                 sel.addRange(range);
             }
-        } /* else if (body.createTextRange) {
-          range = body.createTextRange();
-          range.moveToElementText(element);
-          range.select();
-        }*/
+        }
     };
     TransactionsComponent = __decorate([
         core_1.Component({

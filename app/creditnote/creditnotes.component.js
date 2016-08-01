@@ -29,6 +29,23 @@ var CreditNotesComponent = (function () {
     CreditNotesComponent.prototype.onSelect = function (creditNote) {
         this.selectedCreditNote = creditNote;
     };
+    CreditNotesComponent.prototype.selectAll = function (elementId) {
+        var element = document.getElementById(elementId);
+        var body = document.body, range, sel;
+        if (document.createRange && window.getSelection) {
+            range = document.createRange();
+            sel = window.getSelection();
+            sel.removeAllRanges();
+            try {
+                range.selectNodeContents(element);
+                sel.addRange(range);
+            }
+            catch (e) {
+                range.selectNode(element);
+                sel.addRange(range);
+            }
+        }
+    };
     CreditNotesComponent = __decorate([
         core_1.Component({
             selector: "creditnotes",

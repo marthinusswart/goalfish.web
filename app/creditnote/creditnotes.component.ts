@@ -30,4 +30,20 @@ export class CreditNotesComponent implements OnInit {
     this.selectedCreditNote = creditNote;    
   }
 
+   selectAll(elementId) {
+    var element = document.getElementById(elementId);
+    var body = document.body, range, sel;
+    if (document.createRange && window.getSelection) {      
+      range = document.createRange();
+      sel = window.getSelection();
+      sel.removeAllRanges();
+
+      try {
+        range.selectNodeContents(element); sel.addRange(range);
+      } catch (e) {
+        range.selectNode(element); sel.addRange(range);
+      }
+    }
+  }
+
 }

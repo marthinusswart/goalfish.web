@@ -41,6 +41,10 @@ var BudgetDepositComponent = (function () {
                     bgtAccount.name = account.id + " | " + account.name;
                     self.accounts.push(bgtAccount);
                 });
+                var extAccount = new BudgetAccount();
+                extAccount.id = "-1";
+                extAccount.name = "External Account";
+                self.accounts.push(extAccount);
             });
         });
         this._budgetService.getBudgets().then(function (budgets) {

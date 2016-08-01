@@ -35,31 +35,38 @@ export class InitiativeDepositComponent implements OnInit {
                 self.accounts = [];
                 self.accounts.push(new InitiativeAccount());
                 allAccounts.forEach(account => {
-                    let bgtAccount = new InitiativeAccount();
-                    bgtAccount.id = account.id;
-                    bgtAccount.name = account.id + " | " + account.name;
-                    self.accounts.push(bgtAccount);
+                    let initAccount = new InitiativeAccount();
+                    initAccount.id = account.id;
+                    initAccount.name = account.id + " | " + account.name;
+                    self.accounts.push(initAccount);
                 });
+
+                let extAccount = new InitiativeAccount();
+                extAccount.id = "-1"
+                extAccount.name = "External Account";
+                self.accounts.push(extAccount);
             });
         });
 
         this._initiativeService.getInitiatives().then(initiatives => {
             self.initiatives = [];
-            self.initiatives.push(new InitiativeItem());
+            let tempInitiativeItem = new InitiativeItem();
+            self.initiatives.push(tempInitiativeItem);
             initiatives.forEach(initiative => {
                 let iniItem = new InitiativeItem();
                 iniItem.id = initiative.id;
                 iniItem.name = initiative.id + " | " + initiative.name;
                 self.initiatives.push(iniItem);
             });
+
         });
     }
 
     deposit() {
         this._initiativeService.deposit(this.initiativeDeposit).then(initiativeDeposit => {
-             this.saveWasSuccessful = true;
-             this.initiativeDeposit = new InitiativeDeposit();
-         });
+            this.saveWasSuccessful = true;
+            this.initiativeDeposit = new InitiativeDeposit();
+        });
     }
 
 }

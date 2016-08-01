@@ -36,16 +36,21 @@ var InitiativeDepositComponent = (function () {
                 self.accounts = [];
                 self.accounts.push(new InitiativeAccount());
                 allAccounts.forEach(function (account) {
-                    var bgtAccount = new InitiativeAccount();
-                    bgtAccount.id = account.id;
-                    bgtAccount.name = account.id + " | " + account.name;
-                    self.accounts.push(bgtAccount);
+                    var initAccount = new InitiativeAccount();
+                    initAccount.id = account.id;
+                    initAccount.name = account.id + " | " + account.name;
+                    self.accounts.push(initAccount);
                 });
+                var extAccount = new InitiativeAccount();
+                extAccount.id = "-1";
+                extAccount.name = "External Account";
+                self.accounts.push(extAccount);
             });
         });
         this._initiativeService.getInitiatives().then(function (initiatives) {
             self.initiatives = [];
-            self.initiatives.push(new InitiativeItem());
+            var tempInitiativeItem = new InitiativeItem();
+            self.initiatives.push(tempInitiativeItem);
             initiatives.forEach(function (initiative) {
                 var iniItem = new InitiativeItem();
                 iniItem.id = initiative.id;

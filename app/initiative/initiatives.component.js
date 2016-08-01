@@ -44,28 +44,6 @@ var InitiativesComponent = (function () {
         var link = ['initiativedeposit'];
         this._router.navigate(link);
     };
-    InitiativesComponent.prototype.selectAll = function (elementId) {
-        var element = this._document.getElementById(elementId);
-        var body = this._document.body, range, sel;
-        if (this._document.createRange && window.getSelection) {
-            range = this._document.createRange();
-            sel = window.getSelection();
-            sel.removeAllRanges();
-            try {
-                range.selectNodeContents(element);
-                sel.addRange(range);
-            }
-            catch (e) {
-                range.selectNode(element);
-                sel.addRange(range);
-            }
-        }
-        else if (body.createTextRange) {
-            range = body.createTextRange();
-            range.moveToElementText(element);
-            range.select();
-        }
-    };
     InitiativesComponent = __decorate([
         core_1.Component({
             selector: "initiatives",
