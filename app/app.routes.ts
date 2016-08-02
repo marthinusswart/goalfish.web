@@ -15,6 +15,7 @@ import { NewPostingComponent } from './posting/newPosting.component';
 import { NewTransactionComponent } from './transaction/transaction.new.component';
 import { NewUnderlyingAccountComponent } from './underlyingaccount/newUnderlyingAccount.component';
 import { BudgetDepositComponent } from './budget/budget.deposit.component';
+import { BudgetTransactionsComponent } from './budget/budget.transactions.component';
 import { BudgetWithdrawalComponent } from './budget/budgetWithdrawal.component';
 import { InitiativeDepositComponent } from './initiative/initiative.deposit.component';
 
@@ -78,6 +79,10 @@ const routes: RouterConfig = [
     {
         path: "budgetdeposit",
         component: BudgetDepositComponent
+    },
+    {
+        path: "budgettransactions/:id",
+        component: BudgetTransactionsComponent
     },
     {
         path: "budgetwithdrawal",

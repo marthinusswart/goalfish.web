@@ -46,4 +46,13 @@ export class BudgetsComponent implements OnInit {
     this._router.navigate(link);
   }
 
+  gotoTransactions() {
+    if (this.selectedBudget !== undefined) {
+      let link = ['budgettransactions/' + this.selectedBudget.id];
+      this._router.navigate(link);
+    } else {
+      alert("No budget selected");
+    }
+  }
+
 }

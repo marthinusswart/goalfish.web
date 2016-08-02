@@ -43,6 +43,15 @@ var BudgetsComponent = (function () {
         var link = ['budgetwithdrawal'];
         this._router.navigate(link);
     };
+    BudgetsComponent.prototype.gotoTransactions = function () {
+        if (this.selectedBudget !== undefined) {
+            var link = ['budgettransactions/' + this.selectedBudget.id];
+            this._router.navigate(link);
+        }
+        else {
+            alert("No budget selected");
+        }
+    };
     BudgetsComponent = __decorate([
         core_1.Component({
             selector: "budgets",

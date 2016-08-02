@@ -16,6 +16,7 @@ var newPosting_component_1 = require('./posting/newPosting.component');
 var transaction_new_component_1 = require('./transaction/transaction.new.component');
 var newUnderlyingAccount_component_1 = require('./underlyingaccount/newUnderlyingAccount.component');
 var budget_deposit_component_1 = require('./budget/budget.deposit.component');
+var budget_transactions_component_1 = require('./budget/budget.transactions.component');
 var budgetWithdrawal_component_1 = require('./budget/budgetWithdrawal.component');
 var initiative_deposit_component_1 = require('./initiative/initiative.deposit.component');
 var routes = [
@@ -78,6 +79,10 @@ var routes = [
     {
         path: "budgetdeposit",
         component: budget_deposit_component_1.BudgetDepositComponent
+    },
+    {
+        path: "budgettransactions/:id",
+        component: budget_transactions_component_1.BudgetTransactionsComponent
     },
     {
         path: "budgetwithdrawal",
