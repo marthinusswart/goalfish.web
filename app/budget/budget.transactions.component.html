@@ -1,0 +1,56 @@
+<h1>Transaction for Budget</h1>
+<div class="row">
+    <div class="col-md-6">
+        <div>
+            <form role="form" class="form-horizontal">
+                <div class="row form-group goalfish-spacing">
+                    <button type="button" class="btn btn-primary col-md-2" (click)="gotoBudget()">Back</button>
+                    <button type="button" class="btn btn-default" (click)="selectAll('table1')">Select All</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Transactions</h3>
+            </div>
+            <div class="panel-body">
+
+                <table class="table table-striped" id="table1">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Description</th>
+                            <th>Reference Id</th>
+                            <th>Account</th>
+                            <th>Amount</th>
+                            <th>Is Posted</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let transaction of allTransactions">
+                            <td>{{transaction.id}}</td>
+                            <td>{{transaction.description}}</td>
+                            <td>{{transaction.referenceId}} </td>
+                            <td>{{transaction.underlyingAccount}} </td>
+                            <td>{{transaction.amount}}</td>
+                            <td>{{transaction.isPosted}}</td>
+                            <td>{{transaction.date | date:'dd/MM/yyyy'}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+
+    </div>
+    <div class="col-md-4">
+        <budget-detail [budget]="selectedBudget"></budget-detail>
+    </div>
+</div>

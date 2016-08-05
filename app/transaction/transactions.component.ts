@@ -14,7 +14,7 @@ export class TransactionsComponent implements OnInit {
   allTransactions: Transaction[] = [];
 
   constructor(private _router: Router, private _transactionService: TransactionService,
-  @Inject(DOCUMENT) private _document) { }
+    @Inject(DOCUMENT) private _document) { }
 
   ngOnInit() {
     this._transactionService.getTransactions().then(transactions => this.allTransactions = transactions);
@@ -25,11 +25,11 @@ export class TransactionsComponent implements OnInit {
     this._router.navigate(link);
   }
 
-   selectAll(elementId) {
-    var element = this._document.getElementById(elementId);
-    var body = this._document.body, range, sel;
-    if (this._document.createRange && window.getSelection) {
-      range = this._document.createRange();
+  selectAll(elementId) {
+    var element = document.getElementById(elementId);
+    var body = document.body, range, sel;
+    if (document.createRange && window.getSelection) {
+      range = document.createRange();
       sel = window.getSelection();
       sel.removeAllRanges();
 

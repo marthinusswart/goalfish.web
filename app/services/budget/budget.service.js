@@ -14,6 +14,7 @@ require('rxjs/add/operator/toPromise');
 require('rxjs/add/operator/map');
 require('rxjs/add/operator/catch');
 var budget_1 = require('../../models/budget/budget');
+var transaction_1 = require('../../models/transaction/transaction');
 var budget_deposit_1 = require('../../models/budget/budget.deposit');
 var budget_withdrawal_1 = require('../../models/budget/budget.withdrawal');
 var member_service_1 = require('../member/member.service');
@@ -91,10 +92,25 @@ var BudgetService = (function () {
             .map(function (budgets) { return _this.toBudgetArray(budgets); })
             .toPromise();
     };
+    BudgetService.prototype.loadTransactions = function (budgetId) {
+        var _this = this;
+        var headers = new http_1.Headers({
+            'x-access-token': this._securityService.token.token
+        });
+        return this._http.get(this.url + this.api + "/" + budgetId + "/transactions", { headers: headers })
+            .map(function (resp) { return resp.json(); })
+            .map(function (transactions) { return _this.toTransactionArray(transactions); })
+            .toPromise();
+    };
     BudgetService.prototype.toBudgetArray = function (budgets) {
         var budgetsArray = [];
         budgetsArray = budgets.map(function (budget) { return new budget_1.Budget().fromJson(budget); });
         return budgetsArray;
+    };
+    BudgetService.prototype.toTransactionArray = function (transactions) {
+        var transactionArray = [];
+        transactionArray = transactions.map(function (transaction) { return new transaction_1.Transaction().fromJson(transaction); });
+        return transactionArray;
     };
     BudgetService.prototype.toBudget = function (budgetJson) {
         var budget = new budget_1.Budget();

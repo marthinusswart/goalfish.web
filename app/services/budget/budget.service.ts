@@ -5,6 +5,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Rx';
 import { Budget } from '../../models/budget/budget';
+import { Transaction } from '../../models/transaction/transaction';
 import { BudgetDeposit } from '../../models/budget/budget.deposit';
 import { BudgetWithdrawal } from '../../models/budget/budget.withdrawal';
 import { MemberService } from '../member/member.service';
@@ -90,10 +91,27 @@ export class BudgetService {
       .toPromise();
   }
 
+  loadTransactions(budgetId: string){
+     let headers = new Headers({
+      'x-access-token': this._securityService.token.token
+    });
+
+    return this._http.get(this.url + this.api + "/" + budgetId + "/transactions", { headers: headers })
+      .map((resp: Response) => resp.json())
+      .map(transactions => { return this.toTransactionArray(transactions); })
+      .toPromise();
+  }
+
   toBudgetArray(budgets: any[]) {
     let budgetsArray: Budget[] = [];
     budgetsArray = budgets.map(budget => new Budget().fromJson(budget));
     return budgetsArray;
+  }
+
+   toTransactionArray(transactions: any[]) {
+    let transactionArray: Transaction[] = [];
+    transactionArray = transactions.map(transaction => new Transaction().fromJson(transaction));
+    return transactionArray;
   }
 
   toBudget(budgetJson: any) {

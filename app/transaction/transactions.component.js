@@ -31,10 +31,10 @@ var TransactionsComponent = (function () {
         this._router.navigate(link);
     };
     TransactionsComponent.prototype.selectAll = function (elementId) {
-        var element = this._document.getElementById(elementId);
-        var body = this._document.body, range, sel;
-        if (this._document.createRange && window.getSelection) {
-            range = this._document.createRange();
+        var element = document.getElementById(elementId);
+        var body = document.body, range, sel;
+        if (document.createRange && window.getSelection) {
+            range = document.createRange();
             sel = window.getSelection();
             sel.removeAllRanges();
             try {

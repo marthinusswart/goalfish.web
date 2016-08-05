@@ -16,9 +16,33 @@ var BudgetTransactionsComponent = (function () {
         this._router = _router;
         this._route = _route;
         this._budgetService = _budgetService;
+        this.allTransactions = [];
     }
     BudgetTransactionsComponent.prototype.ngOnInit = function () {
+        var _this = this;
         var budgetId = this._route.snapshot.params["id"];
+        this._budgetService.loadTransactions(budgetId).then(function (transactions) { return _this.allTransactions = transactions; });
+    };
+    BudgetTransactionsComponent.prototype.gotoBudget = function () {
+        var link = ['budgets'];
+        this._router.navigate(link);
+    };
+    BudgetTransactionsComponent.prototype.selectAll = function (elementId) {
+        var element = document.getElementById(elementId);
+        var body = document.body, range, sel;
+        if (document.createRange && window.getSelection) {
+            range = document.createRange();
+            sel = window.getSelection();
+            sel.removeAllRanges();
+            try {
+                range.selectNodeContents(element);
+                sel.addRange(range);
+            }
+            catch (e) {
+                range.selectNode(element);
+                sel.addRange(range);
+            }
+        }
     };
     BudgetTransactionsComponent = __decorate([
         core_1.Component({
