@@ -6,9 +6,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
+var member = require('./routes/member/member.route');
 
 /*
-var member = require('./routes/member/member');
 var initiative = require('./routes/initiative/initiative');
 var underlyingAccount = require('./routes/underlyingaccount/underlyingAccount');
 var budget = require('./routes/budget/budget');
@@ -38,11 +38,11 @@ app.use(express.static(path.join(__dirname, '')));
 
 app.use('/', routes);
 
-/*
 app.use('/api/v1/member', member);
 app.use('/api/v1/member/:id', member);
 app.use('/api/v1/member/ping', member);
 
+/*
 app.use('/api/v1/initiative', initiative);
 app.use('/api/v1/initiative/reconcile', initiative);
 app.use('/api/v1/initiative/deposit', initiative);

@@ -11,10 +11,8 @@ import { AppConfig } from '../../app.config';
 
 @Injectable()
 export class ConfigService {
-    url:string = "";
-    appConfig: AppConfig = new AppConfig();
-
-    constructor(){
-        this.url = this.appConfig.serverUrl;
+    url:string = "http://localhost:3010";
+    
+    constructor(){        
     }
 }

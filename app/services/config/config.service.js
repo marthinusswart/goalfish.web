@@ -12,12 +12,9 @@ var core_1 = require('@angular/core');
 require('rxjs/add/operator/toPromise');
 require('rxjs/add/operator/map');
 require('rxjs/add/operator/catch');
-var app_config_1 = require('../../app.config');
 var ConfigService = (function () {
     function ConfigService() {
-        this.url = "";
-        this.appConfig = new app_config_1.AppConfig();
-        this.url = this.appConfig.serverUrl;
+        this.url = "http://localhost:3010";
     }
     ConfigService = __decorate([
         core_1.Injectable(), 
