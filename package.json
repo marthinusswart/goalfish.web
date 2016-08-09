@@ -2,13 +2,13 @@
   "name": "goalfish.web",
   "version": "0.1.0",
   "scripts": {
-    "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
+    "sync": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
     "lite": "lite-server",
     "postinstall": "typings install",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
     "typings": "typings",
-    "node": "node ./bin/www"
+    "start": "node ./bin/www"
   },
   "license": "ISC",
   "dependencies": {
